@@ -1,18 +1,20 @@
 ---
-title: "About"
-image: profile.jpg
+title: "About Me"
+image: profile.svg
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
+    - icon: mastodon
+      text: Mastodon
+      href: https://fosstodon.org/@Aman9das
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/aman-das-9a102a1bb/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/Aman9das/
 ---
 
-About this blog
+Hello! My name is Aman Das. I am a resident of West Bengal, India. Currently I am pursuing Bachelor of Statistics from Indian Statistical Institute, Kolkata.
+
+I am an Open Source Software advocate, and a Data Visualization enthusiast. In my free time, I like to play roguelike strategy games.

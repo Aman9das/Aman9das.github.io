@@ -1,9 +1,9 @@
 ---
-title: "Welcome To My Blog"
+title: "First Post!"
+subtitle: "...of many more in the future, hopefully."
 author: "Aman Das"
-date: "2022-1-2"
-image: welcome.svg
-categories: [news]
+date: "2023-1-2"
+categories: [miscellaneous]
 ---
 
 A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting.

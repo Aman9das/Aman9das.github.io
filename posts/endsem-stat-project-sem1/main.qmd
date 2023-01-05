@@ -13,7 +13,6 @@ format:
     width: 1200
     height: 750
     output-file: PPT_Reveal.html
-    embed-resources: true
     theme: [default, custom.scss]
     highlight-style: gruvbox
     transition: slide

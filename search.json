@@ -7,11 +7,102 @@
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Post!\n\n\n…of many more in the future, hopefully.\n\n\n\n\nmiscellaneous\n\n\n \n\n\n\n\nJan 2, 2023\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\narchive\n\n\nstatistics\n\n\n \n\n\n\n\nDec 5, 2022\n\n\n20 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMid-Semester Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\narchive\n\n\nstatistics\n\n\n \n\n\n\n\nOct 29, 2022\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "About Me",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "First Post!",
     "section": "",
-    "text": "Hello! My name is Aman Das. I am a resident of West Bengal, India. Currently I am pursuing Bachelor of Statistics from Indian Statistical Institute, Kolkata.\nI am an Open Source Software advocate, and a Data Visualization enthusiast. In my free time, I like to play roguelike strategy games."
+    "text": "A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html",
+    "title": "Mid-Semester Project",
+    "section": "",
+    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#data",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#data",
+    "title": "Mid-Semester Project",
+    "section": "Data",
+    "text": "Data\nData sourced from UNESCO Institute of Statistics via https://www.gapminder.org/data/ under CC-BY-4.0 License.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\nX1970\nX1971\nX1972\nX1973\nX1974\nX1975\nX1976\nX1977\n\n\n\n\nAruba\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAfghanistan\nNA\nNA\nNA\nNA\n16.7\nNA\nNA\n17.9\n\n\nAngola\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAlbania\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nUnited Arab Emirates\nNA\nNA\nNA\nNA\n39.5\n41.7\n49.5\n56.8\n\n\nArgentina\n71\n71.8\nNA\nNA\n75.6\n78.9\n78.6\nNA\n\n\n\n\n\n\nInferences\n\nData is continuous in nature.\nA lot of data is missing. Bulgaria and Morocco have low missing data, thus we analyze these countries."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#importing-dataset",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#importing-dataset",
+    "title": "Mid-Semester Project",
+    "section": "Importing Dataset",
+    "text": "Importing Dataset\n\nlibrary(\"psych\")\nlibrary(\"moments\")\nlibrary(\"knitr\")\nrate_data = read.csv(\"./Data/primary_completion_rate.csv\")\nrate_bgr = as.numeric(rate_data[016, 7:47])\nrate_mar = as.numeric(rate_data[110, 7:47])"
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#summary-measures",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#summary-measures",
+    "title": "Mid-Semester Project",
+    "section": "Summary Measures",
+    "text": "Summary Measures\n\nbgr = as.vector(summary(rate_bgr))\nmar = as.vector(summary(rate_mar))\nbrief = data.frame(\n  Measure = c(\n  \"Minimum\", \"1st Quuartile\", \"Median\", \"Mean\", \"3rd Quartile\", \"Maximum\",\n  \"Geometric Mean\", \"Harmonic Mean\", \"Mode\",\n  \"Range\", \"IQR\"),\n  Bulgaria = c(bgr,\n    geometric.mean(rate_bgr),\n    harmonic.mean(rate_bgr),\n    colnames(t(sort(table(rate_bgr), decreasing=TRUE)))[1],\n    bgr[6]-bgr[1], IQR(rate_bgr)),\n  Morocco = c(mar,\n    geometric.mean(rate_mar),\n    harmonic.mean(rate_mar),\n    colnames(t(sort(table(rate_mar), decreasing=TRUE)))[1],\n    mar[6]-mar[1], IQR(rate_mar)))\nkable(brief)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nMinimum\n86\n28.9\n\n\n1st Quuartile\n93.8\n46.4\n\n\nMedian\n98\n53.8\n\n\nMean\n97.5390243902439\n59.8292682926829\n\n\n3rd Quartile\n101\n78.8\n\n\nMaximum\n113\n98\n\n\nGeometric Mean\n97.3595997113863\n56.8341293287218\n\n\nHarmonic Mean\n97.1812794418763\n54.0355310609177\n\n\nMode\n102\n96.3\n\n\nRange\n27\n69.1\n\n\nIQR\n7.2\n32.4\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nMedian: Relatively high, compared to Morocco.\nMean: Close to Median, indicating symmetrical distribution.\nThe Range and IQR: Small, data points lie close to the mean.\n\nMorocco:\n\nMedian: Relatively Low, compared to Bulgaria.\nMean: Significantly higher than Median, indicating positive skew.\nThe Range and IQR: Large, data points are dispersed far from the mean."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#quantiles",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#quantiles",
+    "title": "Mid-Semester Project",
+    "section": "Quantiles",
+    "text": "Quantiles\n\nQuartile\n\nquartiles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.25, 0.75, 0.25)),\n  Morocco = quantile(rate_mar, probs = seq(0.25, 0.75, 0.25)))\nkable(quartiles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n25%\n93.8\n46.4\n\n\n50%\n98.0\n53.8\n\n\n75%\n101.0\n78.8\n\n\n\n\n\n\n\nDeciles\n\ndeciles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.1, 0.9, 0.1)),\n  Morocco = quantile(rate_mar, probs = seq(0.1, 0.9, 0.1)))\nkable(deciles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n10%\n89.2\n40.0\n\n\n20%\n93.3\n45.8\n\n\n30%\n94.5\n47.2\n\n\n40%\n96.2\n49.6\n\n\n50%\n98.0\n53.8\n\n\n60%\n99.1\n58.2\n\n\n70%\n100.0\n66.8\n\n\n80%\n102.0\n81.7\n\n\n90%\n103.0\n89.4"
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#measures-of-dispersion",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#measures-of-dispersion",
+    "title": "Mid-Semester Project",
+    "section": "Measures of Dispersion",
+    "text": "Measures of Dispersion\n\ndispersion = data.frame(Measure = c(\"Variance\", \"Standard Deviation\",\n  \"Skewness\", \"Kurtosis\"),\n  Bulgaria = c(var(rate_bgr), sd(rate_bgr),\n    skewness(rate_bgr), kurtosis(rate_bgr)),\n  Morocco = c(var(rate_mar), sd(rate_mar),\n    skewness(rate_mar), kurtosis(rate_mar)))\nkable(dispersion)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nVariance\n36.1359390\n385.7681220\n\n\nStandard Deviation\n6.0113176\n19.6409807\n\n\nSkewness\n0.2962488\n0.5800912\n\n\nKurtosis\n3.2336766\n2.1783983\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nVariation: Low, data points are generally clustered close to the mean.\nSkewness: Positively Skewed.\nKurtosis: Leptokurtic, as greater than 3.\n\nMorocco:\n\nVariation: High, data points generally lie away from Mean.\nSkewness: Positively Skewed.\nKurtosis: Platykurtic, as less than 3."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#moments",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#moments",
+    "title": "Mid-Semester Project",
+    "section": "Moments",
+    "text": "Moments\n\nmoments = data.frame(\n  Moment_Number = seq(1,6),\n  Bulgaria = all.moments(rate_bgr, order.max = 6,\n              central = TRUE)[2:7],\n  Morocco = all.moments(rate_mar, order.max = 6,\n              central = TRUE)[2:7])\nkable(moments, digits = 32)\n\n\n\n\nMoment_Number\nBulgaria\nMorocco\n\n\n\n\n1\n6.932124e-15\n9.531671e-16\n\n\n2\n3.525457e+01\n3.763591e+02\n\n\n3\n6.201258e+01\n4.235454e+03\n\n\n4\n4.019088e+03\n3.085618e+05\n\n\n5\n2.350716e+04\n6.232667e+06\n\n\n6\n6.507629e+05\n3.308025e+08"
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#line-graph",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#line-graph",
+    "title": "Mid-Semester Project",
+    "section": "Line Graph",
+    "text": "Line Graph\nWe can observe the trend in Primary Education Completion rate over time.\n\nplot(rate_bgr, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark green\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlines(rate_mar, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph Morocco\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark red\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlegend(\n  \"bottomright\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"),lty = c(1, 1))"
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#inferences-3",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#inferences-3",
+    "title": "Mid-Semester Project",
+    "section": "Inferences",
+    "text": "Inferences\n\nBulgaria\n\nConsistent Primary Completion Rate over time.\nNo apparent outliers.\n\nMorocco\n\nPositive progress in Primary Completion rate over time.\nNo apparent outliers."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#histogram",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#histogram",
+    "title": "Mid-Semester Project",
+    "section": "Histogram",
+    "text": "Histogram\nWe can observe the difference in location and spread of the datasets.\n\npar(mfrow=c(1,2))\nplot(hist(rate_bgr,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Bulgaria\", xlab = \"Primary Completion Rate\",\n     col = \"dark green\")\nplot(hist(rate_mar,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Morocco\", xlab = \"Primary Completion Rate\",\n     col = \"dark red\")"
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#density-function",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#density-function",
+    "title": "Mid-Semester Project",
+    "section": "Density Function",
+    "text": "Density Function\n\nplot(density(rate_bgr), main = \"Density Graph\",\n     xlab = \"Primary Completion Rate\",\n     xlim = c(20, 120), col = \"dark green\")\nlines(density(rate_mar), col = \"dark red\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))"
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#box-plot",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#box-plot",
+    "title": "Mid-Semester Project",
+    "section": "Box Plot",
+    "text": "Box Plot\n\nboxplot(rate_bgr, rate_mar, main = \"Box Plot\",\n     ylab = \"Primary Completion Rate\",\n     names = c(\"Bulgaria\", \"Morocco\"),\n     col = c(\"dark green\", \"dark red\"))\n\n\n\n\n\nInferences\n\nBulgaria:\n\nRange: Data points limited in 85 to 115 range.\nIQR: Very small IQR.\nMode: Unimodal distribution with high density at mode.\nMedian: slightly above middle of IQR, indicating negative skew amongst data in the IQR.\nOutlier: one potential outlier detected above standard threshold. Ignore as small IQR.\n\nMorocco:\n\nRange: Data points are dispersed over 25 to 100 range.\nMode: Bimodal distribution with a global maxima and a local maxima.\nMedian: very close to 1st Quartile, indicating positive skew in the distribution.\nOutlier: no potential outliers detected."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#cumulative-distribution-function",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#cumulative-distribution-function",
+    "title": "Mid-Semester Project",
+    "section": "Cumulative Distribution Function",
+    "text": "Cumulative Distribution Function\n\nplot(ecdf(rate_bgr), xlim = c(20, 120), col = \"dark green\",\n     verticals = TRUE, do.points = FALSE,\n     main = \"Cumulative Distribution Function\",\n     xlab = \"Primary Completion Rate\", ylab = \"\")\nlines(ecdf(rate_mar), col = \"dark red\",\n    verticals = TRUE, do.points = FALSE,\n    xlab = \"Primary Completion Rate\", ylab = \"\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))\n\n\n\n\n\nInferences\n\nBulgaria: The CDF is very steep between 90 and 105, indicating high density.\nMorocco: The CDF is steep around 45 and 80, indicating bimodal distribution."
   },
   {
     "objectID": "posts/endsem-stat-project-sem1/PPT_Reveal.html#overview",
@@ -175,101 +266,10 @@
     "text": "Notable Countries\nSome countries had alarmingly low Life Expectancies:\n\nThe countries like the Central African Republic, Zimbabwe have very low life expectancies due to endemic poverty and weak governance, contributing to a dire health situation.\nHaiti had a high child mortality rate in 2010 due to natural disasters and cholera outbreaks. This caused low Life expectancy for that year.\n\n\n\n\n\n\n\nCountries like Mozambique, Lesotho are experiencing increasing double burden of diseases characterized by an increase in the burden of non-communicable diseases as well as a high burden of communicable diseases.\nAlso countries like Eswatini, Zambia also have a low life expectancy due to the outbreak of HIV."
   },
   {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html",
-    "title": "Mid-Semester Project",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About Me",
     "section": "",
-    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#data",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#data",
-    "title": "Mid-Semester Project",
-    "section": "Data",
-    "text": "Data\nData sourced from UNESCO Institute of Statistics via https://www.gapminder.org/data/ under CC-BY-4.0 License.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\nX1970\nX1971\nX1972\nX1973\nX1974\nX1975\nX1976\nX1977\n\n\n\n\nAruba\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAfghanistan\nNA\nNA\nNA\nNA\n16.7\nNA\nNA\n17.9\n\n\nAngola\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAlbania\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nUnited Arab Emirates\nNA\nNA\nNA\nNA\n39.5\n41.7\n49.5\n56.8\n\n\nArgentina\n71\n71.8\nNA\nNA\n75.6\n78.9\n78.6\nNA\n\n\n\n\n\n\nInferences\n\nData is continuous in nature.\nA lot of data is missing. Bulgaria and Morocco have low missing data, thus we analyze these countries."
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#importing-dataset",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#importing-dataset",
-    "title": "Mid-Semester Project",
-    "section": "Importing Dataset",
-    "text": "Importing Dataset\n\nlibrary(\"psych\")\nlibrary(\"moments\")\nlibrary(\"knitr\")\nrate_data = read.csv(\"./Data/primary_completion_rate.csv\")\nrate_bgr = as.numeric(rate_data[016, 7:47])\nrate_mar = as.numeric(rate_data[110, 7:47])"
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#summary-measures",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#summary-measures",
-    "title": "Mid-Semester Project",
-    "section": "Summary Measures",
-    "text": "Summary Measures\n\nbgr = as.vector(summary(rate_bgr))\nmar = as.vector(summary(rate_mar))\nbrief = data.frame(\n  Measure = c(\n  \"Minimum\", \"1st Quuartile\", \"Median\", \"Mean\", \"3rd Quartile\", \"Maximum\",\n  \"Geometric Mean\", \"Harmonic Mean\", \"Mode\",\n  \"Range\", \"IQR\"),\n  Bulgaria = c(bgr,\n    geometric.mean(rate_bgr),\n    harmonic.mean(rate_bgr),\n    colnames(t(sort(table(rate_bgr), decreasing=TRUE)))[1],\n    bgr[6]-bgr[1], IQR(rate_bgr)),\n  Morocco = c(mar,\n    geometric.mean(rate_mar),\n    harmonic.mean(rate_mar),\n    colnames(t(sort(table(rate_mar), decreasing=TRUE)))[1],\n    mar[6]-mar[1], IQR(rate_mar)))\nkable(brief)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nMinimum\n86\n28.9\n\n\n1st Quuartile\n93.8\n46.4\n\n\nMedian\n98\n53.8\n\n\nMean\n97.5390243902439\n59.8292682926829\n\n\n3rd Quartile\n101\n78.8\n\n\nMaximum\n113\n98\n\n\nGeometric Mean\n97.3595997113863\n56.8341293287218\n\n\nHarmonic Mean\n97.1812794418763\n54.0355310609177\n\n\nMode\n102\n96.3\n\n\nRange\n27\n69.1\n\n\nIQR\n7.2\n32.4\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nMedian: Relatively high, compared to Morocco.\nMean: Close to Median, indicating symmetrical distribution.\nThe Range and IQR: Small, data points lie close to the mean.\n\nMorocco:\n\nMedian: Relatively Low, compared to Bulgaria.\nMean: Significantly higher than Median, indicating positive skew.\nThe Range and IQR: Large, data points are dispersed far from the mean."
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#quantiles",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#quantiles",
-    "title": "Mid-Semester Project",
-    "section": "Quantiles",
-    "text": "Quantiles\n\nQuartile\n\nquartiles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.25, 0.75, 0.25)),\n  Morocco = quantile(rate_mar, probs = seq(0.25, 0.75, 0.25)))\nkable(quartiles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n25%\n93.8\n46.4\n\n\n50%\n98.0\n53.8\n\n\n75%\n101.0\n78.8\n\n\n\n\n\n\n\nDeciles\n\ndeciles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.1, 0.9, 0.1)),\n  Morocco = quantile(rate_mar, probs = seq(0.1, 0.9, 0.1)))\nkable(deciles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n10%\n89.2\n40.0\n\n\n20%\n93.3\n45.8\n\n\n30%\n94.5\n47.2\n\n\n40%\n96.2\n49.6\n\n\n50%\n98.0\n53.8\n\n\n60%\n99.1\n58.2\n\n\n70%\n100.0\n66.8\n\n\n80%\n102.0\n81.7\n\n\n90%\n103.0\n89.4"
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#measures-of-dispersion",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#measures-of-dispersion",
-    "title": "Mid-Semester Project",
-    "section": "Measures of Dispersion",
-    "text": "Measures of Dispersion\n\ndispersion = data.frame(Measure = c(\"Variance\", \"Standard Deviation\",\n  \"Skewness\", \"Kurtosis\"),\n  Bulgaria = c(var(rate_bgr), sd(rate_bgr),\n    skewness(rate_bgr), kurtosis(rate_bgr)),\n  Morocco = c(var(rate_mar), sd(rate_mar),\n    skewness(rate_mar), kurtosis(rate_mar)))\nkable(dispersion)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nVariance\n36.1359390\n385.7681220\n\n\nStandard Deviation\n6.0113176\n19.6409807\n\n\nSkewness\n0.2962488\n0.5800912\n\n\nKurtosis\n3.2336766\n2.1783983\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nVariation: Low, data points are generally clustered close to the mean.\nSkewness: Positively Skewed.\nKurtosis: Leptokurtic, as greater than 3.\n\nMorocco:\n\nVariation: High, data points generally lie away from Mean.\nSkewness: Positively Skewed.\nKurtosis: Platykurtic, as less than 3."
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#moments",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#moments",
-    "title": "Mid-Semester Project",
-    "section": "Moments",
-    "text": "Moments\n\nmoments = data.frame(\n  Moment_Number = seq(1,6),\n  Bulgaria = all.moments(rate_bgr, order.max = 6,\n              central = TRUE)[2:7],\n  Morocco = all.moments(rate_mar, order.max = 6,\n              central = TRUE)[2:7])\nkable(moments, digits = 32)\n\n\n\n\nMoment_Number\nBulgaria\nMorocco\n\n\n\n\n1\n6.932124e-15\n9.531671e-16\n\n\n2\n3.525457e+01\n3.763591e+02\n\n\n3\n6.201258e+01\n4.235454e+03\n\n\n4\n4.019088e+03\n3.085618e+05\n\n\n5\n2.350716e+04\n6.232667e+06\n\n\n6\n6.507629e+05\n3.308025e+08"
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#line-graph",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#line-graph",
-    "title": "Mid-Semester Project",
-    "section": "Line Graph",
-    "text": "Line Graph\nWe can observe the trend in Primary Education Completion rate over time.\n\nplot(rate_bgr, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark green\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlines(rate_mar, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph Morocco\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark red\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlegend(\n  \"bottomright\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"),lty = c(1, 1))"
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#inferences-3",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#inferences-3",
-    "title": "Mid-Semester Project",
-    "section": "Inferences",
-    "text": "Inferences\n\nBulgaria\n\nConsistent Primary Completion Rate over time.\nNo apparent outliers.\n\nMorocco\n\nPositive progress in Primary Completion rate over time.\nNo apparent outliers."
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#histogram",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#histogram",
-    "title": "Mid-Semester Project",
-    "section": "Histogram",
-    "text": "Histogram\nWe can observe the difference in location and spread of the datasets.\n\npar(mfrow=c(1,2))\nplot(hist(rate_bgr,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Bulgaria\", xlab = \"Primary Completion Rate\",\n     col = \"dark green\")\nplot(hist(rate_mar,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Morocco\", xlab = \"Primary Completion Rate\",\n     col = \"dark red\")"
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#density-function",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#density-function",
-    "title": "Mid-Semester Project",
-    "section": "Density Function",
-    "text": "Density Function\n\nplot(density(rate_bgr), main = \"Density Graph\",\n     xlab = \"Primary Completion Rate\",\n     xlim = c(20, 120), col = \"dark green\")\nlines(density(rate_mar), col = \"dark red\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))"
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#box-plot",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#box-plot",
-    "title": "Mid-Semester Project",
-    "section": "Box Plot",
-    "text": "Box Plot\n\nboxplot(rate_bgr, rate_mar, main = \"Box Plot\",\n     ylab = \"Primary Completion Rate\",\n     names = c(\"Bulgaria\", \"Morocco\"),\n     col = c(\"dark green\", \"dark red\"))\n\n\n\n\n\nInferences\n\nBulgaria:\n\nRange: Data points limited in 85 to 115 range.\nIQR: Very small IQR.\nMode: Unimodal distribution with high density at mode.\nMedian: slightly above middle of IQR, indicating negative skew amongst data in the IQR.\nOutlier: one potential outlier detected above standard threshold. Ignore as small IQR.\n\nMorocco:\n\nRange: Data points are dispersed over 25 to 100 range.\nMode: Bimodal distribution with a global maxima and a local maxima.\nMedian: very close to 1st Quartile, indicating positive skew in the distribution.\nOutlier: no potential outliers detected."
-  },
-  {
-    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#cumulative-distribution-function",
-    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#cumulative-distribution-function",
-    "title": "Mid-Semester Project",
-    "section": "Cumulative Distribution Function",
-    "text": "Cumulative Distribution Function\n\nplot(ecdf(rate_bgr), xlim = c(20, 120), col = \"dark green\",\n     verticals = TRUE, do.points = FALSE,\n     main = \"Cumulative Distribution Function\",\n     xlab = \"Primary Completion Rate\", ylab = \"\")\nlines(ecdf(rate_mar), col = \"dark red\",\n    verticals = TRUE, do.points = FALSE,\n    xlab = \"Primary Completion Rate\", ylab = \"\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))\n\n\n\n\n\nInferences\n\nBulgaria: The CDF is very steep between 90 and 105, indicating high density.\nMorocco: The CDF is steep around 45 and 80, indicating bimodal distribution."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "First Post!",
-    "section": "",
-    "text": "A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting."
+    "text": "Hello! My name is Aman Das. I am a resident of West Bengal, India. Currently I am pursuing Bachelor of Statistics from Indian Statistical Institute, Kolkata.\nI am an Open Source Software advocate, and a Data Visualization enthusiast. In my free time, I like to play roguelike strategy games."
   }
 ]

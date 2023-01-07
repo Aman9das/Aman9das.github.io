@@ -4,10 +4,13 @@ project:
 website:
   title: "Aman Das"
   description: "This is Aman Das' personal blog."
+  site-url: https://aman9das.github.io/
   navbar:
     right:
       - text: Blog
         href: blog.qmd
+      - icon: rss
+        href: blog.xml
       - icon: github
         href: https://github.com/Aman9das/
       - icon: mastodon
@@ -18,6 +21,9 @@ format:
       light: sandstone
       dark: cyborg
     css: styles.css
+
+execute:
+  freeze: auto
 
 editor: visual
 

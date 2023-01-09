@@ -3,18 +3,25 @@ project:
 
 website:
   title: "Aman Das"
-  description: "This is Aman Das' personal blog."
+  favicon: "profile-round.svg"
+  description: "Aman Das' Personal Website"
   site-url: https://aman9das.github.io/
   navbar:
     right:
       - text: Blog
         href: blog.qmd
+  page-footer:
+    left:
+      - text: Built with Quarto
+        href: https://quarto.org
+    right:
       - icon: rss
         href: blog.xml
       - icon: github
         href: https://github.com/Aman9das/
       - icon: mastodon
         href: https://fosstodon.org/@Aman9das
+    
 format:
   html:
     theme:

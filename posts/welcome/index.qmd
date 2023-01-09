@@ -3,9 +3,18 @@ title: "First Post!"
 subtitle: "...of many more in the future, hopefully."
 author: "Aman Das"
 date: "2023-1-2"
+image: welcome.png
 categories: [miscellaneous]
 ---
 
 A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting.
 
-<img src="welcome.svg" alt="Avatar waving at user" width="256"/>
+::: column-margin
+![Avatar waving at user](welcome.png){alt="Avatar waving at user"}
+:::
+
+I have been thinking of creating my own site since the last couple of years, but could get around to doing it just now, because of our semester holidays.
+
+The good thing this, though, is that I was comfortable with Quarto for creating various documents, and using it for building the website was very simple.
+
+The last week I had been playing Vampire Survivors mostly, which is a lot of fun. I'll probably be working on the site the next few days.

@@ -1,14 +1,14 @@
 ---
-title: "Posts"
+title: "Blog"
 listing:
   contents: posts
+  sort-ui: true
+  filter-ui: true
+  feed: true
   sort: "date desc"
   type: default
   categories: true
-  sort-ui: true
-  filter-ui: true
-  fields: [date, title, categories, subtitle, image, reading-time]
-  feed: true
+  fields: [title, subtitle, reading-time, categories, date, image, description]
 page-layout: full
-title-block-banner: false
+title-block-banner: true
 ---

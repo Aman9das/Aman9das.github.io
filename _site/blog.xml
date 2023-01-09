@@ -8,8 +8,8 @@
 <title>Aman Das</title>
 <link>https://aman9das.github.io/blog.html</link>
 <atom:link href="https://aman9das.github.io/blog.xml" rel="self" type="application/rss+xml"/>
-<description>This is Aman Das&#39; personal blog.</description>
-<generator>quarto-1.2.269</generator>
+<description>Aman Das&#39; Personal Website</description>
+<generator>quarto-1.2.313</generator>
 <lastBuildDate>Sun, 01 Jan 2023 18:30:00 GMT</lastBuildDate>
 <item>
   <title>First Post!</title>
@@ -21,7 +21,17 @@
 
 
 <p>A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting.</p>
-<p><img src="https://aman9das.github.io/posts/welcome/welcome.svg" alt="Avatar waving at user" width="256"></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://aman9das.github.io/posts/welcome/welcome.png" class="img-fluid figure-img" alt="Avatar waving at user"></p>
+<p></p><figcaption class="figure-caption">Avatar waving at user</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>I have been thinking of creating my own site since the last couple of years, but could get around to doing it just now, because of our semester holidays.</p>
+<p>The good thing this, though, is that I was comfortable with Quarto for creating various documents, and using it for building the website was very simple.</p>
+<p>The last week I had been playing Vampire Survivors mostly, which is a lot of fun. I’ll probably be working on the site the next few days.</p>
 
 
 
@@ -29,6 +39,7 @@
   <category>miscellaneous</category>
   <guid>https://aman9das.github.io/posts/welcome/index.html</guid>
   <pubDate>Sun, 01 Jan 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://aman9das.github.io/posts/welcome/welcome.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title></title>

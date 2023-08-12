@@ -9,38 +9,8 @@
 <link>https://aman9das.github.io/blog.html</link>
 <atom:link href="https://aman9das.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Aman Das&#39; Personal Website</description>
-<generator>quarto-1.2.313</generator>
-<lastBuildDate>Mon, 02 Jan 2023 00:00:00 GMT</lastBuildDate>
-<item>
-  <title>First Post!</title>
-  <dc:creator>Aman Das</dc:creator>
-  <link>https://aman9das.github.io/posts/welcome/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://aman9das.github.io/posts/welcome/welcome.png" class="img-fluid figure-img" alt="Avatar waving at user"></p>
-<p></p><figcaption class="figure-caption">Avatar waving at user</figcaption><p></p>
-</figure>
-</div>
-</div></div><p>I have been thinking of creating my own site since the last couple of years, but could get around to doing it just now, because of our semester holidays.</p>
-<p>The good thing this, though, is that I was comfortable with Quarto for creating various documents, and using it for building the website was very simple.</p>
-<p>The last week I had been playing Vampire Survivors mostly, which is a lot of fun. I’ll probably be working on the site the next few days.</p>
-
-
-
- ]]></description>
-  <category>miscellaneous</category>
-  <guid>https://aman9das.github.io/posts/welcome/index.html</guid>
-  <pubDate>Mon, 02 Jan 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://aman9das.github.io/posts/welcome/welcome.png" medium="image" type="image/png" height="144" width="144"/>
-</item>
+<generator>quarto-1.3.450</generator>
+<lastBuildDate>Mon, 05 Dec 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title></title>
   <dc:creator>Aman Das</dc:creator>
@@ -71,7 +41,7 @@
 <p>Data sourced from UNESCO Institute of Statistics via <a href="https://www.gapminder.org/data/" class="uri">https://www.gapminder.org/data/</a> under CC-BY-4.0 License.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 8%">
@@ -178,12 +148,54 @@
 <section id="importing-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="importing-dataset">Importing Dataset</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(<span class="st" style="color: #20794D;">"psych"</span>)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(<span class="st" style="color: #20794D;">"moments"</span>)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(<span class="st" style="color: #20794D;">"knitr"</span>)</span>
-<span id="cb1-4">rate_data <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">read.csv</span>(<span class="st" style="color: #20794D;">"./Data/primary_completion_rate.csv"</span>)</span>
-<span id="cb1-5">rate_bgr <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(rate_data[<span class="dv" style="color: #AD0000;">016</span>, <span class="dv" style="color: #AD0000;">7</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">47</span>])</span>
-<span id="cb1-6">rate_mar <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(rate_data[<span class="dv" style="color: #AD0000;">110</span>, <span class="dv" style="color: #AD0000;">7</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">47</span>])</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"psych"</span>)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"moments"</span>)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"knitr"</span>)</span>
+<span id="cb1-4">rate_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read.csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"./Data/primary_completion_rate.csv"</span>)</span>
+<span id="cb1-5">rate_bgr <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(rate_data[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">016</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">47</span>])</span>
+<span id="cb1-6">rate_mar <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(rate_data[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">110</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">47</span>])</span></code></pre></div>
 </div>
 <p style="page-break-before: always">
 </p></section>
@@ -192,26 +204,130 @@
 <section id="summary-measures" class="level2">
 <h2 class="anchored" data-anchor-id="summary-measures">Summary Measures</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">bgr <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">as.vector</span>(<span class="fu" style="color: #4758AB;">summary</span>(rate_bgr))</span>
-<span id="cb2-2">mar <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">as.vector</span>(<span class="fu" style="color: #4758AB;">summary</span>(rate_mar))</span>
-<span id="cb2-3">brief <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">data.frame</span>(</span>
-<span id="cb2-4">  <span class="at" style="color: #657422;">Measure =</span> <span class="fu" style="color: #4758AB;">c</span>(</span>
-<span id="cb2-5">  <span class="st" style="color: #20794D;">"Minimum"</span>, <span class="st" style="color: #20794D;">"1st Quuartile"</span>, <span class="st" style="color: #20794D;">"Median"</span>, <span class="st" style="color: #20794D;">"Mean"</span>, <span class="st" style="color: #20794D;">"3rd Quartile"</span>, <span class="st" style="color: #20794D;">"Maximum"</span>,</span>
-<span id="cb2-6">  <span class="st" style="color: #20794D;">"Geometric Mean"</span>, <span class="st" style="color: #20794D;">"Harmonic Mean"</span>, <span class="st" style="color: #20794D;">"Mode"</span>,</span>
-<span id="cb2-7">  <span class="st" style="color: #20794D;">"Range"</span>, <span class="st" style="color: #20794D;">"IQR"</span>),</span>
-<span id="cb2-8">  <span class="at" style="color: #657422;">Bulgaria =</span> <span class="fu" style="color: #4758AB;">c</span>(bgr,</span>
-<span id="cb2-9">    <span class="fu" style="color: #4758AB;">geometric.mean</span>(rate_bgr),</span>
-<span id="cb2-10">    <span class="fu" style="color: #4758AB;">harmonic.mean</span>(rate_bgr),</span>
-<span id="cb2-11">    <span class="fu" style="color: #4758AB;">colnames</span>(<span class="fu" style="color: #4758AB;">t</span>(<span class="fu" style="color: #4758AB;">sort</span>(<span class="fu" style="color: #4758AB;">table</span>(rate_bgr), <span class="at" style="color: #657422;">decreasing=</span><span class="cn" style="color: #8f5902;">TRUE</span>)))[<span class="dv" style="color: #AD0000;">1</span>],</span>
-<span id="cb2-12">    bgr[<span class="dv" style="color: #AD0000;">6</span>]<span class="sc" style="color: #5E5E5E;">-</span>bgr[<span class="dv" style="color: #AD0000;">1</span>], <span class="fu" style="color: #4758AB;">IQR</span>(rate_bgr)),</span>
-<span id="cb2-13">  <span class="at" style="color: #657422;">Morocco =</span> <span class="fu" style="color: #4758AB;">c</span>(mar,</span>
-<span id="cb2-14">    <span class="fu" style="color: #4758AB;">geometric.mean</span>(rate_mar),</span>
-<span id="cb2-15">    <span class="fu" style="color: #4758AB;">harmonic.mean</span>(rate_mar),</span>
-<span id="cb2-16">    <span class="fu" style="color: #4758AB;">colnames</span>(<span class="fu" style="color: #4758AB;">t</span>(<span class="fu" style="color: #4758AB;">sort</span>(<span class="fu" style="color: #4758AB;">table</span>(rate_mar), <span class="at" style="color: #657422;">decreasing=</span><span class="cn" style="color: #8f5902;">TRUE</span>)))[<span class="dv" style="color: #AD0000;">1</span>],</span>
-<span id="cb2-17">    mar[<span class="dv" style="color: #AD0000;">6</span>]<span class="sc" style="color: #5E5E5E;">-</span>mar[<span class="dv" style="color: #AD0000;">1</span>], <span class="fu" style="color: #4758AB;">IQR</span>(rate_mar)))</span>
-<span id="cb2-18"><span class="fu" style="color: #4758AB;">kable</span>(brief)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">bgr <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.vector</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(rate_bgr))</span>
+<span id="cb2-2">mar <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.vector</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(rate_mar))</span>
+<span id="cb2-3">brief <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb2-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Measure =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(</span>
+<span id="cb2-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Minimum"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1st Quuartile"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Median"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"3rd Quartile"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Maximum"</span>,</span>
+<span id="cb2-6">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Geometric Mean"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Harmonic Mean"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mode"</span>,</span>
+<span id="cb2-7">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Range"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"IQR"</span>),</span>
+<span id="cb2-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Bulgaria =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(bgr,</span>
+<span id="cb2-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geometric.mean</span>(rate_bgr),</span>
+<span id="cb2-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">harmonic.mean</span>(rate_bgr),</span>
+<span id="cb2-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(rate_bgr), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">decreasing=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)))[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>],</span>
+<span id="cb2-12">    bgr[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>bgr[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">IQR</span>(rate_bgr)),</span>
+<span id="cb2-13">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Morocco =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(mar,</span>
+<span id="cb2-14">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geometric.mean</span>(rate_mar),</span>
+<span id="cb2-15">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">harmonic.mean</span>(rate_mar),</span>
+<span id="cb2-16">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(rate_mar), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">decreasing=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)))[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>],</span>
+<span id="cb2-17">    mar[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>mar[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">IQR</span>(rate_mar)))</span>
+<span id="cb2-18"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(brief)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Measure</th>
@@ -303,12 +419,46 @@
 <section id="quartile" class="level3">
 <h3 class="anchored" data-anchor-id="quartile">Quartile</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">quartiles <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">data.frame</span>(</span>
-<span id="cb3-2">  <span class="at" style="color: #657422;">Bulgaria =</span> <span class="fu" style="color: #4758AB;">quantile</span>(rate_bgr, <span class="at" style="color: #657422;">probs =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="fl" style="color: #AD0000;">0.25</span>, <span class="fl" style="color: #AD0000;">0.75</span>, <span class="fl" style="color: #AD0000;">0.25</span>)),</span>
-<span id="cb3-3">  <span class="at" style="color: #657422;">Morocco =</span> <span class="fu" style="color: #4758AB;">quantile</span>(rate_mar, <span class="at" style="color: #657422;">probs =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="fl" style="color: #AD0000;">0.25</span>, <span class="fl" style="color: #AD0000;">0.75</span>, <span class="fl" style="color: #AD0000;">0.25</span>)))</span>
-<span id="cb3-4"><span class="fu" style="color: #4758AB;">kable</span>(quartiles)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">quartiles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb3-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Bulgaria =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quantile</span>(rate_bgr, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.75</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)),</span>
+<span id="cb3-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Morocco =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quantile</span>(rate_mar, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.75</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)))</span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(quartiles)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -340,12 +490,46 @@
 <section id="deciles" class="level3">
 <h3 class="anchored" data-anchor-id="deciles">Deciles</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">deciles <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">data.frame</span>(</span>
-<span id="cb4-2">  <span class="at" style="color: #657422;">Bulgaria =</span> <span class="fu" style="color: #4758AB;">quantile</span>(rate_bgr, <span class="at" style="color: #657422;">probs =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="fl" style="color: #AD0000;">0.1</span>, <span class="fl" style="color: #AD0000;">0.9</span>, <span class="fl" style="color: #AD0000;">0.1</span>)),</span>
-<span id="cb4-3">  <span class="at" style="color: #657422;">Morocco =</span> <span class="fu" style="color: #4758AB;">quantile</span>(rate_mar, <span class="at" style="color: #657422;">probs =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="fl" style="color: #AD0000;">0.1</span>, <span class="fl" style="color: #AD0000;">0.9</span>, <span class="fl" style="color: #AD0000;">0.1</span>)))</span>
-<span id="cb4-4"><span class="fu" style="color: #4758AB;">kable</span>(deciles)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">deciles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb4-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Bulgaria =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quantile</span>(rate_bgr, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>)),</span>
+<span id="cb4-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Morocco =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quantile</span>(rate_mar, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>)))</span>
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(deciles)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -409,15 +593,57 @@
 <section id="measures-of-dispersion" class="level2">
 <h2 class="anchored" data-anchor-id="measures-of-dispersion">Measures of Dispersion</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">dispersion <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">Measure =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Variance"</span>, <span class="st" style="color: #20794D;">"Standard Deviation"</span>,</span>
-<span id="cb5-2">  <span class="st" style="color: #20794D;">"Skewness"</span>, <span class="st" style="color: #20794D;">"Kurtosis"</span>),</span>
-<span id="cb5-3">  <span class="at" style="color: #657422;">Bulgaria =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fu" style="color: #4758AB;">var</span>(rate_bgr), <span class="fu" style="color: #4758AB;">sd</span>(rate_bgr),</span>
-<span id="cb5-4">    <span class="fu" style="color: #4758AB;">skewness</span>(rate_bgr), <span class="fu" style="color: #4758AB;">kurtosis</span>(rate_bgr)),</span>
-<span id="cb5-5">  <span class="at" style="color: #657422;">Morocco =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fu" style="color: #4758AB;">var</span>(rate_mar), <span class="fu" style="color: #4758AB;">sd</span>(rate_mar),</span>
-<span id="cb5-6">    <span class="fu" style="color: #4758AB;">skewness</span>(rate_mar), <span class="fu" style="color: #4758AB;">kurtosis</span>(rate_mar)))</span>
-<span id="cb5-7"><span class="fu" style="color: #4758AB;">kable</span>(dispersion)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">dispersion <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Measure =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Variance"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Standard Deviation"</span>,</span>
+<span id="cb5-2">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Skewness"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kurtosis"</span>),</span>
+<span id="cb5-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Bulgaria =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">var</span>(rate_bgr), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(rate_bgr),</span>
+<span id="cb5-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">skewness</span>(rate_bgr), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kurtosis</span>(rate_bgr)),</span>
+<span id="cb5-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Morocco =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">var</span>(rate_mar), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(rate_mar),</span>
+<span id="cb5-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">skewness</span>(rate_mar), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kurtosis</span>(rate_mar)))</span>
+<span id="cb5-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(dispersion)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Measure</th>
@@ -471,15 +697,69 @@
 <section id="moments" class="level2">
 <h2 class="anchored" data-anchor-id="moments">Moments</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">moments <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">data.frame</span>(</span>
-<span id="cb6-2">  <span class="at" style="color: #657422;">Moment_Number =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">1</span>,<span class="dv" style="color: #AD0000;">6</span>),</span>
-<span id="cb6-3">  <span class="at" style="color: #657422;">Bulgaria =</span> <span class="fu" style="color: #4758AB;">all.moments</span>(rate_bgr, <span class="at" style="color: #657422;">order.max =</span> <span class="dv" style="color: #AD0000;">6</span>,</span>
-<span id="cb6-4">              <span class="at" style="color: #657422;">central =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)[<span class="dv" style="color: #AD0000;">2</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">7</span>],</span>
-<span id="cb6-5">  <span class="at" style="color: #657422;">Morocco =</span> <span class="fu" style="color: #4758AB;">all.moments</span>(rate_mar, <span class="at" style="color: #657422;">order.max =</span> <span class="dv" style="color: #AD0000;">6</span>,</span>
-<span id="cb6-6">              <span class="at" style="color: #657422;">central =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)[<span class="dv" style="color: #AD0000;">2</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">7</span>])</span>
-<span id="cb6-7"><span class="fu" style="color: #4758AB;">kable</span>(moments, <span class="at" style="color: #657422;">digits =</span> <span class="dv" style="color: #AD0000;">32</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">moments <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb6-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Moment_Number =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>),</span>
+<span id="cb6-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Bulgaria =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all.moments</span>(rate_bgr, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">order.max =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,</span>
+<span id="cb6-4">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">central =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>],</span>
+<span id="cb6-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Morocco =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all.moments</span>(rate_mar, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">order.max =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,</span>
+<span id="cb6-6">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">central =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>])</span>
+<span id="cb6-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(moments, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">Moment_Number</th>
@@ -531,19 +811,155 @@
 <h2 class="anchored" data-anchor-id="line-graph">Line Graph</h2>
 <p>We can observe the trend in Primary Education Completion rate over time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;">plot</span>(rate_bgr, <span class="at" style="color: #657422;">type =</span> <span class="st" style="color: #20794D;">"o"</span>, <span class="at" style="color: #657422;">xaxt =</span> <span class="st" style="color: #20794D;">"n"</span>,</span>
-<span id="cb7-2">     <span class="at" style="color: #657422;">ylim =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">120</span>), <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Line Graph"</span>,</span>
-<span id="cb7-3">     <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Year"</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>,</span>
-<span id="cb7-4">     <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark green"</span>)</span>
-<span id="cb7-5"><span class="fu" style="color: #4758AB;">axis</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">at =</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">41</span>, <span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">1975</span>, <span class="dv" style="color: #AD0000;">2015</span>))</span>
-<span id="cb7-6"><span class="fu" style="color: #4758AB;">lines</span>(rate_mar, <span class="at" style="color: #657422;">type =</span> <span class="st" style="color: #20794D;">"o"</span>, <span class="at" style="color: #657422;">xaxt =</span> <span class="st" style="color: #20794D;">"n"</span>,</span>
-<span id="cb7-7">     <span class="at" style="color: #657422;">ylim =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">120</span>), <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Line Graph Morocco"</span>,</span>
-<span id="cb7-8">     <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Year"</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>,</span>
-<span id="cb7-9">     <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark red"</span>)</span>
-<span id="cb7-10"><span class="fu" style="color: #4758AB;">axis</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">at =</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">41</span>, <span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">1975</span>, <span class="dv" style="color: #AD0000;">2015</span>))</span>
-<span id="cb7-11"><span class="fu" style="color: #4758AB;">legend</span>(</span>
-<span id="cb7-12">  <span class="st" style="color: #20794D;">"bottomright"</span>, <span class="at" style="color: #657422;">legend =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Bulgaria"</span>, <span class="st" style="color: #20794D;">"Morocco"</span>),</span>
-<span id="cb7-13">  <span class="at" style="color: #657422;">col =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"dark green"</span>, <span class="st" style="color: #20794D;">"dark red"</span>),<span class="at" style="color: #657422;">lty =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>))</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(rate_bgr, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"o"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xaxt =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>,</span>
+<span id="cb7-2">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Line Graph"</span>,</span>
+<span id="cb7-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Year"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>,</span>
+<span id="cb7-4">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>)</span>
+<span id="cb7-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">axis</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">at =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">41</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1975</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2015</span>))</span>
+<span id="cb7-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(rate_mar, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"o"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xaxt =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>,</span>
+<span id="cb7-7">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Line Graph Morocco"</span>,</span>
+<span id="cb7-8">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Year"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>,</span>
+<span id="cb7-9">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>)</span>
+<span id="cb7-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">axis</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">at =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">41</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1975</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2015</span>))</span>
+<span id="cb7-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">legend</span>(</span>
+<span id="cb7-12">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottomright"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bulgaria"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Morocco"</span>),</span>
+<span id="cb7-13">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>),<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -569,15 +985,89 @@
 <h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
 <p>We can observe the difference in location and spread of the datasets.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;">par</span>(<span class="at" style="color: #657422;">mfrow=</span><span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>,<span class="dv" style="color: #AD0000;">2</span>))</span>
-<span id="cb8-2"><span class="fu" style="color: #4758AB;">plot</span>(<span class="fu" style="color: #4758AB;">hist</span>(rate_bgr,</span>
-<span id="cb8-3">     <span class="at" style="color: #657422;">breaks =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">20</span>, <span class="dv" style="color: #AD0000;">120</span>, <span class="at" style="color: #657422;">by =</span> <span class="dv" style="color: #AD0000;">5</span>), <span class="at" style="color: #657422;">plot =</span> <span class="cn" style="color: #8f5902;">FALSE</span>),</span>
-<span id="cb8-4">     <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Histogram Bulgaria"</span>, <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>,</span>
-<span id="cb8-5">     <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark green"</span>)</span>
-<span id="cb8-6"><span class="fu" style="color: #4758AB;">plot</span>(<span class="fu" style="color: #4758AB;">hist</span>(rate_mar,</span>
-<span id="cb8-7">     <span class="at" style="color: #657422;">breaks =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">20</span>, <span class="dv" style="color: #AD0000;">120</span>, <span class="at" style="color: #657422;">by =</span> <span class="dv" style="color: #AD0000;">5</span>), <span class="at" style="color: #657422;">plot =</span> <span class="cn" style="color: #8f5902;">FALSE</span>),</span>
-<span id="cb8-8">     <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Histogram Morocco"</span>, <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>,</span>
-<span id="cb8-9">     <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark red"</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">par</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mfrow=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>))</span>
+<span id="cb8-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(rate_bgr,</span>
+<span id="cb8-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">breaks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>),</span>
+<span id="cb8-4">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Histogram Bulgaria"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>,</span>
+<span id="cb8-5">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>)</span>
+<span id="cb8-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(rate_mar,</span>
+<span id="cb8-7">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">breaks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>),</span>
+<span id="cb8-8">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Histogram Morocco"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>,</span>
+<span id="cb8-9">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
 </div>
@@ -586,12 +1076,72 @@
 <section id="density-function" class="level2">
 <h2 class="anchored" data-anchor-id="density-function">Density Function</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;">plot</span>(<span class="fu" style="color: #4758AB;">density</span>(rate_bgr), <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Density Graph"</span>,</span>
-<span id="cb9-2">     <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>,</span>
-<span id="cb9-3">     <span class="at" style="color: #657422;">xlim =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">20</span>, <span class="dv" style="color: #AD0000;">120</span>), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark green"</span>)</span>
-<span id="cb9-4"><span class="fu" style="color: #4758AB;">lines</span>(<span class="fu" style="color: #4758AB;">density</span>(rate_mar), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark red"</span>)</span>
-<span id="cb9-5"><span class="fu" style="color: #4758AB;">legend</span>(<span class="st" style="color: #20794D;">"topleft"</span>, <span class="at" style="color: #657422;">legend =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Bulgaria"</span>, <span class="st" style="color: #20794D;">"Morocco"</span>),</span>
-<span id="cb9-6">  <span class="at" style="color: #657422;">col =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"dark green"</span>, <span class="st" style="color: #20794D;">"dark red"</span>), <span class="at" style="color: #657422;">lty =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>))</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">density</span>(rate_bgr), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Density Graph"</span>,</span>
+<span id="cb9-2">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>,</span>
+<span id="cb9-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>)</span>
+<span id="cb9-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">density</span>(rate_mar), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>)</span>
+<span id="cb9-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">legend</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"topleft"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bulgaria"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Morocco"</span>),</span>
+<span id="cb9-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -601,10 +1151,36 @@
 <section id="box-plot" class="level2">
 <h2 class="anchored" data-anchor-id="box-plot">Box Plot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;">boxplot</span>(rate_bgr, rate_mar, <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Box Plot"</span>,</span>
-<span id="cb10-2">     <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>,</span>
-<span id="cb10-3">     <span class="at" style="color: #657422;">names =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Bulgaria"</span>, <span class="st" style="color: #20794D;">"Morocco"</span>),</span>
-<span id="cb10-4">     <span class="at" style="color: #657422;">col =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"dark green"</span>, <span class="st" style="color: #20794D;">"dark red"</span>))</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">boxplot</span>(rate_bgr, rate_mar, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Box Plot"</span>,</span>
+<span id="cb10-2">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>,</span>
+<span id="cb10-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bulgaria"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Morocco"</span>),</span>
+<span id="cb10-4">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -634,15 +1210,103 @@
 <section id="cumulative-distribution-function" class="level2">
 <h2 class="anchored" data-anchor-id="cumulative-distribution-function">Cumulative Distribution Function</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;">plot</span>(<span class="fu" style="color: #4758AB;">ecdf</span>(rate_bgr), <span class="at" style="color: #657422;">xlim =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">20</span>, <span class="dv" style="color: #AD0000;">120</span>), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark green"</span>,</span>
-<span id="cb11-2">     <span class="at" style="color: #657422;">verticals =</span> <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="at" style="color: #657422;">do.points =</span> <span class="cn" style="color: #8f5902;">FALSE</span>,</span>
-<span id="cb11-3">     <span class="at" style="color: #657422;">main =</span> <span class="st" style="color: #20794D;">"Cumulative Distribution Function"</span>,</span>
-<span id="cb11-4">     <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">""</span>)</span>
-<span id="cb11-5"><span class="fu" style="color: #4758AB;">lines</span>(<span class="fu" style="color: #4758AB;">ecdf</span>(rate_mar), <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"dark red"</span>,</span>
-<span id="cb11-6">    <span class="at" style="color: #657422;">verticals =</span> <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="at" style="color: #657422;">do.points =</span> <span class="cn" style="color: #8f5902;">FALSE</span>,</span>
-<span id="cb11-7">    <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">"Primary Completion Rate"</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">""</span>)</span>
-<span id="cb11-8"><span class="fu" style="color: #4758AB;">legend</span>(<span class="st" style="color: #20794D;">"topleft"</span>, <span class="at" style="color: #657422;">legend =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Bulgaria"</span>, <span class="st" style="color: #20794D;">"Morocco"</span>),</span>
-<span id="cb11-9">  <span class="at" style="color: #657422;">col =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"dark green"</span>, <span class="st" style="color: #20794D;">"dark red"</span>), <span class="at" style="color: #657422;">lty =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>))</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ecdf</span>(rate_bgr), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>,</span>
+<span id="cb11-2">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">verticals =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">do.points =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>,</span>
+<span id="cb11-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Cumulative Distribution Function"</span>,</span>
+<span id="cb11-4">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>)</span>
+<span id="cb11-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ecdf</span>(rate_mar), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>,</span>
+<span id="cb11-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">verticals =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">do.points =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>,</span>
+<span id="cb11-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Primary Completion Rate"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>)</span>
+<span id="cb11-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">legend</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"topleft"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bulgaria"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Morocco"</span>),</span>
+<span id="cb11-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark green"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark red"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>

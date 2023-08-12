@@ -1,21 +1,14 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nFirst Post!\n\n\n…of many more in the future, hopefully.\n\n\n\n\nmiscellaneous\n\n\n\n\n\n\n\n\n\n\n\nJan 2, 2023\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\narchive\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\n20 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMid-Semester Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\narchive\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2022\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "First Post!",
-    "section": "",
-    "text": "A warm welcome to my little corner of the internet. Here I will post about random things on my mind. I hope you find some of the posts interesting.\n\n\n\n\n\nAvatar waving at user\n\n\nI have been thinking of creating my own site since the last couple of years, but could get around to doing it just now, because of our semester holidays.\nThe good thing this, though, is that I was comfortable with Quarto for creating various documents, and using it for building the website was very simple.\nThe last week I had been playing Vampire Survivors mostly, which is a lot of fun. I’ll probably be working on the site the next few days."
-  },
-  {
     "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html",
     "href": "posts/midsem-stat-project-sem1/Document-Markdown.html",
+    "title": "Mid-Semester Project",
+    "section": "",
+    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
+  },
+  {
+    "objectID": "posts/midsem-stat-project-sem1/Document-Markdown.html#overview",
+    "href": "posts/midsem-stat-project-sem1/Document-Markdown.html#overview",
     "title": "Mid-Semester Project",
     "section": "",
     "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
@@ -105,11 +98,25 @@
     "text": "Cumulative Distribution Function\n\nplot(ecdf(rate_bgr), xlim = c(20, 120), col = \"dark green\",\n     verticals = TRUE, do.points = FALSE,\n     main = \"Cumulative Distribution Function\",\n     xlab = \"Primary Completion Rate\", ylab = \"\")\nlines(ecdf(rate_mar), col = \"dark red\",\n    verticals = TRUE, do.points = FALSE,\n    xlab = \"Primary Completion Rate\", ylab = \"\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))\n\n\n\n\n\nInferences\n\nBulgaria: The CDF is very steep between 90 and 105, indicating high density.\nMorocco: The CDF is steep around 45 and 80, indicating bimodal distribution."
   },
   {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\narchive\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\n21 min\n\n\n\n\n\n\n  \n\n\n\n\nMid-Semester Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\narchive\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2022\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hello! My name is Aman Das. I am a resident of West Bengal, India. Currently I am pursuing Bachelor of Statistics from Indian Statistical Institute, Kolkata.\nI am an Open Source Software advocate, and a Data Visualization enthusiast. In my free time, I like to play roguelike strategy games."
+  },
+  {
     "objectID": "posts/endsem-stat-project-sem1/PPT_Reveal.html#overview",
     "href": "posts/endsem-stat-project-sem1/PPT_Reveal.html#overview",
     "title": "End-Semester Project",
     "section": "Overview",
-    "text": "Overview\nOur Aim is to determine which features more directly affect the Life Expectation of the citizens.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\[\n~\n\\]"
+    "text": "Overview\nOur Aim is to determine which features more directly affect the Life Expectation of the citizens.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\[\n~\n\\]"
   },
   {
     "objectID": "posts/endsem-stat-project-sem1/PPT_Reveal.html#variables",
@@ -123,14 +130,14 @@
     "href": "posts/endsem-stat-project-sem1/PPT_Reveal.html#data",
     "title": "End-Semester Project",
     "section": "Data",
-    "text": "Data\n\n\nCode\nscript.dir <- getSrcDirectory(function(x) {x})\nsetwd(script.dir)\n\nnumerise = function(x){\n  x[grepl(\"k$\", x)] <- as.numeric(sub(\"k$\", \"\", x[grepl(\"k$\", x)]))*10^3\n  x <- as.numeric(x)\n  return(x)\n}\n\nd1_raw = read.csv(file.path(\".\",\"Data\",\"gdp.csv\"), fileEncoding = 'UTF-8-BOM')\nd2_raw = read.csv(file.path(\".\",\"Data\",\"sanitation.csv\"), fileEncoding = 'UTF-8-BOM')\nd3_raw = read.csv(file.path(\".\",\"Data\",\"life_expectancy.csv\"), fileEncoding = 'UTF-8-BOM')\n\nyearname = \"X2010\"\n\nd1 = d1_raw[!is.na(numerise(d1_raw[, yearname])),][,c(\"country\", yearname)]\ncolnames(d1)[2] = \"lngdp\"\nd2 = d2_raw[!is.na(numerise(d2_raw[, yearname])),][,c(\"country\", yearname)]\ncolnames(d2)[2] = \"snt\"\nd3 = d3_raw[!is.na(numerise(d3_raw[, yearname])),][,c(\"country\", yearname)]\ncolnames(d3)[2] = \"lfx\"\n\ndtemp = merge(x = d1, y = d2, by = \"country\")\nd = merge(x = dtemp, y = d3, by = \"country\")\n\nd$lngdp = log(numerise(d$lngdp))\n\nwrite.csv(d, \"./Data/assembled.csv\")\n\nkable(head(d, 6L))\n\n\n\n\n\ncountry\nlngdp\nsnt\nlfx\n\n\n\n\nAfghanistan\n6.265301\n34.9\n60.5\n\n\nAlbania\n8.183118\n95.2\n78.1\n\n\nAlgeria\n8.273847\n87.0\n74.5\n\n\nAndorra\n10.454495\n100.0\n81.8\n\n\nAngola\n8.291547\n41.1\n60.2\n\n\nAntigua and Barbuda\n9.546813\n86.3\n75.9\n\n\n\n\n\n\n\nFREE DATA FROM UN, WORLD BANK, WHO, IMHE VIA GAPMINDER.ORG, CC-BY LICENSE."
+    "text": "Data\n\n\nCode\nscript.dir &lt;- getSrcDirectory(function(x) {x})\nsetwd(script.dir)\n\nnumerise = function(x){\n  x[grepl(\"k$\", x)] &lt;- as.numeric(sub(\"k$\", \"\", x[grepl(\"k$\", x)]))*10^3\n  x &lt;- as.numeric(x)\n  return(x)\n}\n\nd1_raw = read.csv(file.path(\".\",\"Data\",\"gdp.csv\"), fileEncoding = 'UTF-8-BOM')\nd2_raw = read.csv(file.path(\".\",\"Data\",\"sanitation.csv\"), fileEncoding = 'UTF-8-BOM')\nd3_raw = read.csv(file.path(\".\",\"Data\",\"life_expectancy.csv\"), fileEncoding = 'UTF-8-BOM')\n\nyearname = \"X2010\"\n\nd1 = d1_raw[!is.na(numerise(d1_raw[, yearname])),][,c(\"country\", yearname)]\ncolnames(d1)[2] = \"lngdp\"\nd2 = d2_raw[!is.na(numerise(d2_raw[, yearname])),][,c(\"country\", yearname)]\ncolnames(d2)[2] = \"snt\"\nd3 = d3_raw[!is.na(numerise(d3_raw[, yearname])),][,c(\"country\", yearname)]\ncolnames(d3)[2] = \"lfx\"\n\ndtemp = merge(x = d1, y = d2, by = \"country\")\nd = merge(x = dtemp, y = d3, by = \"country\")\n\nd$lngdp = log(numerise(d$lngdp))\n\nwrite.csv(d, \"./Data/assembled.csv\")\n\nkable(head(d, 6L))\n\n\n\n\n\ncountry\nlngdp\nsnt\nlfx\n\n\n\n\nAfghanistan\n6.265301\n34.9\n60.5\n\n\nAlbania\n8.183118\n95.2\n78.1\n\n\nAlgeria\n8.273847\n87.0\n74.5\n\n\nAndorra\n10.454495\n100.0\n81.8\n\n\nAngola\n8.291547\n41.1\n60.2\n\n\nAntigua and Barbuda\n9.546813\n86.3\n75.9\n\n\n\n\n\n\n\nFREE DATA FROM UN, WORLD BANK, WHO, IMHE VIA GAPMINDER.ORG, CC-BY LICENSE."
   },
   {
     "objectID": "posts/endsem-stat-project-sem1/PPT_Reveal.html#measures-of-central-tendency",
     "href": "posts/endsem-stat-project-sem1/PPT_Reveal.html#measures-of-central-tendency",
     "title": "End-Semester Project",
     "section": "Measures of Central Tendency",
-    "text": "Measures of Central Tendency\nMean or Arithmetic Mean \\(\\bar{x}\\), Median \\(\\operatorname{median}(x)\\) and Mode \\(\\operatorname{mode}(x)\\) are some measures of central tendency in the sample.\n\n\nFormulae\n\n\\[\n\\begin{aligned}\nx = \\{x_1, x_2, \\ldots,x_{n-1}, x_n\\} &&\n\\operatorname{mean}(x)=\\bar{x} = \\frac{1}{n} \\sum _{i=1}^{n}(x_{i})\n\\end{aligned}\n\\]\\[\n\\begin{aligned}\n\\operatorname{median}(x)= \\frac{x_{\\lfloor\\frac{n+1}{2}\\rfloor}+x_{\\lfloor\\frac{n+2}{2}\\rfloor}}{2} &&\n\\operatorname{mode}(x) = x_i \\text{ s.t. } \\operatorname{Pr}(x_i) = \\operatorname{sup}(\\operatorname{Pr}(x))  \n\\end{aligned}\n\\]\nNote: \\(f_i\\) is the frequency of the ith observation. \\(x_{(i)}\\) is the ith largest observation.\n\n\n\nCode\ngetmode <- function(v) {\n uniqv <- unique(v)\n freq = max(tabulate(match(v, uniqv)))\n res = uniqv[which.max(tabulate(match(v, uniqv)))]\n if (freq == 1) res = NULL\n return(res)\n}\n\nd_central = data.frame(\n  row.names = \"Variable\",\n  Variable = c(\n    \"*ln(GDP)*\",\n    \"*Sanitation*\",\n    \"*Life Exp.*\"\n  ),\n  Mean = c(\n    mean(d$lngdp),\n    mean(d$snt),\n    mean(d$lfx)\n  ),\n  Median = c(\n    median(d$lngdp),\n    median(d$snt),\n    median(d$lfx)\n  ),\n  Mode = c(\n    getmode(d$lngdp),\n    getmode(d$snt),\n    getmode(d$lfx)\n  )\n)\n\nkable(\n  d_central,\n  col.names = c(\n    \"$\\\\quad \\\\quad \\\\bar{x}$\",\n    \"$\\\\operatorname{median}(x)$\",\n    \"$\\\\operatorname{mode}(x)$\"\n  ),\n  digits=5\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\quad \\quad \\bar{x}\\)\n\\(\\operatorname{median}(x)\\)\n\\(\\operatorname{mode}(x)\\)\n\n\n\n\nln(GDP)\n8.54124\n8.48673\n9.23014\n\n\nSanitation\n72.43857\n85.60000\n100.00000\n\n\nLife Exp.\n70.54603\n72.40000\n73.20000\n\n\n\n\n\n\\(~\\)\n\nNotice that mode of Sanitation is 100. Thus a large number of countries have universal access to basic sanitation infrastructure."
+    "text": "Measures of Central Tendency\nMean or Arithmetic Mean \\(\\bar{x}\\), Median \\(\\operatorname{median}(x)\\) and Mode \\(\\operatorname{mode}(x)\\) are some measures of central tendency in the sample.\n\n\nFormulae\n\n\\[\n\\begin{aligned}\nx = \\{x_1, x_2, \\ldots,x_{n-1}, x_n\\} &&\n\\operatorname{mean}(x)=\\bar{x} = \\frac{1}{n} \\sum _{i=1}^{n}(x_{i})\n\\end{aligned}\n\\]\\[\n\\begin{aligned}\n\\operatorname{median}(x)= \\frac{x_{\\lfloor\\frac{n+1}{2}\\rfloor}+x_{\\lfloor\\frac{n+2}{2}\\rfloor}}{2} &&\n\\operatorname{mode}(x) = x_i \\text{ s.t. } \\operatorname{Pr}(x_i) = \\operatorname{sup}(\\operatorname{Pr}(x))  \n\\end{aligned}\n\\]\nNote: \\(f_i\\) is the frequency of the ith observation. \\(x_{(i)}\\) is the ith largest observation.\n\n\n\nCode\ngetmode &lt;- function(v) {\n uniqv &lt;- unique(v)\n freq = max(tabulate(match(v, uniqv)))\n res = uniqv[which.max(tabulate(match(v, uniqv)))]\n if (freq == 1) res = NULL\n return(res)\n}\n\nd_central = data.frame(\n  row.names = \"Variable\",\n  Variable = c(\n    \"*ln(GDP)*\",\n    \"*Sanitation*\",\n    \"*Life Exp.*\"\n  ),\n  Mean = c(\n    mean(d$lngdp),\n    mean(d$snt),\n    mean(d$lfx)\n  ),\n  Median = c(\n    median(d$lngdp),\n    median(d$snt),\n    median(d$lfx)\n  ),\n  Mode = c(\n    getmode(d$lngdp),\n    getmode(d$snt),\n    getmode(d$lfx)\n  )\n)\n\nkable(\n  d_central,\n  col.names = c(\n    \"$\\\\quad \\\\quad \\\\bar{x}$\",\n    \"$\\\\operatorname{median}(x)$\",\n    \"$\\\\operatorname{mode}(x)$\"\n  ),\n  digits=5\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\quad \\quad \\bar{x}\\)\n\\(\\operatorname{median}(x)\\)\n\\(\\operatorname{mode}(x)\\)\n\n\n\n\nln(GDP)\n8.54124\n8.48673\n9.23014\n\n\nSanitation\n72.43857\n85.60000\n100.00000\n\n\nLife Exp.\n70.54603\n72.40000\n73.20000\n\n\n\n\n\n\\(~\\)\n\nNotice that mode of Sanitation is 100. Thus a large number of countries have universal access to basic sanitation infrastructure."
   },
   {
     "objectID": "posts/endsem-stat-project-sem1/PPT_Reveal.html#measures-of-dispersion",
@@ -242,7 +249,7 @@
     "href": "posts/endsem-stat-project-sem1/PPT_Reveal.html#time",
     "title": "End-Semester Project",
     "section": "Time",
-    "text": "Time\n\n\nCode\nnumerise = function(x){\n  x[grepl(\"k$\", x)] <- as.numeric(sub(\"k$\", \"\", x[grepl(\"k$\", x)]))*10^3\n  x <- as.numeric(x)\n  return(x)\n}\n\nd1_raw = read.csv(file.path(\".\",\"Data\",\"gdp.csv\"), fileEncoding = 'UTF-8-BOM')\nd2_raw = read.csv(file.path(\".\",\"Data\",\"sanitation.csv\"), fileEncoding = 'UTF-8-BOM')\nd3_raw = read.csv(file.path(\".\",\"Data\",\"life_expectancy.csv\"), fileEncoding = 'UTF-8-BOM')\n\nyears = 2000:2019\nyearnames = paste0(\"X\", years)\n\nmakedata = function(yearname){\n  d1 = d1_raw[!is.na(numerise(d1_raw[, yearname])),][,c(\"country\", yearname)]\n  colnames(d1)[2] = \"lngdp\"\n  d2 = d2_raw[!is.na(numerise(d2_raw[, yearname])),][,c(\"country\", yearname)]\n  colnames(d2)[2] = \"snt\"\n  d3 = d3_raw[!is.na(numerise(d3_raw[, yearname])),][,c(\"country\", yearname)]\n  colnames(d3)[2] = \"lfx\"\n  \n  dtemp = merge(x = d1, y = d2, by = \"country\")\n  d = merge(x = dtemp, y = d3, by = \"country\")\n  \n  d$lngdp = log(numerise(d$lngdp))\n  \n  return(d)\n}\n\n\n\n\nHow the years’ life expectancies and an year’s GDP correlate with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow the years’ life expectancies and an year’s Sanitation correlate with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow an year’s life expectancies correlate with the years’ GDP.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow an year’s life expectancies correlate with the years’ Sanitation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThus our analysis is fairly robust with respect to variation in Time. Thus we only perform the analysis on the year 2010."
+    "text": "Time\n\n\nCode\nnumerise = function(x){\n  x[grepl(\"k$\", x)] &lt;- as.numeric(sub(\"k$\", \"\", x[grepl(\"k$\", x)]))*10^3\n  x &lt;- as.numeric(x)\n  return(x)\n}\n\nd1_raw = read.csv(file.path(\".\",\"Data\",\"gdp.csv\"), fileEncoding = 'UTF-8-BOM')\nd2_raw = read.csv(file.path(\".\",\"Data\",\"sanitation.csv\"), fileEncoding = 'UTF-8-BOM')\nd3_raw = read.csv(file.path(\".\",\"Data\",\"life_expectancy.csv\"), fileEncoding = 'UTF-8-BOM')\n\nyears = 2000:2019\nyearnames = paste0(\"X\", years)\n\nmakedata = function(yearname){\n  d1 = d1_raw[!is.na(numerise(d1_raw[, yearname])),][,c(\"country\", yearname)]\n  colnames(d1)[2] = \"lngdp\"\n  d2 = d2_raw[!is.na(numerise(d2_raw[, yearname])),][,c(\"country\", yearname)]\n  colnames(d2)[2] = \"snt\"\n  d3 = d3_raw[!is.na(numerise(d3_raw[, yearname])),][,c(\"country\", yearname)]\n  colnames(d3)[2] = \"lfx\"\n  \n  dtemp = merge(x = d1, y = d2, by = \"country\")\n  d = merge(x = dtemp, y = d3, by = \"country\")\n  \n  d$lngdp = log(numerise(d$lngdp))\n  \n  return(d)\n}\n\n\n\n\nHow the years’ life expectancies and an year’s GDP correlate with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow the years’ life expectancies and an year’s Sanitation correlate with.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow an year’s life expectancies correlate with the years’ GDP.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow an year’s life expectancies correlate with the years’ Sanitation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThus our analysis is fairly robust with respect to variation in Time. Thus we only perform the analysis on the year 2010."
   },
   {
     "objectID": "posts/endsem-stat-project-sem1/PPT_Reveal.html#raw-gdp-per-capita",
@@ -264,12 +271,5 @@
     "title": "End-Semester Project",
     "section": "Notable Countries",
     "text": "Notable Countries\nSome countries had alarmingly low Life Expectancies:\n\nThe countries like the Central African Republic, Zimbabwe have very low life expectancies due to endemic poverty and weak governance, contributing to a dire health situation.\nHaiti had a high child mortality rate in 2010 due to natural disasters and cholera outbreaks. This caused low Life expectancy for that year.\n\n\n\n\n\n\n\nCountries like Mozambique, Lesotho are experiencing increasing double burden of diseases characterized by an increase in the burden of non-communicable diseases as well as a high burden of communicable diseases.\nAlso countries like Eswatini, Zambia also have a low life expectancy due to the outbreak of HIV."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Hello! My name is Aman Das. I am a resident of West Bengal, India. Currently I am pursuing Bachelor of Statistics from Indian Statistical Institute, Kolkata.\nI am an Open Source Software advocate, and a Data Visualization enthusiast. In my free time, I like to play roguelike strategy games."
   }
 ]

@@ -1,9 +1,9 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/posts/endsem-stat-project-sem1/PPT_Reveal.html",
-      "/posts/midsem-stat-project-sem1/Document-Markdown.html"
+      "/blog/endsem-stat-project-sem1/PPT_Reveal.html",
+      "/blog/midsem-stat-project-sem1/main.html"
     ]
   }
 ]

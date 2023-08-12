@@ -5,9 +5,9 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Aman Das</title>
-<link>https://aman9das.github.io/blog.html</link>
-<atom:link href="https://aman9das.github.io/blog.xml" rel="self" type="application/rss+xml"/>
+<title>aman9das</title>
+<link>https://aman9das.github.io/blog/index.html</link>
+<atom:link href="https://aman9das.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman Das&#39; Personal Website</description>
 <generator>quarto-1.3.450</generator>
 <lastBuildDate>Mon, 05 Dec 2022 00:00:00 GMT</lastBuildDate>
@@ -16,17 +16,18 @@
   <dc:creator>Aman Das</dc:creator>
   <dc:creator>Raj Pratap Singh</dc:creator>
   <dc:creator>Shreyansh Mukhopadhyay</dc:creator>
-  <link>https://aman9das.github.io/posts/endsem-stat-project-sem1/PPT_Reveal.html</link>
+  <link>https://aman9das.github.io/blog/endsem-stat-project-sem1/PPT_Reveal.html</link>
   <description><![CDATA[ undefined ]]></description>
   <category>archive</category>
   <category>statistics</category>
-  <guid>https://aman9das.github.io/posts/endsem-stat-project-sem1/PPT_Reveal.html</guid>
+  <guid>https://aman9das.github.io/blog/endsem-stat-project-sem1/PPT_Reveal.html</guid>
   <pubDate>Mon, 05 Dec 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://aman9das.github.io/blog/endsem-stat-project-sem1/main_files/figure-revealjs/unnamed-chunk-3-1.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
   <title>Mid-Semester Project</title>
   <dc:creator>Aman Das</dc:creator>
-  <link>https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown.html</link>
+  <link>https://aman9das.github.io/blog/midsem-stat-project-sem1/main.html</link>
   <description><![CDATA[ 
 
 
@@ -961,7 +962,7 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/midsem-stat-project-sem1/main_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1069,7 +1070,7 @@ font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"dark red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
+<p><img src="https://aman9das.github.io/blog/midsem-stat-project-sem1/main_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 </section>
@@ -1143,7 +1144,7 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/midsem-stat-project-sem1/main_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p style="page-break-before: always">
@@ -1182,7 +1183,7 @@ font-style: inherit;">"dark green"</span>, <span class="st" style="color: #20794
 background-color: null;
 font-style: inherit;">"dark red"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/midsem-stat-project-sem1/main_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="inferences-4" class="level3">
@@ -1308,7 +1309,7 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/midsem-stat-project-sem1/main_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="inferences-5" class="level3">
@@ -1331,7 +1332,7 @@ font-style: inherit;">1</span>))</span></code></pre></div>
  ]]></description>
   <category>archive</category>
   <category>statistics</category>
-  <guid>https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown.html</guid>
+  <guid>https://aman9das.github.io/blog/midsem-stat-project-sem1/main.html</guid>
   <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
 </item>
 </channel>

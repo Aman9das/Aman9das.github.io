@@ -9,7 +9,7 @@
 <meta name="author" content="Aman Das">
 <meta name="dcterms.date" content="2022-10-29">
 
-<title>Aman Das - Mid-Semester Project</title>
+<title>aman9das - Mid-Semester Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../profile-round.svg" rel="icon" type="image/svg+xml">
+<link href="../../_assets/avatar/avatar-gradient-round.webp" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Aman Das</span>
+    <span class="navbar-title">aman9das</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html" rel="" target="">
+    <a class="nav-link" href="../../blog/index.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -173,28 +173,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
   <ul class="collapse">
-  <li><a href="#inferences" id="toc-inferences" class="nav-link" data-scroll-target="#inferences">Inferences</a></li>
-  </ul></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#importing-dataset" id="toc-importing-dataset" class="nav-link" data-scroll-target="#importing-dataset">Importing Dataset</a></li>
   <li><a href="#numerical-analysis" id="toc-numerical-analysis" class="nav-link" data-scroll-target="#numerical-analysis">Numerical Analysis</a>
   <ul class="collapse">
-  <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link" data-scroll-target="#summary-measures">Summary Measures</a>
-  <ul class="collapse">
-  <li><a href="#inferences-1" id="toc-inferences-1" class="nav-link" data-scroll-target="#inferences-1">Inferences</a></li>
-  </ul></li>
-  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a>
-  <ul class="collapse">
-  <li><a href="#quartile" id="toc-quartile" class="nav-link" data-scroll-target="#quartile">Quartile</a></li>
-  <li><a href="#deciles" id="toc-deciles" class="nav-link" data-scroll-target="#deciles">Deciles</a></li>
-  </ul></li>
-  <li><a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of Dispersion</a>
-  <ul class="collapse">
-  <li><a href="#inferences-2" id="toc-inferences-2" class="nav-link" data-scroll-target="#inferences-2">Inferences</a></li>
-  </ul></li>
+  <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link" data-scroll-target="#summary-measures">Summary Measures</a></li>
+  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
+  <li><a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of Dispersion</a></li>
   <li><a href="#moments" id="toc-moments" class="nav-link" data-scroll-target="#moments">Moments</a></li>
   </ul></li>
   <li><a href="#graphical-analysis" id="toc-graphical-analysis" class="nav-link" data-scroll-target="#graphical-analysis">Graphical Analysis</a>
@@ -203,14 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#inferences-3" id="toc-inferences-3" class="nav-link" data-scroll-target="#inferences-3">Inferences</a></li>
   <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
   <li><a href="#density-function" id="toc-density-function" class="nav-link" data-scroll-target="#density-function">Density Function</a></li>
-  <li><a href="#box-plot" id="toc-box-plot" class="nav-link" data-scroll-target="#box-plot">Box Plot</a>
-  <ul class="collapse">
-  <li><a href="#inferences-4" id="toc-inferences-4" class="nav-link" data-scroll-target="#inferences-4">Inferences</a></li>
-  </ul></li>
-  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function">Cumulative Distribution Function</a>
-  <ul class="collapse">
-  <li><a href="#inferences-5" id="toc-inferences-5" class="nav-link" data-scroll-target="#inferences-5">Inferences</a></li>
-  </ul></li>
+  <li><a href="#box-plot" id="toc-box-plot" class="nav-link" data-scroll-target="#box-plot">Box Plot</a></li>
+  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function">Cumulative Distribution Function</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
@@ -705,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"bottomright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Bulgaria"</span>, <span class="st">"Morocco"</span>),</span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"dark green"</span>, <span class="st">"dark red"</span>),<span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Document-Markdown_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="main_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -739,7 +720,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histogram Morocco"</span>, <span class="at">xlab =</span> <span class="st">"Primary Completion Rate"</span>,</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"dark red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Document-Markdown_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
+<p><img src="main_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 </section>
@@ -753,7 +734,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Bulgaria"</span>, <span class="st">"Morocco"</span>),</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"dark green"</span>, <span class="st">"dark red"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Document-Markdown_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="main_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p style="page-break-before: always">
@@ -766,7 +747,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Bulgaria"</span>, <span class="st">"Morocco"</span>),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"dark green"</span>, <span class="st">"dark red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Document-Markdown_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="main_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="inferences-4" class="level3">
@@ -804,7 +785,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Bulgaria"</span>, <span class="st">"Morocco"</span>),</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"dark green"</span>, <span class="st">"dark red"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Document-Markdown_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="main_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="inferences-5" class="level3">
@@ -1189,7 +1170,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml">
+    <a class="nav-link" href="../../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

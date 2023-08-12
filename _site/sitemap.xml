@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aman9das.github.io/blog.html</loc>
-    <lastmod>2023-01-09T10:23:04.845Z</lastmod>
+    <lastmod>2023-08-12T04:12:28.012Z</lastmod>
   </url>
   <url>
     <loc>https://aman9das.github.io/index.html</loc>
-    <lastmod>2023-01-09T10:23:05.189Z</lastmod>
+    <lastmod>2023-08-12T04:12:31.477Z</lastmod>
   </url>
   <url>
     <loc>https://aman9das.github.io/posts/endsem-stat-project-sem1/PPT_Reveal.html</loc>
@@ -14,10 +14,14 @@
   </url>
   <url>
     <loc>https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown.html</loc>
-    <lastmod>2023-01-09T10:23:07.167Z</lastmod>
+    <lastmod>2023-08-12T04:12:30.385Z</lastmod>
   </url>
   <url>
     <loc>https://aman9das.github.io/posts/welcome/index.html</loc>
     <lastmod>2023-01-09T10:23:07.525Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/posts/endsem-stat-project-sem1/main.html</loc>
+    <lastmod>2023-08-12T04:12:29.517Z</lastmod>
   </url>
 </urlset>

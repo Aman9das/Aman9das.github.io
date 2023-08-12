@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-image: profile.svg
+image: _assets/avatar/avatar-gradient-round.webp
 about:
   template: jolla
   links:

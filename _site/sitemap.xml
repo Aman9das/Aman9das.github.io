@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aman9das.github.io/blog.html</loc>
-    <lastmod>2023-08-12T04:12:28.012Z</lastmod>
+    <loc>https://aman9das.github.io/blog/endsem-stat-project-sem1/PPT_Reveal.html</loc>
+    <lastmod>2023-08-12T14:29:33.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/index.html</loc>
+    <lastmod>2023-08-12T14:29:33.517Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/midsem-stat-project-sem1/main.html</loc>
+    <lastmod>2023-08-12T14:29:34.231Z</lastmod>
   </url>
   <url>
     <loc>https://aman9das.github.io/index.html</loc>
-    <lastmod>2023-08-12T04:12:31.477Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/posts/endsem-stat-project-sem1/PPT_Reveal.html</loc>
-    <lastmod>2023-01-09T10:23:06.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/posts/midsem-stat-project-sem1/Document-Markdown.html</loc>
-    <lastmod>2023-08-12T04:12:30.385Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/posts/welcome/index.html</loc>
-    <lastmod>2023-01-09T10:23:07.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/posts/endsem-stat-project-sem1/main.html</loc>
-    <lastmod>2023-08-12T04:12:29.517Z</lastmod>
+    <lastmod>2023-08-12T14:29:34.454Z</lastmod>
   </url>
 </urlset>

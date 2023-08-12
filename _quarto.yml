@@ -1,22 +1,26 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "blog/**/*.qmd"
 
 website:
-  title: "Aman Das"
-  favicon: "profile-round.svg"
+  title: "aman9das"
+  favicon: "_assets/avatar/avatar-gradient-round.webp"
   description: "Aman Das' Personal Website"
   site-url: https://aman9das.github.io/
   navbar:
     right:
       - text: Blog
-        href: blog.qmd
+        href: blog/index.qmd
   page-footer:
     left:
       - text: Built with Quarto
         href: https://quarto.org
     right:
       - icon: rss
-        href: blog.xml
+        href: blog/index.xml
       - icon: github
         href: https://github.com/Aman9das/
       - icon: mastodon

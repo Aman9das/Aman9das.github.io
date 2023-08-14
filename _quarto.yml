@@ -29,9 +29,22 @@ website:
 format:
   html:
     theme:
-      light: sandstone
-      dark: cyborg
-    css: styles.css
+      light:
+        - zephyr
+        - _assets/theme/styles-elm-light.scss
+        - _assets/theme/styles-elm-base.scss
+        - _assets/theme/colors.scss
+      dark:
+        - _assets/theme/zephyr-dark.scss
+        - _assets/theme/styles-elm-dark.scss
+        - _assets/theme/styles-elm-base.scss
+        - _assets/theme/colors.scss
+    css:
+      - _assets/theme/panelset-extras.css
+    highlight-style:
+      light: _assets/syntax-elm-light.theme
+      dark: _assets/syntax-elm-dark.theme
+    code-block-bg: false
 
 execute:
   freeze: auto

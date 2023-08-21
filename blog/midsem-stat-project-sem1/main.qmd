@@ -1,5 +1,5 @@
 ---
-title: "Mid-Semester Project"
+title: "Semester 1 Midsem Project"
 subtitle: "Elementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015"
 author: "Aman Das"
 date: "2022-10-29"

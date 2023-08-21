@@ -3,7 +3,7 @@
 /*-- scss:defaults --*/
 $body-bg: $view_bg;
 $body-color: $window_fg;
-$link-color: $blue_3;
+$link-color: $accent;
 $input-bg: $window_bg;
 
 $font-family-sans-serif: 'Cantarell', sans-serif;
@@ -15,6 +15,8 @@ $navbar-hl: $accent;
 
 $sidebar-bg: $window_bg;
 $footer-bg: $window_bg;
+
+$code-block-bg-alpha: -0.8;
 
 /*-- scss:rules --*/
 @import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Source+Code+Pro&display=swap');

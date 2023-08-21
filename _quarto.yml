@@ -29,10 +29,12 @@ website:
 format:
   html:
     theme:
-      light:
-        - _assets/theme/light.scss
       dark:
+        - cosmo
         - _assets/theme/dark.scss
+      light:
+        - cosmo
+        - _assets/theme/light.scss
     highlight-style: a11y
 
 execute:

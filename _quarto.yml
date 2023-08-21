@@ -30,21 +30,10 @@ format:
   html:
     theme:
       light:
-        - zephyr
-        - _assets/theme/styles-elm-light.scss
-        - _assets/theme/styles-elm-base.scss
-        - _assets/theme/colors.scss
+        - _assets/theme/light.scss
       dark:
-        - _assets/theme/zephyr-dark.scss
-        - _assets/theme/styles-elm-dark.scss
-        - _assets/theme/styles-elm-base.scss
-        - _assets/theme/colors.scss
-    css:
-      - _assets/theme/panelset-extras.css
-    highlight-style:
-      light: _assets/syntax-elm-light.theme
-      dark: _assets/syntax-elm-dark.theme
-    code-block-bg: false
+        - _assets/theme/dark.scss
+    highlight-style: a11y
 
 execute:
   freeze: auto

@@ -1,0 +1,25 @@
+@import 'adwaita_palette.scss';
+
+/*-- scss:defaults --*/
+$body-bg: $view_bg;
+$body-color: $window_fg;
+$link-color: $blue_3;
+$input-bg: $window_bg;
+
+$font-family-sans-serif: 'Cantarell', sans-serif;
+$font-family-monospace: 'Source Code Pro', monospace;
+
+$navbar-bg: $headerbar_bg;
+$navbar-fg: $headerbar_fg;
+$navbar-hl: $accent;
+
+$sidebar-bg: $window_bg;
+$footer-bg: $window_bg;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Source+Code+Pro&display=swap');
+
+// add headerbar border
+#quarto-header {
+  border-bottom: 1px solid $headerbar_border;
+}

@@ -30,7 +30,6 @@ format:
 execute:
   warning: false
   error: false
-  cache: true
 ---
 
 ```{r include=FALSE}

@@ -1,5 +1,5 @@
 ---
-title: Semester 1 Final Project
+title: End-Semester Project
 subtitle: Bivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010
 author:
   - Aman Das
@@ -14,6 +14,7 @@ format:
     width: 1200
     height: 750
     output-file: PPT_Reveal.html
+    embed-resources: true
     theme: [default, custom.scss]
     highlight-style: gruvbox
     transition: slide
@@ -30,6 +31,7 @@ format:
 execute:
   warning: false
   error: false
+  cache: true
 ---
 
 ```{r include=FALSE}

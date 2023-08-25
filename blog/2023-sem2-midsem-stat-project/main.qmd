@@ -11,10 +11,6 @@ date-format: long
 format:
   html:
     output-file: DOC_html.html
-    embed-resources: true
-    toc: true
-    toc-depth: 2
-    html-math-method: katex
     code-fold: true
 execute:
   warning: false

@@ -22,7 +22,7 @@ $code-block-bg-alpha: -0.8;
 @import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Source+Code+Pro&display=swap');
 
 // add headerbar border
-#quarto-header {
+#quarto-header, .quarto-title-banner {
   box-shadow: 0 2px 3px 0 $headerbar_border;
 }
 

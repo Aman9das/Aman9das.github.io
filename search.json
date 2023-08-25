@@ -28,15 +28,15 @@
     "text": "Empty USB flash drive 2\nx86_64 UEFI Computer (aka target) with:\n\nEthernet/WiFi Internet Connection\nGPT formatted empty SSD/HDD connected 3\n\nPre-existing Linux/Windows/MacOS Computer (aka base)"
   },
   {
-    "objectID": "blog/2023-ublue-getting-started/main.html#etch-the-usb-flash-drive",
-    "href": "blog/2023-ublue-getting-started/main.html#etch-the-usb-flash-drive",
+    "objectID": "blog/2023-ublue-getting-started/main.html#flash-the-flash-drive",
+    "href": "blog/2023-ublue-getting-started/main.html#flash-the-flash-drive",
     "title": "Getting Started with Universal Blue",
     "section": "",
     "text": "Plug the USB flash drive into the base computer.\nHead over to the Release Page and download the universalblue-##-x86_64-########.iso4 file.\nDownload Balena Etcher program and run it.\n\nClick the Flash from file button and select the universalblue-##-x86_64-########.iso file.\nClick the Select target button and select the USB flash drive.\nFlash!"
   },
   {
-    "objectID": "blog/2023-ublue-getting-started/main.html#prepare-main-for-install",
-    "href": "blog/2023-ublue-getting-started/main.html#prepare-main-for-install",
+    "objectID": "blog/2023-ublue-getting-started/main.html#prepare-computer-for-install",
+    "href": "blog/2023-ublue-getting-started/main.html#prepare-computer-for-install",
     "title": "Getting Started with Universal Blue",
     "section": "",
     "text": "Power off the target computer\nPlug the flash drive into the target computer.\nTurn on the target computer and watch carefully for instructions on which key to press. Usually a function key, Escape, Tab, F11, F12 or Delete is to be pressed to access the UEFI Firmware Settings. Press and hold that key5.\nIn the UEFI Firmware Settings, navigate to the Boot section, and select Boot Order option6.\nA list of Bootable devices and Operating Systems would be shown. Follow on-screen directions and move the flash drive to the top of the list.\nNavigate back to the UEFI Firmware Settings. Navigate to the Exit/Restart section and exit saving changes.\nThe computer should reboot into the GRUB menu."

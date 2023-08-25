@@ -44,8 +44,8 @@
 <li><span id="base">Pre-existing Linux/Windows/MacOS Computer</span> (aka base)</li>
 </ul>
 </section>
-<section id="etch-the-usb-flash-drive" class="level2">
-<h2 class="anchored" data-anchor-id="etch-the-usb-flash-drive">Etch the USB flash drive</h2>
+<section id="flash-the-flash-drive" class="level2">
+<h2 class="anchored" data-anchor-id="flash-the-flash-drive">Flash the flash drive</h2>
 <ul>
 <li>Plug the USB flash drive into the base computer.</li>
 <li>Head over to the <a href="https://github.com/ublue-os/main/releases/latest">Release Page</a> and download the <code>universalblue-##-x86_64-########.iso</code><sup>4</sup> file.</li>
@@ -57,8 +57,8 @@
 </ul></li>
 </ul>
 </section>
-<section id="prepare-main-for-install" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-main-for-install">Prepare main for Install</h2>
+<section id="prepare-computer-for-install" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-computer-for-install">Prepare Computer for Install</h2>
 <ul>
 <li>Power off the target computer</li>
 <li>Plug the flash drive into the target computer.</li>

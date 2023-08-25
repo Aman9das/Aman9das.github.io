@@ -33,7 +33,7 @@ This post will guide you through the process of installing an Universal Blue ima
 
 [^3]: Backup any important data prior to the procedure, since the procedure will reformat the storage device.
 
-## Etch the USB flash drive
+## Flash the flash drive
 
 -   Plug the USB flash drive into the [base computer](#base).
 -   Head over to the [Release Page](https://github.com/ublue-os/main/releases/latest) and download the `universalblue-##-x86_64-########.iso`[^4] file.
@@ -44,7 +44,7 @@ This post will guide you through the process of installing an Universal Blue ima
 
 [^4]: `#` denotes some digit.
 
-## Prepare main for Install
+## Prepare Computer for Install
 
 -   Power off the [target computer](#target)
 -   Plug the [flash drive](#usb) into the target computer.

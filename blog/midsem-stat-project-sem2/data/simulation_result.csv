@@ -1,5 +1,0 @@
-Year,Original Value,Predicted value from model1,Predicted value from model1 with missing predictors,Predicted value from model2,Predicted value from model2 with missing predictors
-2000,2638813,2520774,3264594,2498458,3349227
-2001,2537282,2550759,3373477,2546721,3502922
-2008,5282603,4500597,5038375,4487057,5106887
-2016,8804411,7810983,7480898,7802343,7398809

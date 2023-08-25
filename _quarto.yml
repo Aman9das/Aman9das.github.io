@@ -4,6 +4,7 @@ project:
     - "*.qmd"
     - "*.md"
     - "blog/**/*.qmd"
+    - "blog/**/*.md"
 
 website:
   title: "aman9das"

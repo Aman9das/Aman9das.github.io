@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Aman Das">
-<meta name="dcterms.date" content="2023-08-25">
+<meta name="dcterms.date" content="2023-08-26">
 
-<title>aman9das - Getting Started with Universal Blue</title>
+<title>aman9das - Efficient Writing with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -101,11 +135,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Getting Started with Universal Blue</h1>
-            <p class="subtitle lead">Preparation and Installation</p>
+      <h1 class="title">Efficient Writing with Quarto</h1>
+            <p class="subtitle lead">Author Quarto articles with RStudio</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">tutorial</div>
-                <div class="quarto-category">linux</div>
+                <div class="quarto-category">statistics</div>
               </div>
                   </div>
   </div>
@@ -123,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 25, 2023</p>
+        <p class="date">August 26, 2023</p>
       </div>
     </div>
     
@@ -139,12 +173,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-universal-blue" id="toc-what-is-universal-blue" class="nav-link active" data-scroll-target="#what-is-universal-blue">What is Universal Blue</a></li>
-  <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link" data-scroll-target="#pre-requisites">Pre-requisites</a></li>
-  <li><a href="#flash-the-flash-drive" id="toc-flash-the-flash-drive" class="nav-link" data-scroll-target="#flash-the-flash-drive">Flash the flash drive</a></li>
-  <li><a href="#prepare-computer-for-install" id="toc-prepare-computer-for-install" class="nav-link" data-scroll-target="#prepare-computer-for-install">Prepare Computer for Install</a></li>
-  <li><a href="#image-selection" id="toc-image-selection" class="nav-link" data-scroll-target="#image-selection">Image Selection</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link active" data-scroll-target="#pre-requisites">Pre-requisites</a></li>
+  <li><a href="#creating-a-new-document" id="toc-creating-a-new-document" class="nav-link" data-scroll-target="#creating-a-new-document">Creating a New Document</a></li>
+  <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition">Composition</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#miscellaneous-tips" id="toc-miscellaneous-tips" class="nav-link" data-scroll-target="#miscellaneous-tips">Miscellaneous Tips</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
   </ul>
 </nav>
     </div>
@@ -154,92 +188,75 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This post will guide you through the process of installing an Universal Blue image on a modern Desktop/Laptop.</p>
-<section id="what-is-universal-blue" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-universal-blue">What is Universal Blue</h2>
-<p><a href="https://universal-blue.org/">Universal Blue</a> is a project dedicated to providing Fedora Linux images that are easy to use and maintain. The images alleviate virtually all pain points of using a traditional Linux distribution, by enforcing Cloud Computing best practices on Personal Computing.</p>
-<ul>
-<li>reliable &amp; reversible updates.</li>
-<li>minimal junk file accumulation.</li>
-<li>sandboxed/containerized apps<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
-</ul>
-</section>
+<p>This tutorial will get you started with writing Quarto Documents and Presentations using RStudio</p>
 <section id="pre-requisites" class="level2">
 <h2 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
 <ul>
-<li><span id="usb">Empty USB flash drive</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
-<li><span id="target">x86_64 UEFI Computer</span> (aka target) with:
-<ul>
-<li><span id="internet">Ethernet/WiFi Internet Connection</span></li>
-<li><span id="storage">GPT formatted empty SSD/HDD connected</span> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
-</ul></li>
-<li><span id="base">Pre-existing Linux/Windows/MacOS Computer</span> (aka base)</li>
+<li>A Personal Computer.</li>
+<li><a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a></li>
+<li>Familiarity with Word Processors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
 </section>
-<section id="flash-the-flash-drive" class="level2">
-<h2 class="anchored" data-anchor-id="flash-the-flash-drive">Flash the flash drive</h2>
+<section id="creating-a-new-document" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-new-document">Creating a New Document</h2>
 <ul>
-<li>Plug the USB flash drive into the <a href="#base">base computer</a>.</li>
-<li>Head over to the <a href="https://github.com/ublue-os/main/releases/latest">Release Page</a> and download the <code>universalblue-##-x86_64-########.iso</code><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> file.</li>
-<li>Download <a href="https://etcher.balena.io/">Balena Etcher</a> program and run it.
-<ul>
-<li>Click the <code>Flash from file</code> button and select the <code>universalblue-##-x86_64-########.iso</code> file.</li>
-<li>Click the <code>Select target</code> button and select the USB flash drive.</li>
-<li>Flash!</li>
-</ul></li>
+<li>Open RStudio Desktop on the Computer.</li>
+<li>In the <strong>File</strong> menu, select <strong>New File</strong> &gt; <strong>Quarto Document</strong>.</li>
+<li>In the New Quarto Document dialog box, provide the Title and Author name of the Document. Let HTML be the output format, and toggle <strong>ON</strong> the Use visual markdown editor option.</li>
+<li>A new Quarto Document would be created, save it by clicking the Save button in RStudio toolbar<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
 </ul>
 </section>
-<section id="prepare-computer-for-install" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-computer-for-install">Prepare Computer for Install</h2>
+<section id="composition" class="level2">
+<h2 class="anchored" data-anchor-id="composition">Composition</h2>
 <ul>
-<li>Power off the <a href="#target">target computer</a></li>
-<li>Plug the <a href="#usb">flash drive</a> into the target computer.</li>
-<li>Turn on the target computer and watch carefully for instructions on which key to press. Usually a function key, Escape, Tab, F11, F12 or Delete is to be pressed to access the UEFI Firmware Settings. Press and hold that key<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</li>
-<li>In the UEFI Firmware Settings, navigate to the <strong>Boot</strong> section, and select <strong>Boot Order</strong> option<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</li>
-<li>A list of Bootable devices and Operating Systems would be shown. Follow on-screen directions and move the <a href="#usb">flash drive</a> to the top of the list.</li>
-<li>Navigate back to the UEFI Firmware Settings. Navigate to the Exit/Restart section and exit saving changes.</li>
-<li>The computer should reboot into the GRUB menu.</li>
+<li>Click the <strong>Render</strong> button in the Document toolbar, a preview webpage of the document would be displayed and refreshed.</li>
+<li>The beginning of the file would contain the Document and HTML format <a href="https://quarto.org/docs/reference/formats/html.html">metadata</a> such as Title, Author, Date, CSS theme, etc.</li>
+<li>In the document body, you may begin writing and format it afterwards.</li>
+<li>To format some text, select it. Click the desired formatting in the Document toolbar such as <strong>Bold</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, <em>Italic</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, <u>Underline</u>, <code>Code</code><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> etc.</li>
+<li>To set a line to be a heading/subheading, select it wholly and click Block Format &gt; <strong>Header #</strong> in the Document Toolbar.</li>
 </ul>
 </section>
-<section id="image-selection" class="level2">
-<h2 class="anchored" data-anchor-id="image-selection">Image Selection</h2>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
 <ul>
-<li>The GRUB menu will list the variant images of Universal Blue.
-<ul>
-<li><code>ublue-os/main</code> lists the various available user interfaces in a default configuration and Quality of Life fixes.
-<ul>
-<li>GNOME has a simple design and workflow.</li>
-<li>KDE is extremely configuration.</li>
-<li>XFCE is lightweight and configurable.</li>
-<li>Cinnamon is a simple windows-like.</li>
-<li>MATE is old-school.</li>
-<li>LXQt is very lightweight.</li>
-<li>Sway is Build-it-Yourself.</li>
-</ul></li>
-<li><code>ublue-os/nvidia</code> lists the same, but with support for NVIDIA GPUs.</li>
-<li><code>ublue-os/bluefin</code> lists Bluefin images, which are configured and curated by the Universal Blue community.</li>
-</ul></li>
-<li>Select the desired image from the menu, and begin the Anaconda installer.</li>
+<li><p>To embed Code cell/chunk in the Document, navigate to a new line.</p></li>
+<li><p>Select Insert &gt; <strong>Executable Cell</strong> &gt; language in the Document toolbar.</p></li>
+<li><p>A blank code cell would be created, any code written inside would be run during Document render.</p></li>
+<li><p>The code along with the output produced would displayed in the document. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">100000</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>u1 <span class="ot">=</span> <span class="fu">runif</span>(n)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>u2 <span class="ot">=</span> <span class="fu">runif</span>(n)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>z1 <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">log</span>(u1)) <span class="sc">*</span> <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> u2)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>z2 <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">log</span>(u1)) <span class="sc">*</span> <span class="fu">sin</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> u2)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">c</span>(z1, z2)))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="main_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div></li>
+<li><p>The code may be <a href="https://quarto.org/docs/output-formats/html-code.html#hiding-code">hidden</a> or <a href="https://quarto.org/docs/output-formats/html-code.html#folding-code">folded</a> too.</p></li>
 </ul>
 </section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<section id="miscellaneous-tips" class="level2">
+<h2 class="anchored" data-anchor-id="miscellaneous-tips">Miscellaneous Tips</h2>
 <ul>
-<li>Select the language for the installation.</li>
-<li>In the Installation Summary hub, select the various options. In the configuration page set the options as needed, and click the <strong>Done</strong> button.
+<li><p>Insert/create tables using the <strong>Table</strong> Document toolbar item.</p></li>
+<li><p>Embed links by selecting the hypertext and clicking the <strong>Link..</strong><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> button in toolbar. Provide the URL to open if the hypertext is clicked.</p></li>
+<li><p>Latex content may be inserted via the Insert &gt; <strong>Latex Math</strong> option.</p></li>
+</ul>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
 <ul>
-<li>Choose Keyboard Layout.</li>
-<li>Set Time Zone &amp; Date.</li>
-<li>Select the <a href="#storage">storage drive</a> in the Device Selection section.</li>
-<li>Set Storage Configuration to be Automatic.</li>
-<li>Connect to the <a href="#internet">Ethernet/WiFi</a>.</li>
-<li>Give the <a href="#target">target computer</a> a Hostname.</li>
-<li>Disable/Enable Root/Admin Account.</li>
-<li>Set up the User Account.</li>
-</ul></li>
-<li>Once satisfied with the configurations, click <strong>Begin Installation</strong>.</li>
-<li>Wait for the installer download the desired image, and finish the installation process. This may take several minutes<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</li>
-<li>Reboot the computer into the newly installed System.</li>
+<li><p><a href="https://quarto.org/">Quarto</a></p></li>
+<li><p><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">RMarkdown Syntax</a></p></li>
+<li><p><a href="https://posit.co/resources/cheatsheets/">Other Cheatsheets</a></p></li>
 </ul>
 
 
@@ -249,13 +266,12 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Only Flatpak/Appimage sandboxed, or Docker containerized applications are supported.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Kindly backup any important data, since the procedure will reformat the flash drive.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Backup any important data prior to the procedure, since the procedure will reformat the storage device.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p><code>#</code> denotes some digit.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>You may need to press the BIOS access key several times to enter UEFI Firmware Settings.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>The details on where the Boot Order options are located varies from computer to computer. The menu option or configuration item might be called Boot Options, Boot, Boot Order, etc. The option may even be located within a general menu like Advanced Options, Advanced UEFI Features, or Other Options.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>The progress bar during installation will start, but will not progress until towards the end of installation. Depending on the image size this might take a long time. This may appear as though the installation is stalled.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Using the toolbar/menubar, saving, formatting and other basic tasks.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Ctrl+S<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Ctrl+B<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Ctrl+I<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ctrl+D<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Ctrl+K<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

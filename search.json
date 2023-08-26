@@ -11,49 +11,49 @@
     "href": "blog/2023-ublue-getting-started/main.html",
     "title": "Getting Started with Universal Blue",
     "section": "",
-    "text": "This post will guide you through the process of installing an Universal Blue image on a modern Desktop/Laptop.\n\n\nUniversal Blue is a project dedicated to providing Fedora Linux images that are easy to use and maintain. The images alleviate virtually all pain points of using a traditional Linux distribution, by enforcing Cloud Computing best practices on Personal Computing.\n\nreliable & reversible updates.\nminimal junk file accumulation.\nsandboxed/containerized apps1.\n\n\n\n\n\nEmpty USB flash drive 2\nx86_64 UEFI Computer (aka target) with:\n\nEthernet/WiFi Internet Connection\nGPT formatted empty SSD/HDD connected 3\n\nPre-existing Linux/Windows/MacOS Computer (aka base)\n\n\n\n\n\nPlug the USB flash drive into the base computer.\nHead over to the Release Page and download the universalblue-##-x86_64-########.iso4 file.\nDownload Balena Etcher program and run it.\n\nClick the Flash from file button and select the universalblue-##-x86_64-########.iso file.\nClick the Select target button and select the USB flash drive.\nFlash!\n\n\n\n\n\n\nPower off the target computer\nPlug the flash drive into the target computer.\nTurn on the target computer and watch carefully for instructions on which key to press. Usually a function key, Escape, Tab, F11, F12 or Delete is to be pressed to access the UEFI Firmware Settings. Press and hold that key5.\nIn the UEFI Firmware Settings, navigate to the Boot section, and select Boot Order option6.\nA list of Bootable devices and Operating Systems would be shown. Follow on-screen directions and move the flash drive to the top of the list.\nNavigate back to the UEFI Firmware Settings. Navigate to the Exit/Restart section and exit saving changes.\nThe computer should reboot into the GRUB menu.\n\n\n\n\n\nThe GRUB menu will list the variant images of Universal Blue.\n\nublue-os/main lists the various available user interfaces in a default configuration and Quality of Life fixes.\n\nGNOME has a simple design and workflow.\nKDE is extremely configuration.\nXFCE is lightweight and configurable.\nCinnamon is a simple windows-like.\nMATE is old-school.\nLXQt is very lightweight.\nSway is Build-it-Yourself.\n\nublue-os/nvidia lists the same, but with support for NVIDIA GPUs.\nublue-os/bluefin lists Bluefin images, which are configured and curated by the Universal Blue community.\n\nSelect the desired image from the menu, and begin the Anaconda installer.\n\n\n\n\n\nSelect the language for the installation.\nIn the Installation Summary hub, select the various options. In the configuration page set the options as needed, and click the Done button.\n\nChoose Keyboard Layout.\nSet Time Zone & Date.\nSelect the storage drive in the Device Selection section.\nSet Storage Configuration to be Automatic.\nConnect to the Ethernet/WiFi.\nGive the target computer a Hostname.\nDisable/Enable Root/Admin Account.\nSet up the User Account.\n\nOnce satisfied with the configurations, click Begin Installation.\nWait for the installer download the desired image, and finish the installation process. This may take several minutes7.\nReboot the computer into the newly installed System."
+    "text": "This post will guide you through the process of installing an Universal Blue image on a modern Desktop/Laptop."
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#what-is-universal-blue",
     "href": "blog/2023-ublue-getting-started/main.html#what-is-universal-blue",
     "title": "Getting Started with Universal Blue",
-    "section": "",
-    "text": "Universal Blue is a project dedicated to providing Fedora Linux images that are easy to use and maintain. The images alleviate virtually all pain points of using a traditional Linux distribution, by enforcing Cloud Computing best practices on Personal Computing.\n\nreliable & reversible updates.\nminimal junk file accumulation.\nsandboxed/containerized apps1."
+    "section": "What is Universal Blue",
+    "text": "What is Universal Blue\nUniversal Blue is a project dedicated to providing Fedora Linux images that are easy to use and maintain. The images alleviate virtually all pain points of using a traditional Linux distribution, by enforcing Cloud Computing best practices on Personal Computing.\n\nreliable & reversible updates.\nminimal junk file accumulation.\nsandboxed/containerized apps1."
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#pre-requisites",
     "href": "blog/2023-ublue-getting-started/main.html#pre-requisites",
     "title": "Getting Started with Universal Blue",
-    "section": "",
-    "text": "Empty USB flash drive 2\nx86_64 UEFI Computer (aka target) with:\n\nEthernet/WiFi Internet Connection\nGPT formatted empty SSD/HDD connected 3\n\nPre-existing Linux/Windows/MacOS Computer (aka base)"
+    "section": "Pre-requisites",
+    "text": "Pre-requisites\n\nEmpty USB flash drive 2\nx86_64 UEFI Computer (aka target) with:\n\nEthernet/WiFi Internet Connection\nGPT formatted empty SSD/HDD connected 3\n\nPre-existing Linux/Windows/MacOS Computer (aka base)"
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#flash-the-flash-drive",
     "href": "blog/2023-ublue-getting-started/main.html#flash-the-flash-drive",
     "title": "Getting Started with Universal Blue",
-    "section": "",
-    "text": "Plug the USB flash drive into the base computer.\nHead over to the Release Page and download the universalblue-##-x86_64-########.iso4 file.\nDownload Balena Etcher program and run it.\n\nClick the Flash from file button and select the universalblue-##-x86_64-########.iso file.\nClick the Select target button and select the USB flash drive.\nFlash!"
+    "section": "Flash the flash drive",
+    "text": "Flash the flash drive\n\nPlug the USB flash drive into the base computer.\nHead over to the Release Page and download the universalblue-##-x86_64-########.iso4 file.\nDownload Balena Etcher program and run it.\n\nClick the Flash from file button and select the universalblue-##-x86_64-########.iso file.\nClick the Select target button and select the USB flash drive.\nFlash!"
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#prepare-computer-for-install",
     "href": "blog/2023-ublue-getting-started/main.html#prepare-computer-for-install",
     "title": "Getting Started with Universal Blue",
-    "section": "",
-    "text": "Power off the target computer\nPlug the flash drive into the target computer.\nTurn on the target computer and watch carefully for instructions on which key to press. Usually a function key, Escape, Tab, F11, F12 or Delete is to be pressed to access the UEFI Firmware Settings. Press and hold that key5.\nIn the UEFI Firmware Settings, navigate to the Boot section, and select Boot Order option6.\nA list of Bootable devices and Operating Systems would be shown. Follow on-screen directions and move the flash drive to the top of the list.\nNavigate back to the UEFI Firmware Settings. Navigate to the Exit/Restart section and exit saving changes.\nThe computer should reboot into the GRUB menu."
+    "section": "Prepare Computer for Install",
+    "text": "Prepare Computer for Install\n\nPower off the target computer\nPlug the flash drive into the target computer.\nTurn on the target computer and watch carefully for instructions on which key to press. Usually a function key, Escape, Tab, F11, F12 or Delete is to be pressed to access the UEFI Firmware Settings. Press and hold that key5.\nIn the UEFI Firmware Settings, navigate to the Boot section, and select Boot Order option6.\nA list of Bootable devices and Operating Systems would be shown. Follow on-screen directions and move the flash drive to the top of the list.\nNavigate back to the UEFI Firmware Settings. Navigate to the Exit/Restart section and exit saving changes.\nThe computer should reboot into the GRUB menu."
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#image-selection",
     "href": "blog/2023-ublue-getting-started/main.html#image-selection",
     "title": "Getting Started with Universal Blue",
-    "section": "",
-    "text": "The GRUB menu will list the variant images of Universal Blue.\n\nublue-os/main lists the various available user interfaces in a default configuration and Quality of Life fixes.\n\nGNOME has a simple design and workflow.\nKDE is extremely configuration.\nXFCE is lightweight and configurable.\nCinnamon is a simple windows-like.\nMATE is old-school.\nLXQt is very lightweight.\nSway is Build-it-Yourself.\n\nublue-os/nvidia lists the same, but with support for NVIDIA GPUs.\nublue-os/bluefin lists Bluefin images, which are configured and curated by the Universal Blue community.\n\nSelect the desired image from the menu, and begin the Anaconda installer."
+    "section": "Image Selection",
+    "text": "Image Selection\n\nThe GRUB menu will list the variant images of Universal Blue.\n\nublue-os/main lists the various available user interfaces in a default configuration and Quality of Life fixes.\n\nGNOME has a simple design and workflow.\nKDE is extremely configuration.\nXFCE is lightweight and configurable.\nCinnamon is a simple windows-like.\nMATE is old-school.\nLXQt is very lightweight.\nSway is Build-it-Yourself.\n\nublue-os/nvidia lists the same, but with support for NVIDIA GPUs.\nublue-os/bluefin lists Bluefin images, which are configured and curated by the Universal Blue community.\n\nSelect the desired image from the menu, and begin the Anaconda installer."
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#installation",
     "href": "blog/2023-ublue-getting-started/main.html#installation",
     "title": "Getting Started with Universal Blue",
-    "section": "",
-    "text": "Select the language for the installation.\nIn the Installation Summary hub, select the various options. In the configuration page set the options as needed, and click the Done button.\n\nChoose Keyboard Layout.\nSet Time Zone & Date.\nSelect the storage drive in the Device Selection section.\nSet Storage Configuration to be Automatic.\nConnect to the Ethernet/WiFi.\nGive the target computer a Hostname.\nDisable/Enable Root/Admin Account.\nSet up the User Account.\n\nOnce satisfied with the configurations, click Begin Installation.\nWait for the installer download the desired image, and finish the installation process. This may take several minutes7.\nReboot the computer into the newly installed System."
+    "section": "Installation",
+    "text": "Installation\n\nSelect the language for the installation.\nIn the Installation Summary hub, select the various options. In the configuration page set the options as needed, and click the Done button.\n\nChoose Keyboard Layout.\nSet Time Zone & Date.\nSelect the storage drive in the Device Selection section.\nSet Storage Configuration to be Automatic.\nConnect to the Ethernet/WiFi.\nGive the target computer a Hostname.\nDisable/Enable Root/Admin Account.\nSet up the User Account.\n\nOnce satisfied with the configurations, click Begin Installation.\nWait for the installer download the desired image, and finish the installation process. This may take several minutes7.\nReboot the computer into the newly installed System."
   },
   {
     "objectID": "blog/2023-ublue-getting-started/main.html#footnotes",
@@ -63,102 +63,60 @@
     "text": "Footnotes\n\n\nOnly Flatpak/Appimage sandboxed, or Docker containerized applications are supported.↩︎\nKindly backup any important data, since the procedure will reformat the flash drive.↩︎\nBackup any important data prior to the procedure, since the procedure will reformat the storage device.↩︎\n# denotes some digit.↩︎\nYou may need to press the BIOS access key several times to enter UEFI Firmware Settings.↩︎\nThe details on where the Boot Order options are located varies from computer to computer. The menu option or configuration item might be called Boot Options, Boot, Boot Order, etc. The option may even be located within a general menu like Advanced Options, Advanced UEFI Features, or Other Options.↩︎\nThe progress bar during installation will start, but will not progress until towards the end of installation. Depending on the image size this might take a long time. This may appear as though the installation is stalled.↩︎"
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html",
-    "title": "Semester 1 Midsem Project",
+    "objectID": "blog/2023-quarto-article/main.html",
+    "href": "blog/2023-quarto-article/main.html",
+    "title": "Efficient Writing with Quarto",
     "section": "",
-    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
+    "text": "This tutorial will get you started with writing Quarto Documents and Presentations using RStudio"
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#overview",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#overview",
-    "title": "Semester 1 Midsem Project",
-    "section": "",
-    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
+    "objectID": "blog/2023-quarto-article/main.html#pre-requisites",
+    "href": "blog/2023-quarto-article/main.html#pre-requisites",
+    "title": "Efficient Writing with Quarto",
+    "section": "Pre-requisites",
+    "text": "Pre-requisites\n\nA Personal Computer.\nRStudio Desktop\nFamiliarity with Word Processors.1"
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#data",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#data",
-    "title": "Semester 1 Midsem Project",
-    "section": "Data",
-    "text": "Data\nData sourced from UNESCO Institute of Statistics via https://www.gapminder.org/data/ under CC-BY-4.0 License.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\nX1970\nX1971\nX1972\nX1973\nX1974\nX1975\nX1976\nX1977\n\n\n\n\nAruba\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAfghanistan\nNA\nNA\nNA\nNA\n16.7\nNA\nNA\n17.9\n\n\nAngola\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAlbania\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nUnited Arab Emirates\nNA\nNA\nNA\nNA\n39.5\n41.7\n49.5\n56.8\n\n\nArgentina\n71\n71.8\nNA\nNA\n75.6\n78.9\n78.6\nNA\n\n\n\n\n\n\nInferences\n\nData is continuous in nature.\nA lot of data is missing. Bulgaria and Morocco have low missing data, thus we analyze these countries."
+    "objectID": "blog/2023-quarto-article/main.html#creating-a-new-document",
+    "href": "blog/2023-quarto-article/main.html#creating-a-new-document",
+    "title": "Efficient Writing with Quarto",
+    "section": "Creating a New Document",
+    "text": "Creating a New Document\n\nOpen RStudio Desktop on the Computer.\nIn the File menu, select New File &gt; Quarto Document.\nIn the New Quarto Document dialog box, provide the Title and Author name of the Document. Let HTML be the output format, and toggle ON the Use visual markdown editor option.\nA new Quarto Document would be created, save it by clicking the Save button in RStudio toolbar2."
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#importing-dataset",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#importing-dataset",
-    "title": "Semester 1 Midsem Project",
-    "section": "Importing Dataset",
-    "text": "Importing Dataset\n\nlibrary(\"psych\")\nlibrary(\"moments\")\nlibrary(\"knitr\")\nrate_data = read.csv(\"./Data/primary_completion_rate.csv\")\nrate_bgr = as.numeric(rate_data[016, 7:47])\nrate_mar = as.numeric(rate_data[110, 7:47])"
+    "objectID": "blog/2023-quarto-article/main.html#composition",
+    "href": "blog/2023-quarto-article/main.html#composition",
+    "title": "Efficient Writing with Quarto",
+    "section": "Composition",
+    "text": "Composition\n\nClick the Render button in the Document toolbar, a preview webpage of the document would be displayed and refreshed.\nThe beginning of the file would contain the Document and HTML format metadata such as Title, Author, Date, CSS theme, etc.\nIn the document body, you may begin writing and format it afterwards.\nTo format some text, select it. Click the desired formatting in the Document toolbar such as Bold3, Italic4, Underline, Code5 etc.\nTo set a line to be a heading/subheading, select it wholly and click Block Format &gt; Header # in the Document Toolbar."
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#summary-measures",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#summary-measures",
-    "title": "Semester 1 Midsem Project",
-    "section": "Summary Measures",
-    "text": "Summary Measures\n\nbgr = as.vector(summary(rate_bgr))\nmar = as.vector(summary(rate_mar))\nbrief = data.frame(\n  Measure = c(\n  \"Minimum\", \"1st Quuartile\", \"Median\", \"Mean\", \"3rd Quartile\", \"Maximum\",\n  \"Geometric Mean\", \"Harmonic Mean\", \"Mode\",\n  \"Range\", \"IQR\"),\n  Bulgaria = c(bgr,\n    geometric.mean(rate_bgr),\n    harmonic.mean(rate_bgr),\n    colnames(t(sort(table(rate_bgr), decreasing=TRUE)))[1],\n    bgr[6]-bgr[1], IQR(rate_bgr)),\n  Morocco = c(mar,\n    geometric.mean(rate_mar),\n    harmonic.mean(rate_mar),\n    colnames(t(sort(table(rate_mar), decreasing=TRUE)))[1],\n    mar[6]-mar[1], IQR(rate_mar)))\nkable(brief)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nMinimum\n86\n28.9\n\n\n1st Quuartile\n93.8\n46.4\n\n\nMedian\n98\n53.8\n\n\nMean\n97.5390243902439\n59.8292682926829\n\n\n3rd Quartile\n101\n78.8\n\n\nMaximum\n113\n98\n\n\nGeometric Mean\n97.3595997113863\n56.8341293287218\n\n\nHarmonic Mean\n97.1812794418763\n54.0355310609177\n\n\nMode\n102\n96.3\n\n\nRange\n27\n69.1\n\n\nIQR\n7.2\n32.4\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nMedian: Relatively high, compared to Morocco.\nMean: Close to Median, indicating symmetrical distribution.\nThe Range and IQR: Small, data points lie close to the mean.\n\nMorocco:\n\nMedian: Relatively Low, compared to Bulgaria.\nMean: Significantly higher than Median, indicating positive skew.\nThe Range and IQR: Large, data points are dispersed far from the mean."
+    "objectID": "blog/2023-quarto-article/main.html#code",
+    "href": "blog/2023-quarto-article/main.html#code",
+    "title": "Efficient Writing with Quarto",
+    "section": "Code",
+    "text": "Code\n\nTo embed Code cell/chunk in the Document, navigate to a new line.\nSelect Insert &gt; Executable Cell &gt; language in the Document toolbar.\nA blank code cell would be created, any code written inside would be run during Document render.\nThe code along with the output produced would displayed in the document. For example:\n```{r}\n\nn = 100000\n\nu1 = runif(n)\nu2 = runif(n)\n\nz1 = sqrt(-2*log(u1)) * cos(2 * pi * u2)\nz2 = sqrt(-2*log(u1)) * sin(2 * pi * u2)\n\nplot(density(c(z1, z2)))\n```\n\n\n\n\n\nThe code may be hidden or folded too."
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#quantiles",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#quantiles",
-    "title": "Semester 1 Midsem Project",
-    "section": "Quantiles",
-    "text": "Quantiles\n\nQuartile\n\nquartiles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.25, 0.75, 0.25)),\n  Morocco = quantile(rate_mar, probs = seq(0.25, 0.75, 0.25)))\nkable(quartiles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n25%\n93.8\n46.4\n\n\n50%\n98.0\n53.8\n\n\n75%\n101.0\n78.8\n\n\n\n\n\n\n\nDeciles\n\ndeciles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.1, 0.9, 0.1)),\n  Morocco = quantile(rate_mar, probs = seq(0.1, 0.9, 0.1)))\nkable(deciles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n10%\n89.2\n40.0\n\n\n20%\n93.3\n45.8\n\n\n30%\n94.5\n47.2\n\n\n40%\n96.2\n49.6\n\n\n50%\n98.0\n53.8\n\n\n60%\n99.1\n58.2\n\n\n70%\n100.0\n66.8\n\n\n80%\n102.0\n81.7\n\n\n90%\n103.0\n89.4"
+    "objectID": "blog/2023-quarto-article/main.html#miscellaneous-tips",
+    "href": "blog/2023-quarto-article/main.html#miscellaneous-tips",
+    "title": "Efficient Writing with Quarto",
+    "section": "Miscellaneous Tips",
+    "text": "Miscellaneous Tips\n\nInsert/create tables using the Table Document toolbar item.\nEmbed links by selecting the hypertext and clicking the Link..6 button in toolbar. Provide the URL to open if the hypertext is clicked.\nLatex content may be inserted via the Insert &gt; Latex Math option."
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#measures-of-dispersion",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#measures-of-dispersion",
-    "title": "Semester 1 Midsem Project",
-    "section": "Measures of Dispersion",
-    "text": "Measures of Dispersion\n\ndispersion = data.frame(Measure = c(\"Variance\", \"Standard Deviation\",\n  \"Skewness\", \"Kurtosis\"),\n  Bulgaria = c(var(rate_bgr), sd(rate_bgr),\n    skewness(rate_bgr), kurtosis(rate_bgr)),\n  Morocco = c(var(rate_mar), sd(rate_mar),\n    skewness(rate_mar), kurtosis(rate_mar)))\nkable(dispersion)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nVariance\n36.1359390\n385.7681220\n\n\nStandard Deviation\n6.0113176\n19.6409807\n\n\nSkewness\n0.2962488\n0.5800912\n\n\nKurtosis\n3.2336766\n2.1783983\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nVariation: Low, data points are generally clustered close to the mean.\nSkewness: Positively Skewed.\nKurtosis: Leptokurtic, as greater than 3.\n\nMorocco:\n\nVariation: High, data points generally lie away from Mean.\nSkewness: Positively Skewed.\nKurtosis: Platykurtic, as less than 3."
+    "objectID": "blog/2023-quarto-article/main.html#further-reading",
+    "href": "blog/2023-quarto-article/main.html#further-reading",
+    "title": "Efficient Writing with Quarto",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nQuarto\nRMarkdown Syntax\nOther Cheatsheets"
   },
   {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#moments",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#moments",
-    "title": "Semester 1 Midsem Project",
-    "section": "Moments",
-    "text": "Moments\n\nmoments = data.frame(\n  Moment_Number = seq(1,6),\n  Bulgaria = all.moments(rate_bgr, order.max = 6,\n              central = TRUE)[2:7],\n  Morocco = all.moments(rate_mar, order.max = 6,\n              central = TRUE)[2:7])\nkable(moments, digits = 32)\n\n\n\n\nMoment_Number\nBulgaria\nMorocco\n\n\n\n\n1\n6.932124e-15\n9.531671e-16\n\n\n2\n3.525457e+01\n3.763591e+02\n\n\n3\n6.201258e+01\n4.235454e+03\n\n\n4\n4.019088e+03\n3.085618e+05\n\n\n5\n2.350716e+04\n6.232667e+06\n\n\n6\n6.507629e+05\n3.308025e+08"
-  },
-  {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#line-graph",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#line-graph",
-    "title": "Semester 1 Midsem Project",
-    "section": "Line Graph",
-    "text": "Line Graph\nWe can observe the trend in Primary Education Completion rate over time.\n\nplot(rate_bgr, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark green\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlines(rate_mar, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph Morocco\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark red\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlegend(\n  \"bottomright\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"),lty = c(1, 1))"
-  },
-  {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#inferences-3",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#inferences-3",
-    "title": "Semester 1 Midsem Project",
-    "section": "Inferences",
-    "text": "Inferences\n\nBulgaria\n\nConsistent Primary Completion Rate over time.\nNo apparent outliers.\n\nMorocco\n\nPositive progress in Primary Completion rate over time.\nNo apparent outliers."
-  },
-  {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#histogram",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#histogram",
-    "title": "Semester 1 Midsem Project",
-    "section": "Histogram",
-    "text": "Histogram\nWe can observe the difference in location and spread of the datasets.\n\npar(mfrow=c(1,2))\nplot(hist(rate_bgr,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Bulgaria\", xlab = \"Primary Completion Rate\",\n     col = \"dark green\")\nplot(hist(rate_mar,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Morocco\", xlab = \"Primary Completion Rate\",\n     col = \"dark red\")"
-  },
-  {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#density-function",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#density-function",
-    "title": "Semester 1 Midsem Project",
-    "section": "Density Function",
-    "text": "Density Function\n\nplot(density(rate_bgr), main = \"Density Graph\",\n     xlab = \"Primary Completion Rate\",\n     xlim = c(20, 120), col = \"dark green\")\nlines(density(rate_mar), col = \"dark red\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))"
-  },
-  {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#box-plot",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#box-plot",
-    "title": "Semester 1 Midsem Project",
-    "section": "Box Plot",
-    "text": "Box Plot\n\nboxplot(rate_bgr, rate_mar, main = \"Box Plot\",\n     ylab = \"Primary Completion Rate\",\n     names = c(\"Bulgaria\", \"Morocco\"),\n     col = c(\"dark green\", \"dark red\"))\n\n\n\n\n\nInferences\n\nBulgaria:\n\nRange: Data points limited in 85 to 115 range.\nIQR: Very small IQR.\nMode: Unimodal distribution with high density at mode.\nMedian: slightly above middle of IQR, indicating negative skew amongst data in the IQR.\nOutlier: one potential outlier detected above standard threshold. Ignore as small IQR.\n\nMorocco:\n\nRange: Data points are dispersed over 25 to 100 range.\nMode: Bimodal distribution with a global maxima and a local maxima.\nMedian: very close to 1st Quartile, indicating positive skew in the distribution.\nOutlier: no potential outliers detected."
-  },
-  {
-    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#cumulative-distribution-function",
-    "href": "blog/2022-sem1-midsem-stat-project/main.html#cumulative-distribution-function",
-    "title": "Semester 1 Midsem Project",
-    "section": "Cumulative Distribution Function",
-    "text": "Cumulative Distribution Function\n\nplot(ecdf(rate_bgr), xlim = c(20, 120), col = \"dark green\",\n     verticals = TRUE, do.points = FALSE,\n     main = \"Cumulative Distribution Function\",\n     xlab = \"Primary Completion Rate\", ylab = \"\")\nlines(ecdf(rate_mar), col = \"dark red\",\n    verticals = TRUE, do.points = FALSE,\n    xlab = \"Primary Completion Rate\", ylab = \"\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))\n\n\n\n\n\nInferences\n\nBulgaria: The CDF is very steep between 90 and 105, indicating high density.\nMorocco: The CDF is steep around 45 and 80, indicating bimodal distribution."
+    "objectID": "blog/2023-quarto-article/main.html#footnotes",
+    "href": "blog/2023-quarto-article/main.html#footnotes",
+    "title": "Efficient Writing with Quarto",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nUsing the toolbar/menubar, saving, formatting and other basic tasks.↩︎\nCtrl+S↩︎\nCtrl+B↩︎\nCtrl+I↩︎\nCtrl+D↩︎\nCtrl+K↩︎"
   },
   {
     "objectID": "blog/2022-sem1-endsem-stat-project/PPT_Reveal.html#overview",
@@ -322,6 +280,104 @@
     "text": "Notable Countries\nSome countries had alarmingly low Life Expectancies:\n\nThe countries like the Central African Republic, Zimbabwe have very low life expectancies due to endemic poverty and weak governance, contributing to a dire health situation.\nHaiti had a high child mortality rate in 2010 due to natural disasters and cholera outbreaks. This caused low Life expectancy for that year.\n\n\n\n\n\n\n\nCountries like Mozambique, Lesotho are experiencing increasing double burden of diseases characterized by an increase in the burden of non-communicable diseases as well as a high burden of communicable diseases.\nAlso countries like Eswatini, Zambia also have a low life expectancy due to the outbreak of HIV."
   },
   {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html",
+    "title": "Semester 1 Midsem Project",
+    "section": "",
+    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#overview",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#overview",
+    "title": "Semester 1 Midsem Project",
+    "section": "",
+    "text": "This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#data",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#data",
+    "title": "Semester 1 Midsem Project",
+    "section": "Data",
+    "text": "Data\nData sourced from UNESCO Institute of Statistics via https://www.gapminder.org/data/ under CC-BY-4.0 License.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\nX1970\nX1971\nX1972\nX1973\nX1974\nX1975\nX1976\nX1977\n\n\n\n\nAruba\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAfghanistan\nNA\nNA\nNA\nNA\n16.7\nNA\nNA\n17.9\n\n\nAngola\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nAlbania\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nUnited Arab Emirates\nNA\nNA\nNA\nNA\n39.5\n41.7\n49.5\n56.8\n\n\nArgentina\n71\n71.8\nNA\nNA\n75.6\n78.9\n78.6\nNA\n\n\n\n\n\n\nInferences\n\nData is continuous in nature.\nA lot of data is missing. Bulgaria and Morocco have low missing data, thus we analyze these countries."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#importing-dataset",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#importing-dataset",
+    "title": "Semester 1 Midsem Project",
+    "section": "Importing Dataset",
+    "text": "Importing Dataset\n\nlibrary(\"psych\")\nlibrary(\"moments\")\nlibrary(\"knitr\")\nrate_data = read.csv(\"./Data/primary_completion_rate.csv\")\nrate_bgr = as.numeric(rate_data[016, 7:47])\nrate_mar = as.numeric(rate_data[110, 7:47])"
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#summary-measures",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#summary-measures",
+    "title": "Semester 1 Midsem Project",
+    "section": "Summary Measures",
+    "text": "Summary Measures\n\nbgr = as.vector(summary(rate_bgr))\nmar = as.vector(summary(rate_mar))\nbrief = data.frame(\n  Measure = c(\n  \"Minimum\", \"1st Quuartile\", \"Median\", \"Mean\", \"3rd Quartile\", \"Maximum\",\n  \"Geometric Mean\", \"Harmonic Mean\", \"Mode\",\n  \"Range\", \"IQR\"),\n  Bulgaria = c(bgr,\n    geometric.mean(rate_bgr),\n    harmonic.mean(rate_bgr),\n    colnames(t(sort(table(rate_bgr), decreasing=TRUE)))[1],\n    bgr[6]-bgr[1], IQR(rate_bgr)),\n  Morocco = c(mar,\n    geometric.mean(rate_mar),\n    harmonic.mean(rate_mar),\n    colnames(t(sort(table(rate_mar), decreasing=TRUE)))[1],\n    mar[6]-mar[1], IQR(rate_mar)))\nkable(brief)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nMinimum\n86\n28.9\n\n\n1st Quuartile\n93.8\n46.4\n\n\nMedian\n98\n53.8\n\n\nMean\n97.5390243902439\n59.8292682926829\n\n\n3rd Quartile\n101\n78.8\n\n\nMaximum\n113\n98\n\n\nGeometric Mean\n97.3595997113863\n56.8341293287218\n\n\nHarmonic Mean\n97.1812794418763\n54.0355310609177\n\n\nMode\n102\n96.3\n\n\nRange\n27\n69.1\n\n\nIQR\n7.2\n32.4\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nMedian: Relatively high, compared to Morocco.\nMean: Close to Median, indicating symmetrical distribution.\nThe Range and IQR: Small, data points lie close to the mean.\n\nMorocco:\n\nMedian: Relatively Low, compared to Bulgaria.\nMean: Significantly higher than Median, indicating positive skew.\nThe Range and IQR: Large, data points are dispersed far from the mean."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#quantiles",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#quantiles",
+    "title": "Semester 1 Midsem Project",
+    "section": "Quantiles",
+    "text": "Quantiles\n\nQuartile\n\nquartiles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.25, 0.75, 0.25)),\n  Morocco = quantile(rate_mar, probs = seq(0.25, 0.75, 0.25)))\nkable(quartiles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n25%\n93.8\n46.4\n\n\n50%\n98.0\n53.8\n\n\n75%\n101.0\n78.8\n\n\n\n\n\n\n\nDeciles\n\ndeciles = data.frame(\n  Bulgaria = quantile(rate_bgr, probs = seq(0.1, 0.9, 0.1)),\n  Morocco = quantile(rate_mar, probs = seq(0.1, 0.9, 0.1)))\nkable(deciles)\n\n\n\n\n\nBulgaria\nMorocco\n\n\n\n\n10%\n89.2\n40.0\n\n\n20%\n93.3\n45.8\n\n\n30%\n94.5\n47.2\n\n\n40%\n96.2\n49.6\n\n\n50%\n98.0\n53.8\n\n\n60%\n99.1\n58.2\n\n\n70%\n100.0\n66.8\n\n\n80%\n102.0\n81.7\n\n\n90%\n103.0\n89.4"
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#measures-of-dispersion",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#measures-of-dispersion",
+    "title": "Semester 1 Midsem Project",
+    "section": "Measures of Dispersion",
+    "text": "Measures of Dispersion\n\ndispersion = data.frame(Measure = c(\"Variance\", \"Standard Deviation\",\n  \"Skewness\", \"Kurtosis\"),\n  Bulgaria = c(var(rate_bgr), sd(rate_bgr),\n    skewness(rate_bgr), kurtosis(rate_bgr)),\n  Morocco = c(var(rate_mar), sd(rate_mar),\n    skewness(rate_mar), kurtosis(rate_mar)))\nkable(dispersion)\n\n\n\n\nMeasure\nBulgaria\nMorocco\n\n\n\n\nVariance\n36.1359390\n385.7681220\n\n\nStandard Deviation\n6.0113176\n19.6409807\n\n\nSkewness\n0.2962488\n0.5800912\n\n\nKurtosis\n3.2336766\n2.1783983\n\n\n\n\n\n\nInferences\n\nBulgaria:\n\nVariation: Low, data points are generally clustered close to the mean.\nSkewness: Positively Skewed.\nKurtosis: Leptokurtic, as greater than 3.\n\nMorocco:\n\nVariation: High, data points generally lie away from Mean.\nSkewness: Positively Skewed.\nKurtosis: Platykurtic, as less than 3."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#moments",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#moments",
+    "title": "Semester 1 Midsem Project",
+    "section": "Moments",
+    "text": "Moments\n\nmoments = data.frame(\n  Moment_Number = seq(1,6),\n  Bulgaria = all.moments(rate_bgr, order.max = 6,\n              central = TRUE)[2:7],\n  Morocco = all.moments(rate_mar, order.max = 6,\n              central = TRUE)[2:7])\nkable(moments, digits = 32)\n\n\n\n\nMoment_Number\nBulgaria\nMorocco\n\n\n\n\n1\n6.932124e-15\n9.531671e-16\n\n\n2\n3.525457e+01\n3.763591e+02\n\n\n3\n6.201258e+01\n4.235454e+03\n\n\n4\n4.019088e+03\n3.085618e+05\n\n\n5\n2.350716e+04\n6.232667e+06\n\n\n6\n6.507629e+05\n3.308025e+08"
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#line-graph",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#line-graph",
+    "title": "Semester 1 Midsem Project",
+    "section": "Line Graph",
+    "text": "Line Graph\nWe can observe the trend in Primary Education Completion rate over time.\n\nplot(rate_bgr, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark green\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlines(rate_mar, type = \"o\", xaxt = \"n\",\n     ylim = c(1, 120), main = \"Line Graph Morocco\",\n     xlab = \"Year\", ylab = \"Primary Completion Rate\",\n     col = \"dark red\")\naxis(1, at = 1:41, labels = seq(1975, 2015))\nlegend(\n  \"bottomright\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"),lty = c(1, 1))"
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#inferences-3",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#inferences-3",
+    "title": "Semester 1 Midsem Project",
+    "section": "Inferences",
+    "text": "Inferences\n\nBulgaria\n\nConsistent Primary Completion Rate over time.\nNo apparent outliers.\n\nMorocco\n\nPositive progress in Primary Completion rate over time.\nNo apparent outliers."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#histogram",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#histogram",
+    "title": "Semester 1 Midsem Project",
+    "section": "Histogram",
+    "text": "Histogram\nWe can observe the difference in location and spread of the datasets.\n\npar(mfrow=c(1,2))\nplot(hist(rate_bgr,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Bulgaria\", xlab = \"Primary Completion Rate\",\n     col = \"dark green\")\nplot(hist(rate_mar,\n     breaks = seq(20, 120, by = 5), plot = FALSE),\n     main = \"Histogram Morocco\", xlab = \"Primary Completion Rate\",\n     col = \"dark red\")"
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#density-function",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#density-function",
+    "title": "Semester 1 Midsem Project",
+    "section": "Density Function",
+    "text": "Density Function\n\nplot(density(rate_bgr), main = \"Density Graph\",\n     xlab = \"Primary Completion Rate\",\n     xlim = c(20, 120), col = \"dark green\")\nlines(density(rate_mar), col = \"dark red\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))"
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#box-plot",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#box-plot",
+    "title": "Semester 1 Midsem Project",
+    "section": "Box Plot",
+    "text": "Box Plot\n\nboxplot(rate_bgr, rate_mar, main = \"Box Plot\",\n     ylab = \"Primary Completion Rate\",\n     names = c(\"Bulgaria\", \"Morocco\"),\n     col = c(\"dark green\", \"dark red\"))\n\n\n\n\n\nInferences\n\nBulgaria:\n\nRange: Data points limited in 85 to 115 range.\nIQR: Very small IQR.\nMode: Unimodal distribution with high density at mode.\nMedian: slightly above middle of IQR, indicating negative skew amongst data in the IQR.\nOutlier: one potential outlier detected above standard threshold. Ignore as small IQR.\n\nMorocco:\n\nRange: Data points are dispersed over 25 to 100 range.\nMode: Bimodal distribution with a global maxima and a local maxima.\nMedian: very close to 1st Quartile, indicating positive skew in the distribution.\nOutlier: no potential outliers detected."
+  },
+  {
+    "objectID": "blog/2022-sem1-midsem-stat-project/main.html#cumulative-distribution-function",
+    "href": "blog/2022-sem1-midsem-stat-project/main.html#cumulative-distribution-function",
+    "title": "Semester 1 Midsem Project",
+    "section": "Cumulative Distribution Function",
+    "text": "Cumulative Distribution Function\n\nplot(ecdf(rate_bgr), xlim = c(20, 120), col = \"dark green\",\n     verticals = TRUE, do.points = FALSE,\n     main = \"Cumulative Distribution Function\",\n     xlab = \"Primary Completion Rate\", ylab = \"\")\nlines(ecdf(rate_mar), col = \"dark red\",\n    verticals = TRUE, do.points = FALSE,\n    xlab = \"Primary Completion Rate\", ylab = \"\")\nlegend(\"topleft\", legend = c(\"Bulgaria\", \"Morocco\"),\n  col = c(\"dark green\", \"dark red\"), lty = c(1, 1))\n\n\n\n\n\nInferences\n\nBulgaria: The CDF is very steep between 90 and 105, indicating high density.\nMorocco: The CDF is steep around 45 and 80, indicating bimodal distribution."
+  },
+  {
     "objectID": "blog/2023-sem2-midsem-stat-project/DOC_html.html",
     "href": "blog/2023-sem2-midsem-stat-project/DOC_html.html",
     "title": "Semester 2 Midsem Project",
@@ -410,6 +466,6 @@
     "href": "blog/index.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nGetting Started with Universal Blue\n\n\nPreparation and Installation\n\n\n\n\ntutorial\n\n\nlinux\n\n\n\n\n\n\n\n\n\n\n\nAug 25, 2023\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 2 Midsem Project\n\n\nMultivariate Analysis on Foreign Tourist Visits to India\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nMay 7, 2023\n\n\n9 min\n\n\n\n\n\n\n  \n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\n21 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 1 Midsem Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2022\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nEfficient Writing with Quarto\n\n\nAuthor Quarto articles with RStudio\n\n\n\n\ntutorial\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nAug 26, 2023\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nGetting Started with Universal Blue\n\n\nPreparation and Installation\n\n\n\n\ntutorial\n\n\nlinux\n\n\n\n\n\n\n\n\n\n\n\nAug 25, 2023\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 2 Midsem Project\n\n\nMultivariate Analysis on Foreign Tourist Visits to India\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nMay 7, 2023\n\n\n9 min\n\n\n\n\n\n\n  \n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\n21 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 1 Midsem Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2022\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -11,6 +11,11 @@ website:
   favicon: "_assets/avatar/avatar-gradient-round.webp"
   description: "Aman Das' Personal Website"
   site-url: https://aman9das.github.io/
+  repo-url: https://github.com/Aman9das/Aman9das.github.io
+  repo-actions:
+    - source
+    - issue
+  twitter-card: true
   navbar:
     right:
       - text: Blog
@@ -38,5 +43,3 @@ format:
 
 execute:
   freeze: auto
-
-editor: visual

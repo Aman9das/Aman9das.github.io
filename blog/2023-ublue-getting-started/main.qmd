@@ -7,17 +7,15 @@ image: "ublue_framework.png"
 categories: [tutorial, linux]
 ---
 
-# Getting started with Universal Blue
-
 This post will guide you through the process of installing an Universal Blue image on a modern Desktop/Laptop.
 
 ## What is Universal Blue
 
 [Universal Blue](https://universal-blue.org/) is a project dedicated to providing Fedora Linux images that are easy to use and maintain. The images alleviate virtually all pain points of using a traditional Linux distribution, by enforcing Cloud Computing best practices on Personal Computing.
 
-- reliable & reversible updates.
-- minimal junk file accumulation.
-- sandboxed/containerized apps[^1].
+-   reliable & reversible updates.
+-   minimal junk file accumulation.
+-   sandboxed/containerized apps[^1].
 
 [^1]: Only Flatpak/Appimage sandboxed, or Docker containerized applications are supported.
 

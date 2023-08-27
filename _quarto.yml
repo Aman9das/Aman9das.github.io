@@ -3,8 +3,8 @@ project:
   render:
     - "*.qmd"
     - "*.md"
-    - "blog/**/*.qmd"
-    - "blog/**/*.md"
+    - "blog/**/*.*md"
+    - "colophon/*.*md"
 
 website:
   title: "aman9das"
@@ -19,18 +19,14 @@ website:
   navbar:
     right:
       - text: Blog
-        href: blog/index.qmd
+        href: blog/
   page-footer:
     left:
-      - text: Built with Quarto
-        href: https://quarto.org
+      - text: Made with 🩵
+        href: colophon/
     right:
       - icon: rss
         href: blog/index.xml
-      - icon: github
-        href: https://github.com/Aman9das/
-      - icon: mastodon
-        href: https://fosstodon.org/@Aman9das
     
 format:
   html:

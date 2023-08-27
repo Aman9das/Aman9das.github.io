@@ -14,7 +14,7 @@
 <item>
   <title>Efficient Writing with Quarto</title>
   <dc:creator>Aman Das</dc:creator>
-  <link>https://aman9das.github.io/blog/2023-quarto-article/main.html</link>
+  <link>https://aman9das.github.io/blog/2023-quarto-article/index.html</link>
   <description><![CDATA[ 
 
 
@@ -135,7 +135,7 @@ background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-quarto-article/main_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-quarto-article/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div></li>
 <li><p>The code may be <a href="https://quarto.org/docs/output-formats/html-code.html#hiding-code">hidden</a> or <a href="https://quarto.org/docs/output-formats/html-code.html#folding-code">folded</a> too.</p></li>
@@ -174,14 +174,14 @@ font-style: inherit;">```</span></span></code></pre></div>
 </section></div> ]]></description>
   <category>tutorial</category>
   <category>statistics</category>
-  <guid>https://aman9das.github.io/blog/2023-quarto-article/main.html</guid>
+  <guid>https://aman9das.github.io/blog/2023-quarto-article/index.html</guid>
   <pubDate>Sat, 26 Aug 2023 00:00:00 GMT</pubDate>
   <media:content url="https://aman9das.github.io/blog/2023-quarto-article/quarto-illustration.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Getting Started with Universal Blue</title>
   <dc:creator>Aman Das</dc:creator>
-  <link>https://aman9das.github.io/blog/2023-ublue-getting-started/main.html</link>
+  <link>https://aman9das.github.io/blog/2023-ublue-getting-started/index.html</link>
   <description><![CDATA[ 
 
 
@@ -293,7 +293,7 @@ font-style: inherit;">```</span></span></code></pre></div>
 </section></div> ]]></description>
   <category>tutorial</category>
   <category>linux</category>
-  <guid>https://aman9das.github.io/blog/2023-ublue-getting-started/main.html</guid>
+  <guid>https://aman9das.github.io/blog/2023-ublue-getting-started/index.html</guid>
   <pubDate>Fri, 25 Aug 2023 00:00:00 GMT</pubDate>
   <media:content url="https://aman9das.github.io/blog/2023-ublue-getting-started/ublue_framework.png" medium="image" type="image/png" height="126" width="144"/>
 </item>
@@ -302,7 +302,7 @@ font-style: inherit;">```</span></span></code></pre></div>
   <dc:creator>Aman Das [BS2206]</dc:creator>
   <dc:creator>Raj Pratap Singh [BS2219]</dc:creator>
   <dc:creator>Shreyansh Mukhopadhyay [BS2147]</dc:creator>
-  <link>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/DOC_html.html</link>
+  <link>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index.html</link>
   <description><![CDATA[ 
 
 
@@ -317,9 +317,7 @@ font-style: inherit;">```</span></span></code></pre></div>
 <section id="variables" class="level2">
 <h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <p>Along with the response variable Number of Foreign Tourist Arrivals in India, we have 14 other covariates as our predictor variables.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-2_8929d6822559a888c55296a4da45c29d">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_6c2794254d2d5b09720dbad2a7955bbc">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">description <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -368,16 +366,22 @@ font-style: inherit;">1</span>,]</span>
 <span id="cb1-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>(description)</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 58%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 26%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Region</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Unit</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Source</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Region</th>
+<th style="text-align: left;">Unit</th>
+<th style="text-align: left;">Source</th>
 </tr>
 </thead>
 <tbody>
@@ -488,17 +492,13 @@ font-style: inherit;">kable</span>(description)</span></code></pre></div>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </section>
 <section id="data" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <div class="column-screen-inset">
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-3_c3318fe01033a58321dcb2228e429b73">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_09aa144af011ea1f68691467a3b51e47">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">d <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -542,27 +542,44 @@ font-style: inherit;">data.frame</span>(d)</span>
 <span id="cb2-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>(d)</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indfortour</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">intpop</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">intfortour</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">hotelrev</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indpop</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indexport</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indimport</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indforinv</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indforres</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indpastra</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">stattourexp</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indtourexp</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">indcrim</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">inddep</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">forbankprof</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">indfortour</th>
+<th style="text-align: right;">intpop</th>
+<th style="text-align: right;">intfortour</th>
+<th style="text-align: right;">hotelrev</th>
+<th style="text-align: right;">indpop</th>
+<th style="text-align: right;">indexport</th>
+<th style="text-align: right;">indimport</th>
+<th style="text-align: right;">indforinv</th>
+<th style="text-align: right;">indforres</th>
+<th style="text-align: right;">indpastra</th>
+<th style="text-align: right;">stattourexp</th>
+<th style="text-align: right;">indtourexp</th>
+<th style="text-align: right;">indcrim</th>
+<th style="text-align: right;">inddep</th>
+<th style="text-align: right;">forbankprof</th>
 </tr>
 </thead>
 <tbody>
@@ -928,8 +945,6 @@ font-style: inherit;">kable</span>(d)</span></code></pre></div>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </div>
@@ -940,9 +955,7 @@ font-style: inherit;">kable</span>(d)</span></code></pre></div>
 <section id="time-series" class="level2">
 <h2 class="anchored" data-anchor-id="time-series">Time Series</h2>
 <p>As the observations are over time, we observe the general trend in the variables through time series plots.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-4_0219b9ec4eb9740f0bfee5a12265f1ec">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_cf331acf26b93bd8845ea2c33812963f">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">plots <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1001,9 +1014,8 @@ background-color: null;
 font-style: inherit;">ncol =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/main_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>As we can see, most covariates including <code>indfortour</code> tend to increase with time.</p>
@@ -1011,9 +1023,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <section id="box-plots" class="level2">
 <h2 class="anchored" data-anchor-id="box-plots">Box Plots</h2>
 <p>We try to detect outliers through box plots.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-5_ecd6ea7e8b8530f7c605010d2f77f615">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_1878ede9e1cf0db396e41ac2b3441d01">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">plots <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1090,9 +1100,8 @@ background-color: null;
 font-style: inherit;">ncol =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/main_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>There is only one potential outlier in <code>indtourexp</code>. But previous time series plot shows it is not an anomaly.</p>
@@ -1100,9 +1109,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <section id="correlation" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
 <p>Computed correlations and partial correlations with respect to <code>indfortour</code>.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-6_cf96fc72c8cbb8e19af549b2c56e3ab2">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_125575b6e3f8fc26bd06a5f749bd2874">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">pcorr <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1217,14 +1224,13 @@ background-color: null;
 font-style: inherit;">"Partial Correlation"</span></span>
 <span id="cb5-21">  )</span>
 <span id="cb5-22">)</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Correlation</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Partial Correlation</th>
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Correlation</th>
+<th style="text-align: right;">Partial Correlation</th>
 </tr>
 </thead>
 <tbody>
@@ -1300,19 +1306,14 @@ font-style: inherit;">"Partial Correlation"</span></span>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p><strong>Correlation Matrix</strong></p>
 <div class="column-screen-inset">
-<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="main_cache/html/unnamed-chunk-7_9fc36178f14a4687dd77007be75fc466">
-<details>
-<summary>Code</summary>
+<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="index_cache/html/unnamed-chunk-7_28eaf0cbad0815adb26c78d52d95d286">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cor</span>(d)</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 year indfortour    intpop intfortour  hotelrev    indpop indexport indimport indforinv indforres indpastra stattourexp indtourexp   indcrim    inddep forbankprof
 year        1.0000000  0.9845696 0.9999087  0.9834454 0.9792756 0.9991224 0.9528133 0.9378670 0.7401516 0.9875388 0.9854118   0.9630997  0.8899158 0.9268277 0.9885726   0.9686062
@@ -1346,9 +1347,7 @@ forbankprof 0.9686062  0.9402061 0.9683597  0.9402730 0.9305096 0.9679262 0.9533
 <section id="ordinary-least-squares-model" class="level2">
 <h2 class="anchored" data-anchor-id="ordinary-least-squares-model">Ordinary Least Squares Model</h2>
 <p>Initial Model using all the predictors.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-8_8a0ab1b1be10411892e9ff28057555e7">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_01c937404545cd2a4333fce5f9e1f78e">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">model1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1386,7 +1385,6 @@ font-style: inherit;">+</span>forbankprof,</span>
 <span id="cb8-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(model1)</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1429,9 +1427,7 @@ F-statistic: 442.6 on 13 and 6 DF,  p-value: 7.774e-08</code></pre>
 </ul>
 <section id="model-plot" class="level3">
 <h3 class="anchored" data-anchor-id="model-plot">Model Plot</h3>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-9_99a73080f71e802aea173da7625f6207">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_33b9c58eaed65ae6014b0a11b295c25c">
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">p0 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
@@ -1522,9 +1518,8 @@ font-style: inherit;">color=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Prediction"</span>)</span>
 <span id="cb10-10">p0</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/main_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1533,9 +1528,7 @@ font-style: inherit;">"Prediction"</span>)</span>
 <h2 class="anchored" data-anchor-id="predictor-selection">Predictor Selection</h2>
 <p>We exhaustively fit all subsets of the predictors, and use the model with highest adjusted R² for each subset size.</p>
 <div class="column-screen-inset-right">
-<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="main_cache/html/unnamed-chunk-10_9713743f3731cdb08d4810d098c757fe">
-<details>
-<summary>Code</summary>
+<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="index_cache/html/unnamed-chunk-10_d49b58432bad7c1c18bda717e740881e">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">subsetfit <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1567,7 +1560,6 @@ font-style: inherit;">summary</span>(subsetfit)</span>
 <span id="cb11-3">summary_subsetfit<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>which</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   (Intercept) intpop intfortour hotelrev indpop indexport indimport indforinv indforres indpastra stattourexp indtourexp indcrim inddep forbankprof
 1         TRUE  FALSE      FALSE    FALSE  FALSE     FALSE     FALSE     FALSE     FALSE      TRUE       FALSE      FALSE   FALSE  FALSE       FALSE
@@ -1585,8 +1577,6 @@ font-style: inherit;">$</span>which</span></code></pre></div>
 13        TRUE   TRUE       TRUE    FALSE   TRUE      TRUE      TRUE      TRUE      TRUE      TRUE        TRUE       TRUE    TRUE   TRUE        TRUE
 14        TRUE   TRUE       TRUE     TRUE   TRUE      TRUE      TRUE      TRUE      TRUE      TRUE        TRUE       TRUE    TRUE   TRUE        TRUE</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">best_subsetsize <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1594,16 +1584,13 @@ background-color: null;
 font-style: inherit;">which.max</span>(summary_subsetfit<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>adjr2)</span></code></pre></div>
-</details>
 </div>
 </div>
 </section>
 <section id="selected-model-with-highest-adjusted-r²" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="selected-model-with-highest-adjusted-r²">Selected Model with highest adjusted R²</h2>
 <p>We find that highest adjusted R² is attained using 9 predictors.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-11_de188e8ecfee0f27967604872b009cac">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-11_f30835b9efff86c84a44301fcf739dee">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">model2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1632,7 +1619,6 @@ font-style: inherit;">+</span>forbankprof,</span>
 <span id="cb14-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(model2)</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1669,9 +1655,7 @@ F-statistic:  1013 on 9 and 10 DF,  p-value: 1.345e-13</code></pre>
 </ul>
 <p><strong>Correlation Matrix</strong></p>
 <div class="column-screen-inset-right">
-<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="main_cache/html/unnamed-chunk-12_975d0f4be562fc4d3c772f187ab3615d">
-<details>
-<summary>Code</summary>
+<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="index_cache/html/unnamed-chunk-12_95841287f0c5e75ae61b7705cf7a0be2">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cor</span>(d[,<span class="fu" style="color: #4758AB;
@@ -1698,7 +1682,6 @@ background-color: null;
 font-style: inherit;">"inddep"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"forbankprof"</span>)])</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            indfortour    intpop intfortour indexport indimport indpastra indtourexp   indcrim    inddep forbankprof
 indfortour   1.0000000 0.9859420  0.9927588 0.9118314 0.8928863 0.9955932  0.9120386 0.9409528 0.9856463   0.9402061
@@ -1719,9 +1702,7 @@ forbankprof  0.9402061 0.9683597  0.9402730 0.9533926 0.9424746 0.9510034  0.838
 </ul>
 <section id="model-plot-1" class="level3">
 <h3 class="anchored" data-anchor-id="model-plot-1">Model Plot</h3>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-13_a8aa944adb9e499f5ca8443904f637a5">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_5d3f156015490405e284dd3e0a17f52c">
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">p1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
@@ -1812,9 +1793,8 @@ font-style: inherit;">color=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Prediction"</span>)</span>
 <span id="cb18-10">p1</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/main_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1822,9 +1802,7 @@ font-style: inherit;">"Prediction"</span>)</span>
 <section id="selected-model-with-best-p-value" class="level2">
 <h2 class="anchored" data-anchor-id="selected-model-with-best-p-value">Selected Model with best p-value</h2>
 <p>We find that best p-value significance is attained using 4 predictors.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-14_72cb6215324012528ffb737465c6b5e3">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-14_a67d4c367c157efb9148254c726620d2">
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">model3 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1842,7 +1820,6 @@ font-style: inherit;">+</span>indpastra,</span>
 <span id="cb19-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(model3)</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1873,9 +1850,7 @@ F-statistic:  1592 on 4 and 15 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>The R² value is very high using a small subset of the predictors.</li>
 </ul>
 <p><strong>Correlation Matrix</strong></p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-15_bd918ef1c5bfac01a354867d92abe7e3">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-15_b4ac2b22adb3f192ea3dae2952e2503a">
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cor</span>(d[,<span class="fu" style="color: #4758AB;
@@ -1892,7 +1867,6 @@ font-style: inherit;">"indimport"</span>,</span>
 <span id="cb21-2">          <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"indpastra"</span>)])</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           indfortour    intpop intfortour indimport indpastra
 indfortour  1.0000000 0.9859420  0.9927588 0.8928863 0.9955932
@@ -1903,9 +1877,7 @@ indpastra   0.9955932 0.9867042  0.9879517 0.9148673 1.0000000</code></pre>
 </div>
 </div>
 <p><strong>Partial Correlation Matrix</strong></p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-16_209b7e9ba873234f8ab016e7dcad9e20">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-16_896e22316ad15160997fd1db6bdf7423">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pcor</span>(d[,<span class="fu" style="color: #4758AB;
@@ -1922,7 +1894,6 @@ font-style: inherit;">"indimport"</span>,</span>
 <span id="cb23-2">          <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"indpastra"</span>)])</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$estimate
            indfortour      intpop  intfortour  indimport  indpastra
@@ -1960,9 +1931,7 @@ $method
 </div>
 <section id="model-plot-2" class="level3">
 <h3 class="anchored" data-anchor-id="model-plot-2">Model Plot</h3>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-17_6a3260764fddcfa0447bed3b1e98ff65">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-17_1c26577837f757d7313a69cdf5e3ef9e">
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">p2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
@@ -2053,9 +2022,8 @@ font-style: inherit;">color=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Prediction"</span>)</span>
 <span id="cb25-10">p2</span></code></pre></div>
-</details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/main_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -2063,9 +2031,7 @@ font-style: inherit;">"Prediction"</span>)</span>
 <section id="quantile-regression-model" class="level2">
 <h2 class="anchored" data-anchor-id="quantile-regression-model">Quantile Regression Model</h2>
 <p>We use 5 selected predictors for the quantile regression model for the median.</p>
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-18_bf31d2d5addfd7d659fe9c23403eafbf">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-18_6fc4ee093a55aa31d73d491c233cac9c">
 <div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">model4 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -2089,7 +2055,6 @@ font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> d)</span>
 <span id="cb26-3">model4</span></code></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
 rq(formula = indfortour ~ indexport + indpop + indtourexp + indcrim + 
@@ -2111,9 +2076,7 @@ Degrees of freedom: 20 total; 14 residual</code></pre>
 <p>We want to test our models in the situation that two predictors are absent - indtourexp and indcrim as these are very important variables, but difficult to accurately measure.</p>
 <p>Model 1 is the model involving all predictors. Model 2 is the model with highest adjusted R².</p>
 <div class="column-page-inset">
-<div class="cell" data-hash="main_cache/html/unnamed-chunk-19_2c9532084bb3adfcbb3e87ae5089e5cb">
-<details>
-<summary>Code</summary>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-19_b23547cf0aca712cc4d744ee54355638">
 <div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">data <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -2504,7 +2467,6 @@ background-color: null;
 font-style: inherit;">width =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"6cm"</span>)</span></code></pre></div>
-</details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -2522,33 +2484,33 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
 <td style="text-align: right; width: 6cm;">2000</td>
 <td style="text-align: right; width: 6cm;">2638813</td>
 <td style="text-align: right; width: 6cm;">2520774</td>
-<td style="text-align: right; width: 6cm;">3311619</td>
+<td style="text-align: right; width: 6cm;">3295994</td>
 <td style="text-align: right; width: 6cm;">2498458</td>
-<td style="text-align: right; width: 6cm;">3382988</td>
+<td style="text-align: right; width: 6cm;">3336317</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; width: 6cm;">2001</td>
 <td style="text-align: right; width: 6cm;">2537282</td>
 <td style="text-align: right; width: 6cm;">2550759</td>
-<td style="text-align: right; width: 6cm;">3368601</td>
+<td style="text-align: right; width: 6cm;">3373776</td>
 <td style="text-align: right; width: 6cm;">2546721</td>
-<td style="text-align: right; width: 6cm;">3446149</td>
+<td style="text-align: right; width: 6cm;">3479479</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; width: 6cm;">2006</td>
 <td style="text-align: right; width: 6cm;">4447167</td>
 <td style="text-align: right; width: 6cm;">4500597</td>
-<td style="text-align: right; width: 6cm;">5006725</td>
+<td style="text-align: right; width: 6cm;">5001610</td>
 <td style="text-align: right; width: 6cm;">4487057</td>
-<td style="text-align: right; width: 6cm;">5098607</td>
+<td style="text-align: right; width: 6cm;">5082307</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; width: 6cm;">2014</td>
 <td style="text-align: right; width: 6cm;">7679099</td>
 <td style="text-align: right; width: 6cm;">7810983</td>
-<td style="text-align: right; width: 6cm;">7467800</td>
+<td style="text-align: right; width: 6cm;">7509642</td>
 <td style="text-align: right; width: 6cm;">7802343</td>
-<td style="text-align: right; width: 6cm;">7372813</td>
+<td style="text-align: right; width: 6cm;">7409336</td>
 </tr>
 </tbody>
 </table>
@@ -2574,9 +2536,9 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
  ]]></description>
   <category>project</category>
   <category>statistics</category>
-  <guid>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/DOC_html.html</guid>
+  <guid>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index.html</guid>
   <pubDate>Sun, 07 May 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/main_files/figure-html/unnamed-chunk-13-1.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-13-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title></title>
@@ -2589,12 +2551,12 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
   <category>statistics</category>
   <guid>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/PPT_Reveal.html</guid>
   <pubDate>Mon, 05 Dec 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/main_files/figure-revealjs/unnamed-chunk-3-1.png" medium="image" type="image/png" height="86" width="144"/>
+  <media:content url="https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/index_files/figure-revealjs/unnamed-chunk-3-1.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
   <title>Semester 1 Midsem Project</title>
   <dc:creator>Aman Das</dc:creator>
-  <link>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main.html</link>
+  <link>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index.html</link>
   <description><![CDATA[ 
 
 
@@ -3529,7 +3491,7 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -3637,7 +3599,7 @@ font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"dark red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
+<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 </section>
@@ -3711,7 +3673,7 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p style="page-break-before: always">
@@ -3750,7 +3712,7 @@ font-style: inherit;">"dark green"</span>, <span class="st" style="color: #20794
 background-color: null;
 font-style: inherit;">"dark red"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="inferences-4" class="level3">
@@ -3876,7 +3838,7 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="inferences-5" class="level3">
@@ -3899,7 +3861,7 @@ font-style: inherit;">1</span>))</span></code></pre></div>
  ]]></description>
   <category>project</category>
   <category>statistics</category>
-  <guid>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main.html</guid>
+  <guid>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index.html</guid>
   <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
 </item>
 </channel>

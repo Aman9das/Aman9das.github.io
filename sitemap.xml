@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://aman9das.github.io/colophon/gpl-3.0.html</loc>
+    <lastmod>2023-08-27T21:08:24.848Z</lastmod>
+  </url>
+  <url>
     <loc>https://aman9das.github.io/index.html</loc>
-    <lastmod>2023-08-26T15:54:41.206Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/blog/2023-ublue-getting-started/main.html</loc>
-    <lastmod>2023-08-26T15:54:40.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/blog/2023-quarto-article/main.html</loc>
-    <lastmod>2023-08-26T15:54:37.898Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/PPT_Reveal.html</loc>
-    <lastmod>2023-08-26T15:54:35.718Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/main.html</loc>
-    <lastmod>2023-08-26T15:54:37.442Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/DOC_html.html</loc>
-    <lastmod>2023-08-26T15:54:39.598Z</lastmod>
+    <lastmod>2023-08-27T21:08:22.308Z</lastmod>
   </url>
   <url>
     <loc>https://aman9das.github.io/blog/index.html</loc>
-    <lastmod>2023-08-26T15:54:40.894Z</lastmod>
+    <lastmod>2023-08-27T21:08:21.616Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index.html</loc>
+    <lastmod>2023-08-27T21:08:20.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index.html</loc>
+    <lastmod>2023-08-27T21:08:17.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/PPT_Reveal.html</loc>
+    <lastmod>2023-08-27T21:08:16.128Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/2023-quarto-article/index.html</loc>
+    <lastmod>2023-08-27T21:08:18.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/blog/2023-ublue-getting-started/index.html</loc>
+    <lastmod>2023-08-27T21:08:20.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/colophon/index.html</loc>
+    <lastmod>2023-08-27T21:08:21.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aman9das.github.io/colophon/fdl-1.3.html</loc>
+    <lastmod>2023-08-27T21:08:23.364Z</lastmod>
   </url>
 </urlset>

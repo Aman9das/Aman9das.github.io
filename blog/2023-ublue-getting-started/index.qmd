@@ -1,0 +1,92 @@
+---
+title: "Getting Started with Universal Blue"
+subtitle: "Preparation and Installation"
+author: "Aman Das"
+date: "2023-8-25"
+image: "ublue_framework.png"
+categories: [tutorial, linux]
+aliases: 
+  - main.html
+---
+
+This post will guide you through the process of installing an Universal Blue image on a modern Desktop/Laptop.
+
+## What is Universal Blue
+
+[Universal Blue](https://universal-blue.org/) is a project dedicated to providing Fedora Linux images that are easy to use and maintain. The images alleviate virtually all pain points of using a traditional Linux distribution, by enforcing Cloud Computing best practices on Personal Computing.
+
+-   reliable & reversible updates.
+-   minimal junk file accumulation.
+-   sandboxed/containerized apps[^1].
+
+[^1]: Only Flatpak/Appimage sandboxed, or Docker containerized applications are supported.
+
+## Pre-requisites
+
+-   [Empty USB flash drive]{#usb} [^2]
+-   [x86_64 UEFI Computer]{#target} (aka target) with:
+    -   [Ethernet/WiFi Internet Connection]{#internet}
+    -   [GPT formatted empty SSD/HDD connected]{#storage} [^3]
+-   [Pre-existing Linux/Windows/MacOS Computer]{#base} (aka base)
+
+[^2]: Kindly backup any important data, since the procedure will reformat the flash drive.
+
+[^3]: Backup any important data prior to the procedure, since the procedure will reformat the storage device.
+
+## Flash the flash drive
+
+-   Plug the USB flash drive into the [base computer](#base).
+-   Head over to the [Release Page](https://github.com/ublue-os/main/releases/latest) and download the `universalblue-##-x86_64-########.iso`[^4] file.
+-   Download [Balena Etcher](https://etcher.balena.io/) program and run it.
+    -   Click the `Flash from file` button and select the `universalblue-##-x86_64-########.iso` file.
+    -   Click the `Select target` button and select the USB flash drive.
+    -   Flash!
+
+[^4]: `#` denotes some digit.
+
+## Prepare Computer for Install
+
+-   Power off the [target computer](#target)
+-   Plug the [flash drive](#usb) into the target computer.
+-   Turn on the target computer and watch carefully for instructions on which key to press. Usually a function key, Escape, Tab, F11, F12 or Delete is to be pressed to access the UEFI Firmware Settings. Press and hold that key[^5].
+-   In the UEFI Firmware Settings, navigate to the **Boot** section, and select **Boot Order** option[^6].
+-   A list of Bootable devices and Operating Systems would be shown. Follow on-screen directions and move the [flash drive](#usb) to the top of the list.
+-   Navigate back to the UEFI Firmware Settings. Navigate to the Exit/Restart section and exit saving changes.
+-   The computer should reboot into the GRUB menu.
+
+[^5]: You may need to press the BIOS access key several times to enter UEFI Firmware Settings.
+
+[^6]: The details on where the Boot Order options are located varies from computer to computer. The menu option or configuration item might be called Boot Options, Boot, Boot Order, etc. The option may even be located within a general menu like Advanced Options, Advanced UEFI Features, or Other Options.
+
+## Image Selection
+
+-   The GRUB menu will list the variant images of Universal Blue.
+    -   `ublue-os/main` lists the various available user interfaces in a default configuration and Quality of Life fixes.
+        -   GNOME has a simple design and workflow.
+        -   KDE is extremely configuration.
+        -   XFCE is lightweight and configurable.
+        -   Cinnamon is a simple windows-like.
+        -   MATE is old-school.
+        -   LXQt is very lightweight.
+        -   Sway is Build-it-Yourself.
+    -   `ublue-os/nvidia` lists the same, but with support for NVIDIA GPUs.
+    -   `ublue-os/bluefin` lists Bluefin images, which are configured and curated by the Universal Blue community.
+-   Select the desired image from the menu, and begin the Anaconda installer.
+
+## Installation
+
+-   Select the language for the installation.
+-   In the Installation Summary hub, select the various options. In the configuration page set the options as needed, and click the **Done** button.
+    -   Choose Keyboard Layout.
+    -   Set Time Zone & Date.
+    -   Select the [storage drive](#storage) in the Device Selection section.
+    -   Set Storage Configuration to be Automatic.
+    -   Connect to the [Ethernet/WiFi](#internet).
+    -   Give the [target computer](#target) a Hostname.
+    -   Disable/Enable Root/Admin Account.
+    -   Set up the User Account.
+-   Once satisfied with the configurations, click **Begin Installation**.
+-   Wait for the installer download the desired image, and finish the installation process. This may take several minutes[^7].
+-   Reboot the computer into the newly installed System.
+
+[^7]: The progress bar during installation will start, but will not progress until towards the end of installation. Depending on the image size this might take a long time. This may appear as though the installation is stalled.

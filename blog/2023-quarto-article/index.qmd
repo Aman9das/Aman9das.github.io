@@ -1,0 +1,99 @@
+---
+title: Efficient Writing with Quarto
+subtitle: Author Quarto articles with RStudio
+author: Aman Das
+date: "2023-8-26"
+image: "quarto-illustration.png"
+categories: [tutorial, statistics]
+aliases: 
+  - main.html
+---
+
+This tutorial will get you started with writing Quarto Documents and Presentations using RStudio
+
+## Pre-requisites
+
+-   A Personal Computer.
+-   [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+-   Familiarity with Word Processors.[^1]
+
+[^1]: Using the toolbar/menubar, saving, formatting and other basic tasks.
+
+## Creating a New Document
+
+-   Open RStudio Desktop on the Computer.
+-   In the **File** menu, select **New File** \> **Quarto Document**.
+-   In the New Quarto Document dialog box, provide the Title and Author name of the Document. Let HTML be the output format, and toggle **ON** the Use visual markdown editor option.
+-   A new Quarto Document would be created, save it by clicking the Save button in RStudio toolbar[^2].
+
+[^2]: Ctrl+S
+
+## Composition
+
+-   Click the **Render** button in the Document toolbar, a preview webpage of the document would be displayed and refreshed.
+-   The beginning of the file would contain the Document and HTML format [metadata](https://quarto.org/docs/reference/formats/html.html) such as Title, Author, Date, CSS theme, etc.
+-   In the document body, you may begin writing and format it afterwards.
+-   To format some text, select it. Click the desired formatting in the Document toolbar such as **Bold**[^3], *Italic*[^4], [Underline]{.underline}, `Code`[^5] etc.
+-   To set a line to be a heading/subheading, select it wholly and click Block Format \> **Header \#** in the Document Toolbar.
+
+[^3]: Ctrl+B
+
+[^4]: Ctrl+I
+
+[^5]: Ctrl+D
+
+## Code
+
+-   To embed Code cell/chunk in the Document, navigate to a new line.
+
+-   Select Insert \> **Executable Cell** \> language in the Document toolbar.
+
+-   A blank code cell would be created, any code written inside would be run during Document render.
+
+-   The code along with the output produced would displayed in the document. For example:
+
+    ```{{r}}
+
+    n = 100000
+
+    u1 = runif(n)
+    u2 = runif(n)
+
+    z1 = sqrt(-2*log(u1)) * cos(2 * pi * u2)
+    z2 = sqrt(-2*log(u1)) * sin(2 * pi * u2)
+
+    plot(density(c(z1, z2)))
+    ```
+
+    ```{r echo=FALSE}
+
+    n = 100000
+
+    u1 = runif(n)
+    u2 = runif(n)
+
+    z1 = sqrt(-2*log(u1)) * cos(2 * pi * u2)
+    z2 = sqrt(-2*log(u1)) * sin(2 * pi * u2)
+
+    plot(density(c(z1, z2)))
+    ```
+
+-   The code may be [hidden](https://quarto.org/docs/output-formats/html-code.html#hiding-code) or [folded](https://quarto.org/docs/output-formats/html-code.html#folding-code) too.
+
+## Miscellaneous Tips
+
+-   Insert/create tables using the **Table** Document toolbar item.
+
+-   Embed links by selecting the hypertext and clicking the **Link..**[^6] button in toolbar. Provide the URL to open if the hypertext is clicked.
+
+-   Latex content may be inserted via the Insert \> **Latex Math** option.
+
+[^6]: Ctrl+K
+
+## Further Reading
+
+-   [Quarto](https://quarto.org/)
+
+-   [RMarkdown Syntax](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+-   [Other Cheatsheets](https://posit.co/resources/cheatsheets/)

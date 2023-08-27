@@ -1,0 +1,13 @@
+/* Light Image */
+[data-theme="light"] {
+    --image: url("https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-white.svg"");
+}
+
+/* Dark Colors */
+[data-theme="dark"] {
+     --image: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-gray.svg);
+}
+
+#image-div {
+   background: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-gray.svg);
+}

@@ -4,6 +4,9 @@ image: _assets/avatar/avatar-gradient-round.webp
 about:
   template: jolla
   links:
+    - icon: file-person-fill
+      text: Resume
+      href: resume/resume.pdf
     - icon: mastodon
       text: Mastodon
       href: https://fosstodon.org/@Aman9das

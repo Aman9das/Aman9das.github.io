@@ -13,7 +13,6 @@ format:
   revealjs:
     width: 1200
     height: 750
-    output-file: PPT_Reveal.html
     embed-resources: true
     theme: [default, custom.scss]
     highlight-style: gruvbox
@@ -33,7 +32,7 @@ execute:
   error: false
   cache: true
 aliases: 
-  - index.html
+  - PPT_Reveal.html
 ---
 
 ```{r include=FALSE}

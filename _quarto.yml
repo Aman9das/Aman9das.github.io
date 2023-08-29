@@ -5,6 +5,7 @@ project:
     - "*.md"
     - "blog/**/*.*md"
     - "colophon/*.*md"
+    - "resume/*.*md"
 
 website:
   title: "aman9das"

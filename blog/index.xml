@@ -10,7 +10,7 @@
 <atom:link href="https://aman9das.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman Das&#39; Personal Website</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sat, 26 Aug 2023 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 25 Aug 2023 18:30:00 GMT</lastBuildDate>
 <item>
   <title>Efficient Writing with Quarto</title>
   <dc:creator>Aman Das</dc:creator>
@@ -175,7 +175,7 @@ font-style: inherit;">```</span></span></code></pre></div>
   <category>tutorial</category>
   <category>statistics</category>
   <guid>https://aman9das.github.io/blog/2023-quarto-article/index.html</guid>
-  <pubDate>Sat, 26 Aug 2023 00:00:00 GMT</pubDate>
+  <pubDate>Fri, 25 Aug 2023 18:30:00 GMT</pubDate>
   <media:content url="https://aman9das.github.io/blog/2023-quarto-article/quarto-illustration.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
@@ -294,7 +294,7 @@ font-style: inherit;">```</span></span></code></pre></div>
   <category>tutorial</category>
   <category>linux</category>
   <guid>https://aman9das.github.io/blog/2023-ublue-getting-started/index.html</guid>
-  <pubDate>Fri, 25 Aug 2023 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 24 Aug 2023 18:30:00 GMT</pubDate>
   <media:content url="https://aman9das.github.io/blog/2023-ublue-getting-started/ublue_framework.png" medium="image" type="image/png" height="126" width="144"/>
 </item>
 <item>
@@ -2537,7 +2537,7 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
   <category>project</category>
   <category>statistics</category>
   <guid>https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index.html</guid>
-  <pubDate>Sun, 07 May 2023 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 06 May 2023 18:30:00 GMT</pubDate>
   <media:content url="https://aman9das.github.io/blog/2023-sem2-midsem-stat-project/index_files/figure-html/unnamed-chunk-13-1.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
@@ -2545,12 +2545,12 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
   <dc:creator>Aman Das</dc:creator>
   <dc:creator>Raj Pratap Singh</dc:creator>
   <dc:creator>Shreyansh Mukhopadhyay</dc:creator>
-  <link>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/PPT_Reveal.html</link>
+  <link>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/index.html</link>
   <description><![CDATA[ undefined ]]></description>
   <category>project</category>
   <category>statistics</category>
-  <guid>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/PPT_Reveal.html</guid>
-  <pubDate>Mon, 05 Dec 2022 00:00:00 GMT</pubDate>
+  <guid>https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/index.html</guid>
+  <pubDate>Sun, 04 Dec 2022 18:30:00 GMT</pubDate>
   <media:content url="https://aman9das.github.io/blog/2022-sem1-endsem-stat-project/index_files/figure-revealjs/unnamed-chunk-3-1.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
@@ -3862,7 +3862,7 @@ font-style: inherit;">1</span>))</span></code></pre></div>
   <category>project</category>
   <category>statistics</category>
   <guid>https://aman9das.github.io/blog/2022-sem1-midsem-stat-project/index.html</guid>
-  <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
+  <pubDate>Fri, 28 Oct 2022 18:30:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

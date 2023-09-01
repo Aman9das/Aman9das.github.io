@@ -1,0 +1,16 @@
+{
+  "hash": "ea40131ba08411e4fe096f143ce3bab2",
+  "result": {
+    "markdown": "---\ntitle: \"test\"\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\np\n```\n\n::: {.cell-output-display}\n![](test_files/figure-html/unnamed-chunk-2-1..light.svg){width=672}\n:::\n:::",
+    "supporting": [
+      "test_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,124 @@
+---
+title: "Geodesic Meter Computation"
+author: Aman Das
+date: 2023-8-29
+format: html
+code-fold: true
+---
+
+## Import dataset
+
+```{r}
+library(readODS)
+
+d1 = read_ods("geodata1.ods")
+d2 = read_ods("geodata2.ods")
+```
+
+## Standardization
+
+We standardize X and set Y to sin^2^θ and meter.
+
+```{r}
+radians = function(degree, minute = 0, second = 0){
+  ratiod = pi / 180
+  ratiom = ratiod / 60
+  ratios = ratiom / 60
+  res = degree * ratiod + minute * ratiom + second * ratios
+  return(res)
+}
+
+d1$lat = radians(d1$lat1, d1$lat2)
+d1$X = (sin(d1$lat))^2
+d1$Y = d1$arc * 6.39 * 0.3048
+
+d2$lat = radians(d2$L1, d2$L2, d2$L3)
+d2$arc = d2$S / d2$d
+d2$X = (sin(d2$lat))^2
+d2$Y = d2$arc * 12.78 * 0.3048
+```
+
+Out dataset looks like this at this point:
+
+```{r}
+d1
+d2
+```
+
+## Plot the data
+
+```{r}
+library(ggplot2)
+
+ggplot(d1, aes(x = X, y = Y))+
+  geom_point()+
+  labs(title = "Boscovich Data", )+xlab("sin²theta")+ylab("Arc Length")
+```
+
+```{r}
+ggplot(d2, aes(x = X, y = Y))+
+  geom_point()+
+  labs(title = "French Data", )+xlab("sin²theta")+ylab("Arc Length")
+```
+
+## Ordinary Least Squares Estimate
+
+Estimate the coefficient of sin²θ and Intercept using Least Squares Estimate. And Predict Meridian Length.
+
+```{r}
+estmerlen = function(coeff){ as.numeric( coeff[1]*90 + coeff[2]*45 ) }
+
+olsmodel1 = lm(formula=d1$Y~d1$X)
+cat( "Boscovich Data OLS estimate of Meridian Line length:",  estmerlen(olsmodel1$coefficients) )
+
+olsmodel2 = lm(formula=d2$Y~d2$X)
+cat( "French Data OLS estimate of Meridian Line length:",  estmerlen(olsmodel2$coefficients) )
+```
+
+## Least Absolute Deviation Estimation
+
+Estimate the coefficient of sin²θ and Intercept using Least Absolute Deviation. Elemental Lines were used to compute LAD. Predict Meridian Length.
+
+Elemental Lines are lines joining two data points in the Sample Space.
+
+```{r}
+ad = function(Y, X, a, b){
+  l = length(Y)
+  cumudevn = 0
+  for (i in seq(l)) {
+    devn = abs( Y[i] - a - b * X[i] )
+    cumudevn = cumudevn + devn
+  }
+  
+  return(cumudevn)
+}
+
+lad = function(Y, X){
+  l = length(Y)
+  labsdevn = sum( abs(Y - mean(Y)) )
+  coeff = c( mean(Y), 0)
+  for (i in seq(l-1)) {
+    for (j in seq(i+1, l)) {
+      b1 = (Y[j] - Y[i])/(X[j] - X[i])
+      b0 = (Y[i] - b1 * X[i])
+      absdevn = ad(Y, X, b0, b1)
+      if (labsdevn > absdevn) {
+        labsdevn = absdevn
+        coeff = c(b0, b1)
+      }
+    }
+  }
+  
+  return(coeff)
+}
+
+ladmodel1 = lad(d1$Y, d1$X)
+cat( "Boscovich Data LAD estimate of Meridian Line length:",  estmerlen(ladmodel1) )
+ladmodel2 = lad(d2$Y, d2$X)
+cat( "French Data LAD estimate of Meridian Line length:",  estmerlen(ladmodel2) )
+```
+
+## Conclusion
+
+Both OLS and LAD models predict the Meridian length to be close to ten million meters.
+Hence the meter as prescribed at the time, was close to the intended definition.

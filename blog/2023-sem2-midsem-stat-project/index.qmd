@@ -12,7 +12,6 @@ format: html
 execute:
   warning: false
   error: false
-  cache: true
 categories: [project, statistics]
 aliases: 
   - main.html

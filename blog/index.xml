@@ -10,7 +10,602 @@
 <atom:link href="https://aman9das.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman Das&#39; Personal Website</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Fri, 25 Aug 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 28 Aug 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Geodesic Meter Computation</title>
+  <dc:creator>Aman Das</dc:creator>
+  <link>https://aman9das.github.io/blog/2023-meridian-estimation-meter/main.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="import-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="import-dataset">Import dataset</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(readODS)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">d1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_ods</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"geodata1.ods"</span>)</span>
+<span id="cb1-4">d2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_ods</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"geodata2.ods"</span>)</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="standardization" class="level2">
+<h2 class="anchored" data-anchor-id="standardization">Standardization</h2>
+<p>We standardize X and set Y to sin<sup>2</sup>θ and meter.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">radians <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(degree, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">minute =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">second =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>){</span>
+<span id="cb2-2">  ratiod <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span></span>
+<span id="cb2-3">  ratiom <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> ratiod <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span></span>
+<span id="cb2-4">  ratios <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> ratiom <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span></span>
+<span id="cb2-5">  res <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> degree <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> ratiod <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> minute <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> ratiom <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> second <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> ratios</span>
+<span id="cb2-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(res)</span>
+<span id="cb2-7">}</span>
+<span id="cb2-8"></span>
+<span id="cb2-9">d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">radians</span>(d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lat1, d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lat2)</span>
+<span id="cb2-10">d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lat))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb2-11">d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>arc <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.39</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3048</span></span>
+<span id="cb2-12"></span>
+<span id="cb2-13">d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">radians</span>(d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>L1, d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>L2, d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>L3)</span>
+<span id="cb2-14">d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>arc <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>S <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>d</span>
+<span id="cb2-15">d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lat))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb2-16">d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>arc <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.78</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3048</span></span></code></pre></div>
+</details>
+</div>
+<p>Out dataset looks like this at this point:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">d1</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+   lat1  lat2   arc  sin2   lat     X       Y
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1     0     0 56751     0 0     0     110532.
+2    33    18 57037  3014 0.581 0.301 111089.
+3    42    59 56979  4648 0.750 0.465 110976.
+4    49    23 57074  5762 0.862 0.576 111161.
+5    66    19 57422  8386 1.16  0.839 111839.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">d2</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 9
+       S     d    L1    L2    L3   lat    arc     X       Y
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1 62473.  2.19    49    56    30 0.872 28538. 0.586 111165.
+2 76546.  2.67    47    30    46 0.829 28683. 0.544 111730.
+3 84425.  2.96    44    41    48 0.780 28489. 0.495 110976.
+4 52749.  1.85    42    17    20 0.738 28472. 0.453 110909.</code></pre>
+</div>
+</div>
+</section>
+<section id="plot-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb7-2"></span>
+<span id="cb7-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(d1, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> X, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Y))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Boscovich Data"</span>, )<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sin²theta"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Arc Length"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://aman9das.github.io/blog/2023-meridian-estimation-meter/main_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(d2, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> X, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Y))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"French Data"</span>, )<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sin²theta"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Arc Length"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://aman9das.github.io/blog/2023-meridian-estimation-meter/main_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="ordinary-least-squares-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="ordinary-least-squares-estimate">Ordinary Least Squares Estimate</h2>
+<p>Estimate the coefficient of sin²θ and Intercept using Least Squares Estimate. And Predict Meridian Length.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">estmerlen <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(coeff){ <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>( coeff[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> coeff[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span> ) }</span>
+<span id="cb9-2"></span>
+<span id="cb9-3">olsmodel1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">formula=</span>d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X)</span>
+<span id="cb9-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Boscovich Data OLS estimate of Meridian Line length:"</span>,  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">estmerlen</span>(olsmodel1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>coefficients) )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Boscovich Data OLS estimate of Meridian Line length: 10008879</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">olsmodel2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">formula=</span>d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X)</span>
+<span id="cb11-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"French Data OLS estimate of Meridian Line length:"</span>,  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">estmerlen</span>(olsmodel2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>coefficients) )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>French Data OLS estimate of Meridian Line length: 10001451</code></pre>
+</div>
+</div>
+</section>
+<section id="least-absolute-deviation-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="least-absolute-deviation-estimation">Least Absolute Deviation Estimation</h2>
+<p>Estimate the coefficient of sin²θ and Intercept using Least Absolute Deviation. Elemental Lines were used to compute LAD. Predict Meridian Length.</p>
+<p>Elemental Lines are lines joining two data points in the Sample Space.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">ad <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(Y, X, a, b){</span>
+<span id="cb13-2">  l <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(Y)</span>
+<span id="cb13-3">  cumudevn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb13-4">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(l)) {</span>
+<span id="cb13-5">    devn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abs</span>( Y[i] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> a <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> b <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> X[i] )</span>
+<span id="cb13-6">    cumudevn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> cumudevn <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> devn</span>
+<span id="cb13-7">  }</span>
+<span id="cb13-8">  </span>
+<span id="cb13-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(cumudevn)</span>
+<span id="cb13-10">}</span>
+<span id="cb13-11"></span>
+<span id="cb13-12">lad <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(Y, X){</span>
+<span id="cb13-13">  l <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(Y)</span>
+<span id="cb13-14">  labsdevn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>( <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abs</span>(Y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Y)) )</span>
+<span id="cb13-15">  coeff <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>( <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Y), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb13-16">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(l<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-1</span>)) {</span>
+<span id="cb13-17">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> (j <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(i<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, l)) {</span>
+<span id="cb13-18">      b1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> (Y[j] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Y[i])<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(X[j] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> X[i])</span>
+<span id="cb13-19">      b0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> (Y[i] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> b1 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> X[i])</span>
+<span id="cb13-20">      absdevn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ad</span>(Y, X, b0, b1)</span>
+<span id="cb13-21">      <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (labsdevn <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> absdevn) {</span>
+<span id="cb13-22">        labsdevn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> absdevn</span>
+<span id="cb13-23">        coeff <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(b0, b1)</span>
+<span id="cb13-24">      }</span>
+<span id="cb13-25">    }</span>
+<span id="cb13-26">  }</span>
+<span id="cb13-27">  </span>
+<span id="cb13-28">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(coeff)</span>
+<span id="cb13-29">}</span>
+<span id="cb13-30"></span>
+<span id="cb13-31">ladmodel1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lad</span>(d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y, d1<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X)</span>
+<span id="cb13-32"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Boscovich Data LAD estimate of Meridian Line length:"</span>,  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">estmerlen</span>(ladmodel1) )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Boscovich Data LAD estimate of Meridian Line length: 10018034</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">ladmodel2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lad</span>(d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y, d2<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X)</span>
+<span id="cb15-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"French Data LAD estimate of Meridian Line length:"</span>,  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">estmerlen</span>(ladmodel2) )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>French Data LAD estimate of Meridian Line length: 9990026</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Both OLS and LAD models predict the Meridian length to be close to ten million meters. Hence the meter as prescribed at the time, was close to the intended definition.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://aman9das.github.io/blog/2023-meridian-estimation-meter/main.html</guid>
+  <pubDate>Mon, 28 Aug 2023 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>Efficient Writing with Quarto</title>
   <dc:creator>Aman Das</dc:creator>
@@ -317,7 +912,7 @@ font-style: inherit;">```</span></span></code></pre></div>
 <section id="variables" class="level2">
 <h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <p>Along with the response variable Number of Foreign Tourist Arrivals in India, we have 14 other covariates as our predictor variables.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_6c2794254d2d5b09720dbad2a7955bbc">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">description <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -367,21 +962,14 @@ font-style: inherit;">1</span>,]</span>
 background-color: null;
 font-style: inherit;">kable</span>(description)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 58%">
-<col style="width: 3%">
-<col style="width: 5%">
-<col style="width: 26%">
-</colgroup>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: left;">Region</th>
-<th style="text-align: left;">Unit</th>
-<th style="text-align: left;">Source</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Region</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Unit</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Source</th>
 </tr>
 </thead>
 <tbody>
@@ -492,13 +1080,15 @@ font-style: inherit;">kable</span>(description)</span></code></pre></div>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 </section>
 <section id="data" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <div class="column-screen-inset">
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_09aa144af011ea1f68691467a3b51e47">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">d <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -543,43 +1133,25 @@ font-style: inherit;">data.frame</span>(d)</span>
 background-color: null;
 font-style: inherit;">kable</span>(d)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 3%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 6%">
-<col style="width: 4%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 7%">
-</colgroup>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">indfortour</th>
-<th style="text-align: right;">intpop</th>
-<th style="text-align: right;">intfortour</th>
-<th style="text-align: right;">hotelrev</th>
-<th style="text-align: right;">indpop</th>
-<th style="text-align: right;">indexport</th>
-<th style="text-align: right;">indimport</th>
-<th style="text-align: right;">indforinv</th>
-<th style="text-align: right;">indforres</th>
-<th style="text-align: right;">indpastra</th>
-<th style="text-align: right;">stattourexp</th>
-<th style="text-align: right;">indtourexp</th>
-<th style="text-align: right;">indcrim</th>
-<th style="text-align: right;">inddep</th>
-<th style="text-align: right;">forbankprof</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indfortour</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">intpop</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">intfortour</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">hotelrev</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indpop</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indexport</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indimport</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indforinv</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indforres</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indpastra</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">stattourexp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indtourexp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">indcrim</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">inddep</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">forbankprof</th>
 </tr>
 </thead>
 <tbody>
@@ -945,6 +1517,8 @@ font-style: inherit;">kable</span>(d)</span></code></pre></div>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 </div>
@@ -955,7 +1529,7 @@ font-style: inherit;">kable</span>(d)</span></code></pre></div>
 <section id="time-series" class="level2">
 <h2 class="anchored" data-anchor-id="time-series">Time Series</h2>
 <p>As the observations are over time, we observe the general trend in the variables through time series plots.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_cf331acf26b93bd8845ea2c33812963f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">plots <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1023,7 +1597,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <section id="box-plots" class="level2">
 <h2 class="anchored" data-anchor-id="box-plots">Box Plots</h2>
 <p>We try to detect outliers through box plots.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_1878ede9e1cf0db396e41ac2b3441d01">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">plots <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1109,7 +1683,7 @@ font-style: inherit;">3</span>)</span></code></pre></div>
 <section id="correlation" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
 <p>Computed correlations and partial correlations with respect to <code>indfortour</code>.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_125575b6e3f8fc26bd06a5f749bd2874">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">pcorr <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1225,12 +1799,12 @@ font-style: inherit;">"Partial Correlation"</span></span>
 <span id="cb5-21">  )</span>
 <span id="cb5-22">)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Correlation</th>
-<th style="text-align: right;">Partial Correlation</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Correlation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Partial Correlation</th>
 </tr>
 </thead>
 <tbody>
@@ -1306,11 +1880,13 @@ font-style: inherit;">"Partial Correlation"</span></span>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <p><strong>Correlation Matrix</strong></p>
 <div class="column-screen-inset">
-<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="index_cache/html/unnamed-chunk-7_28eaf0cbad0815adb26c78d52d95d286">
+<div class="cell" data-r.options="{&quot;width&quot;:200}">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cor</span>(d)</span></code></pre></div>
@@ -1347,7 +1923,7 @@ forbankprof 0.9686062  0.9402061 0.9683597  0.9402730 0.9305096 0.9679262 0.9533
 <section id="ordinary-least-squares-model" class="level2">
 <h2 class="anchored" data-anchor-id="ordinary-least-squares-model">Ordinary Least Squares Model</h2>
 <p>Initial Model using all the predictors.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_01c937404545cd2a4333fce5f9e1f78e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">model1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1427,7 +2003,7 @@ F-statistic: 442.6 on 13 and 6 DF,  p-value: 7.774e-08</code></pre>
 </ul>
 <section id="model-plot" class="level3">
 <h3 class="anchored" data-anchor-id="model-plot">Model Plot</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_33b9c58eaed65ae6014b0a11b295c25c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">p0 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
@@ -1528,7 +2104,7 @@ font-style: inherit;">"Prediction"</span>)</span>
 <h2 class="anchored" data-anchor-id="predictor-selection">Predictor Selection</h2>
 <p>We exhaustively fit all subsets of the predictors, and use the model with highest adjusted R² for each subset size.</p>
 <div class="column-screen-inset-right">
-<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="index_cache/html/unnamed-chunk-10_d49b58432bad7c1c18bda717e740881e">
+<div class="cell" data-r.options="{&quot;width&quot;:200}">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">subsetfit <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -1590,7 +2166,7 @@ font-style: inherit;">$</span>adjr2)</span></code></pre></div>
 <section id="selected-model-with-highest-adjusted-r²" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="selected-model-with-highest-adjusted-r²">Selected Model with highest adjusted R²</h2>
 <p>We find that highest adjusted R² is attained using 9 predictors.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-11_f30835b9efff86c84a44301fcf739dee">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">model2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1655,7 +2231,7 @@ F-statistic:  1013 on 9 and 10 DF,  p-value: 1.345e-13</code></pre>
 </ul>
 <p><strong>Correlation Matrix</strong></p>
 <div class="column-screen-inset-right">
-<div class="cell" data-r.options="{&quot;width&quot;:200}" data-hash="index_cache/html/unnamed-chunk-12_95841287f0c5e75ae61b7705cf7a0be2">
+<div class="cell" data-r.options="{&quot;width&quot;:200}">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cor</span>(d[,<span class="fu" style="color: #4758AB;
@@ -1702,7 +2278,7 @@ forbankprof  0.9402061 0.9683597  0.9402730 0.9533926 0.9424746 0.9510034  0.838
 </ul>
 <section id="model-plot-1" class="level3">
 <h3 class="anchored" data-anchor-id="model-plot-1">Model Plot</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_5d3f156015490405e284dd3e0a17f52c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">p1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
@@ -1802,7 +2378,7 @@ font-style: inherit;">"Prediction"</span>)</span>
 <section id="selected-model-with-best-p-value" class="level2">
 <h2 class="anchored" data-anchor-id="selected-model-with-best-p-value">Selected Model with best p-value</h2>
 <p>We find that best p-value significance is attained using 4 predictors.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-14_a67d4c367c157efb9148254c726620d2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">model3 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1850,7 +2426,7 @@ F-statistic:  1592 on 4 and 15 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>The R² value is very high using a small subset of the predictors.</li>
 </ul>
 <p><strong>Correlation Matrix</strong></p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-15_b4ac2b22adb3f192ea3dae2952e2503a">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cor</span>(d[,<span class="fu" style="color: #4758AB;
@@ -1877,7 +2453,7 @@ indpastra   0.9955932 0.9867042  0.9879517 0.9148673 1.0000000</code></pre>
 </div>
 </div>
 <p><strong>Partial Correlation Matrix</strong></p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-16_896e22316ad15160997fd1db6bdf7423">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pcor</span>(d[,<span class="fu" style="color: #4758AB;
@@ -1931,7 +2507,7 @@ $method
 </div>
 <section id="model-plot-2" class="level3">
 <h3 class="anchored" data-anchor-id="model-plot-2">Model Plot</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-17_1c26577837f757d7313a69cdf5e3ef9e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">p2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> d <span class="sc" style="color: #5E5E5E;
@@ -2031,7 +2607,7 @@ font-style: inherit;">"Prediction"</span>)</span>
 <section id="quantile-regression-model" class="level2">
 <h2 class="anchored" data-anchor-id="quantile-regression-model">Quantile Regression Model</h2>
 <p>We use 5 selected predictors for the quantile regression model for the median.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-18_6fc4ee093a55aa31d73d491c233cac9c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">model4 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -2076,7 +2652,7 @@ Degrees of freedom: 20 total; 14 residual</code></pre>
 <p>We want to test our models in the situation that two predictors are absent - indtourexp and indcrim as these are very important variables, but difficult to accurately measure.</p>
 <p>Model 1 is the model involving all predictors. Model 2 is the model with highest adjusted R².</p>
 <div class="column-page-inset">
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-19_b23547cf0aca712cc4d744ee54355638">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">data <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -2484,33 +3060,33 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
 <td style="text-align: right; width: 6cm;">2000</td>
 <td style="text-align: right; width: 6cm;">2638813</td>
 <td style="text-align: right; width: 6cm;">2520774</td>
-<td style="text-align: right; width: 6cm;">3295994</td>
+<td style="text-align: right; width: 6cm;">3284517</td>
 <td style="text-align: right; width: 6cm;">2498458</td>
-<td style="text-align: right; width: 6cm;">3336317</td>
+<td style="text-align: right; width: 6cm;">3364431</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; width: 6cm;">2001</td>
 <td style="text-align: right; width: 6cm;">2537282</td>
 <td style="text-align: right; width: 6cm;">2550759</td>
-<td style="text-align: right; width: 6cm;">3373776</td>
+<td style="text-align: right; width: 6cm;">3370956</td>
 <td style="text-align: right; width: 6cm;">2546721</td>
-<td style="text-align: right; width: 6cm;">3479479</td>
+<td style="text-align: right; width: 6cm;">3470679</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; width: 6cm;">2006</td>
 <td style="text-align: right; width: 6cm;">4447167</td>
 <td style="text-align: right; width: 6cm;">4500597</td>
-<td style="text-align: right; width: 6cm;">5001610</td>
+<td style="text-align: right; width: 6cm;">5060088</td>
 <td style="text-align: right; width: 6cm;">4487057</td>
-<td style="text-align: right; width: 6cm;">5082307</td>
+<td style="text-align: right; width: 6cm;">5095585</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; width: 6cm;">2014</td>
 <td style="text-align: right; width: 6cm;">7679099</td>
 <td style="text-align: right; width: 6cm;">7810983</td>
-<td style="text-align: right; width: 6cm;">7509642</td>
+<td style="text-align: right; width: 6cm;">7504744</td>
 <td style="text-align: right; width: 6cm;">7802343</td>
-<td style="text-align: right; width: 6cm;">7409336</td>
+<td style="text-align: right; width: 6cm;">7440867</td>
 </tr>
 </tbody>
 </table>

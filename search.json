@@ -413,50 +413,50 @@
     "text": "Notable Countries\nSome countries had alarmingly low Life Expectancies:\n\nThe countries like the Central African Republic, Zimbabwe have very low life expectancies due to endemic poverty and weak governance, contributing to a dire health situation.\nHaiti had a high child mortality rate in 2010 due to natural disasters and cholera outbreaks. This caused low Life expectancy for that year.\n\n\n\n\n\n\n\nCountries like Mozambique, Lesotho are experiencing increasing double burden of diseases characterized by an increase in the burden of non-communicable diseases as well as a high burden of communicable diseases.\nAlso countries like Eswatini, Zambia also have a low life expectancy due to the outbreak of HIV."
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html",
-    "href": "blog/2023-meridian-estimation-meter/main.html",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html",
+    "href": "blog/2023-meridian-estimation-meter/index.html",
     "title": "Geodesic Meter Computation",
     "section": "",
     "text": "Code\nlibrary(readODS)\n\nd1 = read_ods(\"geodata1.ods\")\nd2 = read_ods(\"geodata2.ods\")"
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html#import-dataset",
-    "href": "blog/2023-meridian-estimation-meter/main.html#import-dataset",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#import-dataset",
+    "href": "blog/2023-meridian-estimation-meter/index.html#import-dataset",
     "title": "Geodesic Meter Computation",
     "section": "",
     "text": "Code\nlibrary(readODS)\n\nd1 = read_ods(\"geodata1.ods\")\nd2 = read_ods(\"geodata2.ods\")"
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html#standardization",
-    "href": "blog/2023-meridian-estimation-meter/main.html#standardization",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#standardization",
+    "href": "blog/2023-meridian-estimation-meter/index.html#standardization",
     "title": "Geodesic Meter Computation",
     "section": "Standardization",
     "text": "Standardization\nWe standardize X and set Y to sin2θ and meter.\n\n\nCode\nradians = function(degree, minute = 0, second = 0){\n  ratiod = pi / 180\n  ratiom = ratiod / 60\n  ratios = ratiom / 60\n  res = degree * ratiod + minute * ratiom + second * ratios\n  return(res)\n}\n\nd1$lat = radians(d1$lat1, d1$lat2)\nd1$X = (sin(d1$lat))^2\nd1$Y = d1$arc * 6.39 * 0.3048\n\nd2$lat = radians(d2$L1, d2$L2, d2$L3)\nd2$arc = d2$S / d2$d\nd2$X = (sin(d2$lat))^2\nd2$Y = d2$arc * 12.78 * 0.3048\n\n\nOut dataset looks like this at this point:\n\n\nCode\nd1\n\n\n# A tibble: 5 × 7\n   lat1  lat2   arc  sin2   lat     X       Y\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n1     0     0 56751     0 0     0     110532.\n2    33    18 57037  3014 0.581 0.301 111089.\n3    42    59 56979  4648 0.750 0.465 110976.\n4    49    23 57074  5762 0.862 0.576 111161.\n5    66    19 57422  8386 1.16  0.839 111839.\n\n\nCode\nd2\n\n\n# A tibble: 4 × 9\n       S     d    L1    L2    L3   lat    arc     X       Y\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n1 62473.  2.19    49    56    30 0.872 28538. 0.586 111165.\n2 76546.  2.67    47    30    46 0.829 28683. 0.544 111730.\n3 84425.  2.96    44    41    48 0.780 28489. 0.495 110976.\n4 52749.  1.85    42    17    20 0.738 28472. 0.453 110909."
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html#plot-the-data",
-    "href": "blog/2023-meridian-estimation-meter/main.html#plot-the-data",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#plot-the-data",
+    "href": "blog/2023-meridian-estimation-meter/index.html#plot-the-data",
     "title": "Geodesic Meter Computation",
     "section": "Plot the data",
     "text": "Plot the data\n\n\nCode\nlibrary(ggplot2)\n\nggplot(d1, aes(x = X, y = Y))+\n  geom_point()+\n  labs(title = \"Boscovich Data\", )+xlab(\"sin²theta\")+ylab(\"Arc Length\")\n\n\n\n\n\n\n\nCode\nggplot(d2, aes(x = X, y = Y))+\n  geom_point()+\n  labs(title = \"French Data\", )+xlab(\"sin²theta\")+ylab(\"Arc Length\")"
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html#ordinary-least-squares-estimate",
-    "href": "blog/2023-meridian-estimation-meter/main.html#ordinary-least-squares-estimate",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#ordinary-least-squares-estimate",
+    "href": "blog/2023-meridian-estimation-meter/index.html#ordinary-least-squares-estimate",
     "title": "Geodesic Meter Computation",
     "section": "Ordinary Least Squares Estimate",
     "text": "Ordinary Least Squares Estimate\nEstimate the coefficient of sin²θ and Intercept using Least Squares Estimate. And Predict Meridian Length.\n\n\nCode\nestmerlen = function(coeff){ as.numeric( coeff[1]*90 + coeff[2]*45 ) }\n\nolsmodel1 = lm(formula=d1$Y~d1$X)\ncat( \"Boscovich Data OLS estimate of Meridian Line length:\",  estmerlen(olsmodel1$coefficients) )\n\n\nBoscovich Data OLS estimate of Meridian Line length: 10008879\n\n\nCode\nolsmodel2 = lm(formula=d2$Y~d2$X)\ncat( \"French Data OLS estimate of Meridian Line length:\",  estmerlen(olsmodel2$coefficients) )\n\n\nFrench Data OLS estimate of Meridian Line length: 10001451"
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html#least-absolute-deviation-estimation",
-    "href": "blog/2023-meridian-estimation-meter/main.html#least-absolute-deviation-estimation",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#least-absolute-deviation-estimation",
+    "href": "blog/2023-meridian-estimation-meter/index.html#least-absolute-deviation-estimation",
     "title": "Geodesic Meter Computation",
     "section": "Least Absolute Deviation Estimation",
     "text": "Least Absolute Deviation Estimation\nEstimate the coefficient of sin²θ and Intercept using Least Absolute Deviation. Elemental Lines were used to compute LAD. Predict Meridian Length.\nElemental Lines are lines joining two data points in the Sample Space.\n\n\nCode\nad = function(Y, X, a, b){\n  l = length(Y)\n  cumudevn = 0\n  for (i in seq(l)) {\n    devn = abs( Y[i] - a - b * X[i] )\n    cumudevn = cumudevn + devn\n  }\n  \n  return(cumudevn)\n}\n\nlad = function(Y, X){\n  l = length(Y)\n  labsdevn = sum( abs(Y - mean(Y)) )\n  coeff = c( mean(Y), 0)\n  for (i in seq(l-1)) {\n    for (j in seq(i+1, l)) {\n      b1 = (Y[j] - Y[i])/(X[j] - X[i])\n      b0 = (Y[i] - b1 * X[i])\n      absdevn = ad(Y, X, b0, b1)\n      if (labsdevn &gt; absdevn) {\n        labsdevn = absdevn\n        coeff = c(b0, b1)\n      }\n    }\n  }\n  \n  return(coeff)\n}\n\nladmodel1 = lad(d1$Y, d1$X)\ncat( \"Boscovich Data LAD estimate of Meridian Line length:\",  estmerlen(ladmodel1) )\n\n\nBoscovich Data LAD estimate of Meridian Line length: 10018034\n\n\nCode\nladmodel2 = lad(d2$Y, d2$X)\ncat( \"French Data LAD estimate of Meridian Line length:\",  estmerlen(ladmodel2) )\n\n\nFrench Data LAD estimate of Meridian Line length: 9990026"
   },
   {
-    "objectID": "blog/2023-meridian-estimation-meter/main.html#conclusion",
-    "href": "blog/2023-meridian-estimation-meter/main.html#conclusion",
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#conclusion",
+    "href": "blog/2023-meridian-estimation-meter/index.html#conclusion",
     "title": "Geodesic Meter Computation",
     "section": "Conclusion",
     "text": "Conclusion\nBoth OLS and LAD models predict the Meridian length to be close to ten million meters. Hence the meter as prescribed at the time, was close to the intended definition."

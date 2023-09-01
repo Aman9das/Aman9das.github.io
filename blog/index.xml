@@ -14,7 +14,7 @@
 <item>
   <title>Geodesic Meter Computation</title>
   <dc:creator>Aman Das</dc:creator>
-  <link>https://aman9das.github.io/blog/2023-meridian-estimation-meter/main.html</link>
+  <link>https://aman9das.github.io/blog/2023-meridian-estimation-meter/index.html</link>
   <description><![CDATA[ 
 
 
@@ -275,7 +275,7 @@ background-color: null;
 font-style: inherit;">"Arc Length"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-meridian-estimation-meter/main_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-meridian-estimation-meter/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -318,7 +318,7 @@ background-color: null;
 font-style: inherit;">"Arc Length"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://aman9das.github.io/blog/2023-meridian-estimation-meter/main_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://aman9das.github.io/blog/2023-meridian-estimation-meter/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -603,7 +603,7 @@ font-style: inherit;">estmerlen</span>(ladmodel2) )</span></code></pre></div>
 </section>
 
  ]]></description>
-  <guid>https://aman9das.github.io/blog/2023-meridian-estimation-meter/main.html</guid>
+  <guid>https://aman9das.github.io/blog/2023-meridian-estimation-meter/index.html</guid>
   <pubDate>Mon, 28 Aug 2023 18:30:00 GMT</pubDate>
 </item>
 <item>

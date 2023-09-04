@@ -37,6 +37,8 @@ format:
       light:
         - _assets/theme/light.scss
     highlight-style: a11y
+    toc: true
+    toc-depth: 3
 
 execute:
   freeze: auto

@@ -2,6 +2,207 @@
 title: "Expectation Maximisation for MLE"
 author: "Aman Das"
 date: 2023-9-4
-draft: true
+format: html
+code-fold: true
 ---
 
+```{r echo=FALSE, message=FALSE}
+library(readODS)
+library(knitr)
+library(dplyr)
+```
+
+In this article we compute Maximum-Likelihood Estimate
+for the parameters of a Bivariate Normal distribution.
+
+We also learn to handle missing data points in our data set using Expectation
+Maximization Algorithm. 
+
+## Theory
+
+### Likelihood
+
+Say $\vec{X} \sim f( \vec{x} \mid \theta)$ .
+
+Say we have a sample of $X$: $\vec{x}$
+
+Then likelihood function $L(\theta \mid \vec{x})$ is a measure of how likely the
+occurrence of the sample is for a given theta.
+
+$$
+L(\theta \mid \vec{x}) = f(\vec{x} \mid \theta)
+$$
+
+Often log-likelihood $\log(L(\theta \mid \vec{x}))$ denoted by $l(\theta \mid \vec{x})$)
+is used due to convenience.
+
+### Estimate
+
+Say $\vec{X_1}, \vec{X_2} \ldots \vec{X_n} \sim f(\vec{x} \mid \theta)$ .
+
+But $\theta$ is not known. We need to find an estimate of $\theta$ based
+on the known sample data.
+
+Thus the estimate is some function 
+$T(\vec{X_1}, \vec{X_2} \ldots \vec{X_n}) = \hat{\theta}$ .
+
+There are various ways to judge the usefulness of our estimated $\hat{\theta}$.
+
+### Maximum Likelihood Estimate
+
+The estimate $\hat{\theta}$ such that likelihood $L(\hat{\theta} \mid \vec{x})$ is maximzised is
+useful in many scenarios. We call such estimates as  Maximum Likelihood Estimate (MLE of $\hat{\theta_{MLE}}$).
+
+MLE may be computed using a combination of log-likelihood, Algebra, Calculus and other techniques.
+
+### Expectation Maximization Algorithm
+
+Sometimes, there are missing data points in $\vec{x_i}$. In such cases we may not
+be able to compute the MLE analytically. Thus a numerical approach called 
+Expectation Maximization Algorithm is used.
+
+## Data Wrangling
+
+### Import Dataset
+
+The data is on "fasting" (F) and "after meal - postprandial" (PP)
+blood sugar levels (measured in mg/dL) of 20  individuals. For a few individuals,
+one of the two blood sugar levels was not measured as per the doctor's 
+recommendation. Assume that (F, PP) measurements are i.i.d. bivariate normal
+with unknown means, variances and correlation.
+
+Data is imported from an Open Document Foundation Spreadsheet [`data.ods`](data.ods).
+
+```{r}
+d = read_ods("data.ods")
+```
+
+### Reformat Dataset
+
+Order the dataset logically so that dat points of similar missing data are together.
+
+```{r}
+da = d[ complete.cases(d), ]
+db = d[ !complete.cases(d), ]
+dba = db[ complete.cases(db[ , 1]), ]
+dbb = db[ complete.cases(db[ , 2]), ]
+
+l1 = length(da)
+l2 = length(dba)
+l3 = length(dbb)
+
+d = bind_rows(da, dba, dbb)
+db = bind_rows(dba, dbb)
+kable(d)
+```
+
+## Expectation Maximisation Algorithm
+
+### OLS estimate for known dataset
+
+The distribution is considered to be bivariate normal.
+Thus the distribution parameters are 
+$\mu_X$, $\mu_Y$, $\sigma^2_X$, $\sigma^2_Y$ and $\rho$.
+
+```{r}
+estbvn = function(d) {
+  td = t(d)
+  
+  X = td[1, ]
+  Y = td[2, ]
+  
+  l = length(X)
+  
+  mux = mean(X)
+  muy = mean(Y)
+  
+  s2x = mean( (X-mux) * (X-mux) )
+  s2y = mean( (Y-muy) * (Y-muy) )
+  s2xy = mean( (X-mux) * (Y-muy) )
+  rho = s2xy / sqrt(s2x * s2y)
+  
+  theta = c(mux, muy, s2y, s2x, rho)
+  return(theta)
+}
+
+theta = estbvn(da)
+```
+
+The OLS estimates of the parameters are: `r estbvn(da)`
+
+### Imputing Missing values
+
+We use the interim estimates thus obtained to infer the missing data values.
+
+We make use of the following result:
+
+$$
+E(Y \mid x) = \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X)
+$$
+
+```{r}
+imptmissed = function(d, t) {
+  db1 = d[ complete.cases(db[ , 1]), ]
+  db2 = d[ complete.cases(db[ , 2]), ]
+  
+  db1[ , 2] = t[2] + ( ( t[5] * sqrt(t[4]) * (db1[ , 1] - t[1]) ) / sqrt(t[3]) )
+  db2[ , 1] = t[1] + ( ( t[5] * sqrt(t[3]) * (db2[ , 2] - t[2]) ) / sqrt(t[4]) )
+  
+  res = bind_rows(db1, db2)
+  return(res)
+}
+
+d2 = bind_rows( da, imptmissed(db, theta) )
+```
+
+The Imputed data set is as follows:
+
+```{r}
+kable(d2)
+```
+
+### Iteration
+
+We continue the process by computing the interim estimates and imputing missing data
+repeatedly.
+
+We pray that the data converges. Let us observe:
+
+```{r}
+thetalog = tibble(
+  muX = theta[1],
+  muY = theta[2],
+  sigma2X = theta[3],
+  sigma2Y = theta[4],
+  rho = theta[5]
+)
+
+l = 15
+for ( i in seq(l) ) {
+  theta = estbvn(d2)
+  
+  thetalog = thetalog %>% add_row(
+    muX = theta[1],
+    muY = theta[2],
+    sigma2X = theta[3],
+    sigma2Y = theta[4],
+    rho = theta[5]
+  )
+  
+  d2 = bind_rows(da, imptmissed(db, theta))
+}
+
+kable(thetalog)
+```
+
+Notice that each the estimate sequences converged within 15 iterations. We take
+the limit of these sequences to be our Estimates according to the EM algorithm.
+
+Thus our parameter estimates are:
+
+`r kable(thetalog[l, ])`
+
+## Conclusion
+
+Therefore, using an iterative method, one can compute the Maximum Likelihood
+estimates for parameters, even if some data points are missing.

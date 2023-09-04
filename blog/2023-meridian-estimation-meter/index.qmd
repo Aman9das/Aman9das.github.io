@@ -11,6 +11,8 @@ categories:
 
 In this article, we will try to estimate the length of the Earth's Meridian.
 
+## Theory
+
 In 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere.
 Rotation caused flattening at the Poles and bulging at the Equator.
 
@@ -19,7 +21,8 @@ $$
 Y \approx C + m\sin^2\theta
 $$
 
-Where $\theta$ is the central meridian angle.
+Where $\theta$ is the central meridian angle and $C$ and $m$ are unknown 
+parameters of the Earth.
 
 We may interpret $Y$ to be a dependent variable on $\sin^2\theta$ and estimte $C$, and $m$.
 Thus we can estimate the whole meridian length by summing over the latitude angles using regression.
@@ -27,6 +30,8 @@ Thus we can estimate the whole meridian length by summing over the latitude angl
 We will make use of two historical data sets for this article.
 
 ## Import dataset
+
+We store the data in an Open Document Foundation Spreadsheet `geodata#.ods`.
 
 ```{r}
 library(readODS)

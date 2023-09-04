@@ -417,14 +417,7 @@
     "href": "blog/2023-meridian-estimation-meter/index.html",
     "title": "Geodesic Meter Computation",
     "section": "",
-    "text": "In this article, we will try to estimate the length of the meridian between Equator and North Pole using Least Square error and Least Absolute deviation estimates over two historical datasets."
-  },
-  {
-    "objectID": "blog/2023-meridian-estimation-meter/index.html#theory",
-    "href": "blog/2023-meridian-estimation-meter/index.html#theory",
-    "title": "Geodesic Meter Computation",
-    "section": "Theory",
-    "text": "Theory\nIn 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.\nIf so, the distance (on earths surface) between two Latitude lines would be: \\[\nY \\approx C + m\\sin^2\\theta\n\\]\nWhere \\(\\theta\\) is the central meridian angle.\nWe may interpret \\(Y\\) to be a dependent variable on \\(\\sin^2\\theta\\) and estimte \\(C\\), and \\(m\\). Thus we can estimate the whole meridian length by summing over the latitude angles using regression."
+    "text": "In this article, we will try to estimate the length of the Earth’s Meridian.\nIn 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.\nIf so, the distance (on earths surface) between two Latitude lines would be: \\[\nY \\approx C + m\\sin^2\\theta\n\\]\nWhere \\(\\theta\\) is the central meridian angle.\nWe may interpret \\(Y\\) to be a dependent variable on \\(\\sin^2\\theta\\) and estimte \\(C\\), and \\(m\\). Thus we can estimate the whole meridian length by summing over the latitude angles using regression.\nWe will make use of two historical data sets for this article."
   },
   {
     "objectID": "blog/2023-meridian-estimation-meter/index.html#import-dataset",

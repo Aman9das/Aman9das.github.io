@@ -20,14 +20,12 @@
 
 
 
-<p>In this article, we will try to estimate the length of the meridian between Equator and North Pole using Least Square error and Least Absolute deviation estimates over two historical datasets.</p>
-<section id="theory" class="level2">
-<h2 class="anchored" data-anchor-id="theory">Theory</h2>
+<p>In this article, we will try to estimate the length of the Earth’s Meridian.</p>
 <p>In 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.</p>
 <p>If so, the distance (on earths surface) between two Latitude lines would be: <img src="https://latex.codecogs.com/png.latex?%0AY%20%5Capprox%20C%20+%20m%5Csin%5E2%5Ctheta%0A"></p>
 <p>Where <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is the central meridian angle.</p>
 <p>We may interpret <img src="https://latex.codecogs.com/png.latex?Y"> to be a dependent variable on <img src="https://latex.codecogs.com/png.latex?%5Csin%5E2%5Ctheta"> and estimte <img src="https://latex.codecogs.com/png.latex?C">, and <img src="https://latex.codecogs.com/png.latex?m">. Thus we can estimate the whole meridian length by summing over the latitude angles using regression.</p>
-</section>
+<p>We will make use of two historical data sets for this article.</p>
 <section id="import-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="import-dataset">Import dataset</h2>
 <div class="cell">
@@ -3070,33 +3068,33 @@ font-style: inherit;">"6cm"</span>)</span></code></pre></div>
 <td style="text-align: right; width: 6cm;">2000</td>
 <td style="text-align: right; width: 6cm;">2638813</td>
 <td style="text-align: right; width: 6cm;">2520774</td>
-<td style="text-align: right; width: 6cm;">3270848</td>
+<td style="text-align: right; width: 6cm;">3312408</td>
 <td style="text-align: right; width: 6cm;">2498458</td>
-<td style="text-align: right; width: 6cm;">3372579</td>
+<td style="text-align: right; width: 6cm;">3401112</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; width: 6cm;">2001</td>
 <td style="text-align: right; width: 6cm;">2537282</td>
 <td style="text-align: right; width: 6cm;">2550759</td>
-<td style="text-align: right; width: 6cm;">3370307</td>
+<td style="text-align: right; width: 6cm;">3350263</td>
 <td style="text-align: right; width: 6cm;">2546721</td>
-<td style="text-align: right; width: 6cm;">3467466</td>
+<td style="text-align: right; width: 6cm;">3506358</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; width: 6cm;">2006</td>
 <td style="text-align: right; width: 6cm;">4447167</td>
 <td style="text-align: right; width: 6cm;">4500597</td>
-<td style="text-align: right; width: 6cm;">4973480</td>
+<td style="text-align: right; width: 6cm;">5012900</td>
 <td style="text-align: right; width: 6cm;">4487057</td>
-<td style="text-align: right; width: 6cm;">5095410</td>
+<td style="text-align: right; width: 6cm;">5108487</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; width: 6cm;">2014</td>
 <td style="text-align: right; width: 6cm;">7679099</td>
 <td style="text-align: right; width: 6cm;">7810983</td>
-<td style="text-align: right; width: 6cm;">7458938</td>
+<td style="text-align: right; width: 6cm;">7509445</td>
 <td style="text-align: right; width: 6cm;">7802343</td>
-<td style="text-align: right; width: 6cm;">7425494</td>
+<td style="text-align: right; width: 6cm;">7431145</td>
 </tr>
 </tbody>
 </table>

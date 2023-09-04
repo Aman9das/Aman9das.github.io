@@ -1,8 +1,10 @@
 ---
-title: "Expectation Maximisation for MLE"
+title: "Handling Missing Data in R"
+subtitle: "Expectation Maximisation Algorithm for Bivariate Normal data"
 author: "Aman Das"
 date: 2023-9-4
 format: html
+image: missing-data-jigsaw.jpg
 code-fold: true
 ---
 

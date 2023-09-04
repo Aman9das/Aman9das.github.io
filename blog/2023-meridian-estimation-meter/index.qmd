@@ -1,5 +1,6 @@
 ---
-title: "Geodesic Meter Computation"
+title: "Estimating Meridian Length"
+subtitle: "Using Least Squares and Least Absolute Deviation error"
 author: Aman Das
 date: 2023-8-29
 format: html

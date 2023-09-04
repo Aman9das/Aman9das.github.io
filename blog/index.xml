@@ -10,7 +10,810 @@
 <atom:link href="https://aman9das.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman Das&#39; Personal Website</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Mon, 28 Aug 2023 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 03 Sep 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Expectation Maximisation for MLE</title>
+  <dc:creator>Aman Das</dc:creator>
+  <link>https://aman9das.github.io/blog/2023-expectation-maximization-MLE/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In this article we compute Maximum-Likelihood Estimate for the parameters of a Bivariate Normal distribution.</p>
+<p>We also learn to handle missing data points in our data set using Expectation Maximization Algorithm.</p>
+<section id="theory" class="level2">
+<h2 class="anchored" data-anchor-id="theory">Theory</h2>
+<section id="likelihood" class="level3">
+<h3 class="anchored" data-anchor-id="likelihood">Likelihood</h3>
+<p>Say <img src="https://latex.codecogs.com/png.latex?%5Cvec%7BX%7D%20%5Csim%20f(%20%5Cvec%7Bx%7D%20%5Cmid%20%5Ctheta)"> .</p>
+<p>Say we have a sample of <img src="https://latex.codecogs.com/png.latex?X">: <img src="https://latex.codecogs.com/png.latex?%5Cvec%7Bx%7D"></p>
+<p>Then likelihood function <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta%20%5Cmid%20%5Cvec%7Bx%7D)"> is a measure of how likely the occurrence of the sample is for a given theta.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AL(%5Ctheta%20%5Cmid%20%5Cvec%7Bx%7D)%20=%20f(%5Cvec%7Bx%7D%20%5Cmid%20%5Ctheta)%0A"></p>
+<p>Often log-likelihood <img src="https://latex.codecogs.com/png.latex?%5Clog(L(%5Ctheta%20%5Cmid%20%5Cvec%7Bx%7D))"> denoted by <img src="https://latex.codecogs.com/png.latex?l(%5Ctheta%20%5Cmid%20%5Cvec%7Bx%7D)">) is used due to convenience.</p>
+</section>
+<section id="estimate" class="level3">
+<h3 class="anchored" data-anchor-id="estimate">Estimate</h3>
+<p>Say <img src="https://latex.codecogs.com/png.latex?%5Cvec%7BX_1%7D,%20%5Cvec%7BX_2%7D%20%5Cldots%20%5Cvec%7BX_n%7D%20%5Csim%20f(%5Cvec%7Bx%7D%20%5Cmid%20%5Ctheta)"> .</p>
+<p>But <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is not known. We need to find an estimate of <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> based on the known sample data.</p>
+<p>Thus the estimate is some function <img src="https://latex.codecogs.com/png.latex?T(%5Cvec%7BX_1%7D,%20%5Cvec%7BX_2%7D%20%5Cldots%20%5Cvec%7BX_n%7D)%20=%20%5Chat%7B%5Ctheta%7D"> .</p>
+<p>There are various ways to judge the usefulness of our estimated <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D">.</p>
+</section>
+<section id="maximum-likelihood-estimate" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-likelihood-estimate">Maximum Likelihood Estimate</h3>
+<p>The estimate <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> such that likelihood <img src="https://latex.codecogs.com/png.latex?L(%5Chat%7B%5Ctheta%7D%20%5Cmid%20%5Cvec%7Bx%7D)"> is maximzised is useful in many scenarios. We call such estimates as Maximum Likelihood Estimate (MLE of <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta_%7BMLE%7D%7D">).</p>
+<p>MLE may be computed using a combination of log-likelihood, Algebra, Calculus and other techniques.</p>
+</section>
+<section id="expectation-maximization-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="expectation-maximization-algorithm">Expectation Maximization Algorithm</h3>
+<p>Sometimes, there are missing data points in <img src="https://latex.codecogs.com/png.latex?%5Cvec%7Bx_i%7D">. In such cases we may not be able to compute the MLE analytically. Thus a numerical approach called Expectation Maximization Algorithm is used.</p>
+</section>
+</section>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<section id="import-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="import-dataset">Import Dataset</h3>
+<p>The data is on “fasting” (F) and “after meal - postprandial” (PP) blood sugar levels (measured in mg/dL) of 20 individuals. For a few individuals, one of the two blood sugar levels was not measured as per the doctor’s recommendation. Assume that (F, PP) measurements are i.i.d. bivariate normal with unknown means, variances and correlation.</p>
+<p>Data is imported from an Open Document Foundation Spreadsheet <a href="data.ods"><code>data.ods</code></a>.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_ods</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data.ods"</span>)</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="reformat-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="reformat-dataset">Reformat Dataset</h3>
+<p>Order the dataset logically so that dat points of similar missing data are together.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">da <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d[ <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(d), ]</span>
+<span id="cb2-2">db <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d[ <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(d), ]</span>
+<span id="cb2-3">dba <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> db[ <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(db[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]), ]</span>
+<span id="cb2-4">dbb <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> db[ <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(db[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]), ]</span>
+<span id="cb2-5"></span>
+<span id="cb2-6">l1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(da)</span>
+<span id="cb2-7">l2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(dba)</span>
+<span id="cb2-8">l3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(dbb)</span>
+<span id="cb2-9"></span>
+<span id="cb2-10">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(da, dba, dbb)</span>
+<span id="cb2-11">db <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(dba, dbb)</span>
+<span id="cb2-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(d)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">F</th>
+<th style="text-align: right;">PP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">118</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">134</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">117</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">130</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">122</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">131</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">137</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">119</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">135</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">127</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">125</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">121</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="expectation-maximisation-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-maximisation-algorithm">Expectation Maximisation Algorithm</h2>
+<section id="ols-estimate-for-known-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="ols-estimate-for-known-dataset">OLS estimate for known dataset</h3>
+<p>The distribution is considered to be bivariate normal. Thus the distribution parameters are <img src="https://latex.codecogs.com/png.latex?%5Cmu_X">, <img src="https://latex.codecogs.com/png.latex?%5Cmu_Y">, <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2_X">, <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2_Y"> and <img src="https://latex.codecogs.com/png.latex?%5Crho">.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">estbvn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(d) {</span>
+<span id="cb3-2">  td <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t</span>(d)</span>
+<span id="cb3-3">  </span>
+<span id="cb3-4">  X <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> td[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, ]</span>
+<span id="cb3-5">  Y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> td[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, ]</span>
+<span id="cb3-6">  </span>
+<span id="cb3-7">  l <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(X)</span>
+<span id="cb3-8">  </span>
+<span id="cb3-9">  mux <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(X)</span>
+<span id="cb3-10">  muy <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Y)</span>
+<span id="cb3-11">  </span>
+<span id="cb3-12">  s2x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>( (X<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>mux) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (X<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>mux) )</span>
+<span id="cb3-13">  s2y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>( (Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>muy) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>muy) )</span>
+<span id="cb3-14">  s2xy <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>( (X<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>mux) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>muy) )</span>
+<span id="cb3-15">  rho <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> s2xy <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(s2x <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> s2y)</span>
+<span id="cb3-16">  </span>
+<span id="cb3-17">  theta <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(mux, muy, s2y, s2x, rho)</span>
+<span id="cb3-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(theta)</span>
+<span id="cb3-19">}</span>
+<span id="cb3-20"></span>
+<span id="cb3-21">theta <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">estbvn</span>(da)</span></code></pre></div>
+</details>
+</div>
+<p>The OLS estimates of the parameters are: 84.3636364, 126.7272727, 47.6528926, 49.1404959, -0.311683</p>
+</section>
+<section id="imputing-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="imputing-missing-values">Imputing Missing values</h3>
+<p>We use the interim estimates thus obtained to infer the missing data values.</p>
+<p>We make use of the following result:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE(Y%20%5Cmid%20x)%20=%20%5Cmu_Y%20+%20%5Crho%20%5Cfrac%7B%5Csigma_Y%7D%7B%5Csigma_X%7D%20(x%20-%20%5Cmu_X)%0A"></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">imptmissed <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(d, t) {</span>
+<span id="cb4-2">  db1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d[ <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(db[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]), ]</span>
+<span id="cb4-3">  db2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> d[ <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(db[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]), ]</span>
+<span id="cb4-4">  </span>
+<span id="cb4-5">  db1[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> ( ( t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>]) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (db1[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]) ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>]) )</span>
+<span id="cb4-6">  db2[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> ( ( t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>]) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (db2[ , <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]) ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(t[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>]) )</span>
+<span id="cb4-7">  </span>
+<span id="cb4-8">  res <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(db1, db2)</span>
+<span id="cb4-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(res)</span>
+<span id="cb4-10">}</span>
+<span id="cb4-11"></span>
+<span id="cb4-12">d2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>( da, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">imptmissed</span>(db, theta) )</span></code></pre></div>
+</details>
+</div>
+<p>The Imputed data set is as follows:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(d2)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">F</th>
+<th style="text-align: right;">PP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">78.00000</td>
+<td style="text-align: right;">128.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">89.00000</td>
+<td style="text-align: right;">118.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">93.00000</td>
+<td style="text-align: right;">134.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">76.00000</td>
+<td style="text-align: right;">117.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.00000</td>
+<td style="text-align: right;">130.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">84.00000</td>
+<td style="text-align: right;">122.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">86.00000</td>
+<td style="text-align: right;">131.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">73.00000</td>
+<td style="text-align: right;">137.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">97.00000</td>
+<td style="text-align: right;">119.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">88.00000</td>
+<td style="text-align: right;">123.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">79.00000</td>
+<td style="text-align: right;">135.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">91.00000</td>
+<td style="text-align: right;">124.6268</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">77.00000</td>
+<td style="text-align: right;">129.0579</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">95.00000</td>
+<td style="text-align: right;">123.3608</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">92.00000</td>
+<td style="text-align: right;">124.3103</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">81.00000</td>
+<td style="text-align: right;">127.7919</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">84.27993</td>
+<td style="text-align: right;">127.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">83.66607</td>
+<td style="text-align: right;">129.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">84.89379</td>
+<td style="text-align: right;">125.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">86.12150</td>
+<td style="text-align: right;">121.0000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="iteration" class="level3">
+<h3 class="anchored" data-anchor-id="iteration">Iteration</h3>
+<p>We continue the process by computing the interim estimates and imputing missing data repeatedly.</p>
+<p>We pray that the data converges. Let us observe:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">thetalog <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span>(</span>
+<span id="cb6-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">muX =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>],</span>
+<span id="cb6-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">muY =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>],</span>
+<span id="cb6-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sigma2X =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>],</span>
+<span id="cb6-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sigma2Y =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>],</span>
+<span id="cb6-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rho =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]</span>
+<span id="cb6-7">)</span>
+<span id="cb6-8"></span>
+<span id="cb6-9">l <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span></span>
+<span id="cb6-10"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> ( i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(l) ) {</span>
+<span id="cb6-11">  theta <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">estbvn</span>(d2)</span>
+<span id="cb6-12">  </span>
+<span id="cb6-13">  thetalog <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> thetalog <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_row</span>(</span>
+<span id="cb6-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">muX =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>],</span>
+<span id="cb6-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">muY =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>],</span>
+<span id="cb6-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sigma2X =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>],</span>
+<span id="cb6-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sigma2Y =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>],</span>
+<span id="cb6-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rho =</span> theta[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]</span>
+<span id="cb6-19">  )</span>
+<span id="cb6-20">  </span>
+<span id="cb6-21">  d2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(da, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">imptmissed</span>(db, theta))</span>
+<span id="cb6-22">}</span>
+<span id="cb6-23"></span>
+<span id="cb6-24"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(thetalog)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">muX</th>
+<th style="text-align: right;">muY</th>
+<th style="text-align: right;">sigma2X</th>
+<th style="text-align: right;">sigma2Y</th>
+<th style="text-align: right;">rho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">84.36364</td>
+<td style="text-align: right;">126.7273</td>
+<td style="text-align: right;">47.65289</td>
+<td style="text-align: right;">49.14050</td>
+<td style="text-align: right;">-0.3116830</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.14806</td>
+<td style="text-align: right;">126.2574</td>
+<td style="text-align: right;">29.44717</td>
+<td style="text-align: right;">40.65642</td>
+<td style="text-align: right;">-0.3758238</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.27806</td>
+<td style="text-align: right;">126.1378</td>
+<td style="text-align: right;">30.73413</td>
+<td style="text-align: right;">40.63218</td>
+<td style="text-align: right;">-0.4205278</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30227</td>
+<td style="text-align: right;">126.1021</td>
+<td style="text-align: right;">31.26110</td>
+<td style="text-align: right;">40.69501</td>
+<td style="text-align: right;">-0.4353826</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.30641</td>
+<td style="text-align: right;">126.0899</td>
+<td style="text-align: right;">31.43959</td>
+<td style="text-align: right;">40.71755</td>
+<td style="text-align: right;">-0.4399703</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30689</td>
+<td style="text-align: right;">126.0854</td>
+<td style="text-align: right;">31.49526</td>
+<td style="text-align: right;">40.72451</td>
+<td style="text-align: right;">-0.4413570</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.30682</td>
+<td style="text-align: right;">126.0838</td>
+<td style="text-align: right;">31.51250</td>
+<td style="text-align: right;">40.72655</td>
+<td style="text-align: right;">-0.4417789</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30674</td>
+<td style="text-align: right;">126.0833</td>
+<td style="text-align: right;">31.51789</td>
+<td style="text-align: right;">40.72715</td>
+<td style="text-align: right;">-0.4419092</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.30670</td>
+<td style="text-align: right;">126.0830</td>
+<td style="text-align: right;">31.51959</td>
+<td style="text-align: right;">40.72733</td>
+<td style="text-align: right;">-0.4419501</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30668</td>
+<td style="text-align: right;">126.0830</td>
+<td style="text-align: right;">31.52014</td>
+<td style="text-align: right;">40.72738</td>
+<td style="text-align: right;">-0.4419631</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.30667</td>
+<td style="text-align: right;">126.0830</td>
+<td style="text-align: right;">31.52032</td>
+<td style="text-align: right;">40.72740</td>
+<td style="text-align: right;">-0.4419673</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30667</td>
+<td style="text-align: right;">126.0829</td>
+<td style="text-align: right;">31.52038</td>
+<td style="text-align: right;">40.72740</td>
+<td style="text-align: right;">-0.4419687</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.30666</td>
+<td style="text-align: right;">126.0829</td>
+<td style="text-align: right;">31.52040</td>
+<td style="text-align: right;">40.72740</td>
+<td style="text-align: right;">-0.4419692</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30666</td>
+<td style="text-align: right;">126.0829</td>
+<td style="text-align: right;">31.52041</td>
+<td style="text-align: right;">40.72740</td>
+<td style="text-align: right;">-0.4419693</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85.30666</td>
+<td style="text-align: right;">126.0829</td>
+<td style="text-align: right;">31.52041</td>
+<td style="text-align: right;">40.72741</td>
+<td style="text-align: right;">-0.4419694</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85.30666</td>
+<td style="text-align: right;">126.0829</td>
+<td style="text-align: right;">31.52041</td>
+<td style="text-align: right;">40.72741</td>
+<td style="text-align: right;">-0.4419694</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Notice that each the estimate sequences converged within 15 iterations. We take the limit of these sequences to be our Estimates according to the EM algorithm.</p>
+<p>Thus our parameter estimates are:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">muX</th>
+<th style="text-align: right;">muY</th>
+<th style="text-align: right;">sigma2X</th>
+<th style="text-align: right;">sigma2Y</th>
+<th style="text-align: right;">rho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">85.30666</td>
+<td style="text-align: right;">126.0829</td>
+<td style="text-align: right;">31.52041</td>
+<td style="text-align: right;">40.72741</td>
+<td style="text-align: right;">-0.4419694</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Therefore, using an iterative method, one can compute the Maximum Likelihood estimates for parameters, even if some data points are missing.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://aman9das.github.io/blog/2023-expectation-maximization-MLE/index.html</guid>
+  <pubDate>Sun, 03 Sep 2023 18:30:00 GMT</pubDate>
+</item>
 <item>
   <title>Geodesic Meter Computation</title>
   <dc:creator>Aman Das</dc:creator>
@@ -21,13 +824,17 @@
 
 
 <p>In this article, we will try to estimate the length of the Earth’s Meridian.</p>
+<section id="theory" class="level2">
+<h2 class="anchored" data-anchor-id="theory">Theory</h2>
 <p>In 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.</p>
 <p>If so, the distance (on earths surface) between two Latitude lines would be: <img src="https://latex.codecogs.com/png.latex?%0AY%20%5Capprox%20C%20+%20m%5Csin%5E2%5Ctheta%0A"></p>
-<p>Where <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is the central meridian angle.</p>
+<p>Where <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is the central meridian angle and <img src="https://latex.codecogs.com/png.latex?C"> and <img src="https://latex.codecogs.com/png.latex?m"> are unknown parameters of the Earth.</p>
 <p>We may interpret <img src="https://latex.codecogs.com/png.latex?Y"> to be a dependent variable on <img src="https://latex.codecogs.com/png.latex?%5Csin%5E2%5Ctheta"> and estimte <img src="https://latex.codecogs.com/png.latex?C">, and <img src="https://latex.codecogs.com/png.latex?m">. Thus we can estimate the whole meridian length by summing over the latitude angles using regression.</p>
 <p>We will make use of two historical data sets for this article.</p>
+</section>
 <section id="import-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="import-dataset">Import dataset</h2>
+<p>We store the data in an Open Document Foundation Spreadsheet <code>geodata#.ods</code>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>

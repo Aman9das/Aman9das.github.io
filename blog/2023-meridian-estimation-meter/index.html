@@ -180,7 +180,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#import-dataset" id="toc-import-dataset" class="nav-link active" data-scroll-target="#import-dataset">Import dataset</a></li>
+  <li><a href="#theory" id="toc-theory" class="nav-link active" data-scroll-target="#theory">Theory</a></li>
+  <li><a href="#import-dataset" id="toc-import-dataset" class="nav-link" data-scroll-target="#import-dataset">Import dataset</a></li>
   <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization">Standardization</a></li>
   <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data</a></li>
   <li><a href="#ordinary-least-squares-estimate" id="toc-ordinary-least-squares-estimate" class="nav-link" data-scroll-target="#ordinary-least-squares-estimate">Ordinary Least Squares Estimate</a></li>
@@ -196,15 +197,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>In this article, we will try to estimate the length of the Earth’s Meridian.</p>
+<section id="theory" class="level2">
+<h2 class="anchored" data-anchor-id="theory">Theory</h2>
 <p>In 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.</p>
 <p>If so, the distance (on earths surface) between two Latitude lines would be: <span class="math display">\[
 Y \approx C + m\sin^2\theta
 \]</span></p>
-<p>Where <span class="math inline">\(\theta\)</span> is the central meridian angle.</p>
+<p>Where <span class="math inline">\(\theta\)</span> is the central meridian angle and <span class="math inline">\(C\)</span> and <span class="math inline">\(m\)</span> are unknown parameters of the Earth.</p>
 <p>We may interpret <span class="math inline">\(Y\)</span> to be a dependent variable on <span class="math inline">\(\sin^2\theta\)</span> and estimte <span class="math inline">\(C\)</span>, and <span class="math inline">\(m\)</span>. Thus we can estimate the whole meridian length by summing over the latitude angles using regression.</p>
 <p>We will make use of two historical data sets for this article.</p>
+</section>
 <section id="import-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="import-dataset">Import dataset</h2>
+<p>We store the data in an Open Document Foundation Spreadsheet <code>geodata#.ods</code>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>

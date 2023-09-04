@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2023-expectation-maximization-MLE/index.html",
       "/blog/2023-meridian-estimation-meter/index.html",
       "/blog/2023-quarto-article/index.html",
       "/blog/2023-ublue-getting-started/index.html",

@@ -154,6 +154,41 @@
     "text": "Footnotes\n\n\nUsing the toolbar/menubar, saving, formatting and other basic tasks.↩︎\nCtrl+S↩︎\nCtrl+B↩︎\nCtrl+I↩︎\nCtrl+D↩︎\nCtrl+K↩︎"
   },
   {
+    "objectID": "blog/2023-expectation-maximization-MLE/index.html",
+    "href": "blog/2023-expectation-maximization-MLE/index.html",
+    "title": "Expectation Maximisation for MLE",
+    "section": "",
+    "text": "In this article we compute Maximum-Likelihood Estimate for the parameters of a Bivariate Normal distribution.\nWe also learn to handle missing data points in our data set using Expectation Maximization Algorithm."
+  },
+  {
+    "objectID": "blog/2023-expectation-maximization-MLE/index.html#theory",
+    "href": "blog/2023-expectation-maximization-MLE/index.html#theory",
+    "title": "Expectation Maximisation for MLE",
+    "section": "Theory",
+    "text": "Theory\n\nLikelihood\nSay \\(\\vec{X} \\sim f( \\vec{x} \\mid \\theta)\\) .\nSay we have a sample of \\(X\\): \\(\\vec{x}\\)\nThen likelihood function \\(L(\\theta \\mid \\vec{x})\\) is a measure of how likely the occurrence of the sample is for a given theta.\n\\[\nL(\\theta \\mid \\vec{x}) = f(\\vec{x} \\mid \\theta)\n\\]\nOften log-likelihood \\(\\log(L(\\theta \\mid \\vec{x}))\\) denoted by \\(l(\\theta \\mid \\vec{x})\\)) is used due to convenience.\n\n\nEstimate\nSay \\(\\vec{X_1}, \\vec{X_2} \\ldots \\vec{X_n} \\sim f(\\vec{x} \\mid \\theta)\\) .\nBut \\(\\theta\\) is not known. We need to find an estimate of \\(\\theta\\) based on the known sample data.\nThus the estimate is some function \\(T(\\vec{X_1}, \\vec{X_2} \\ldots \\vec{X_n}) = \\hat{\\theta}\\) .\nThere are various ways to judge the usefulness of our estimated \\(\\hat{\\theta}\\).\n\n\nMaximum Likelihood Estimate\nThe estimate \\(\\hat{\\theta}\\) such that likelihood \\(L(\\hat{\\theta} \\mid \\vec{x})\\) is maximzised is useful in many scenarios. We call such estimates as Maximum Likelihood Estimate (MLE of \\(\\hat{\\theta_{MLE}}\\)).\nMLE may be computed using a combination of log-likelihood, Algebra, Calculus and other techniques.\n\n\nExpectation Maximization Algorithm\nSometimes, there are missing data points in \\(\\vec{x_i}\\). In such cases we may not be able to compute the MLE analytically. Thus a numerical approach called Expectation Maximization Algorithm is used."
+  },
+  {
+    "objectID": "blog/2023-expectation-maximization-MLE/index.html#data-wrangling",
+    "href": "blog/2023-expectation-maximization-MLE/index.html#data-wrangling",
+    "title": "Expectation Maximisation for MLE",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\nImport Dataset\nThe data is on “fasting” (F) and “after meal - postprandial” (PP) blood sugar levels (measured in mg/dL) of 20 individuals. For a few individuals, one of the two blood sugar levels was not measured as per the doctor’s recommendation. Assume that (F, PP) measurements are i.i.d. bivariate normal with unknown means, variances and correlation.\nData is imported from an Open Document Foundation Spreadsheet data.ods.\n\n\nCode\nd = read_ods(\"data.ods\")\n\n\n\n\nReformat Dataset\nOrder the dataset logically so that dat points of similar missing data are together.\n\n\nCode\nda = d[ complete.cases(d), ]\ndb = d[ !complete.cases(d), ]\ndba = db[ complete.cases(db[ , 1]), ]\ndbb = db[ complete.cases(db[ , 2]), ]\n\nl1 = length(da)\nl2 = length(dba)\nl3 = length(dbb)\n\nd = bind_rows(da, dba, dbb)\ndb = bind_rows(dba, dbb)\nkable(d)\n\n\n\n\n\nF\nPP\n\n\n\n\n78\n128\n\n\n89\n118\n\n\n93\n134\n\n\n76\n117\n\n\n85\n130\n\n\n84\n122\n\n\n86\n131\n\n\n73\n137\n\n\n97\n119\n\n\n88\n123\n\n\n79\n135\n\n\n91\nNA\n\n\n77\nNA\n\n\n95\nNA\n\n\n92\nNA\n\n\n81\nNA\n\n\nNA\n127\n\n\nNA\n129\n\n\nNA\n125\n\n\nNA\n121"
+  },
+  {
+    "objectID": "blog/2023-expectation-maximization-MLE/index.html#expectation-maximisation-algorithm",
+    "href": "blog/2023-expectation-maximization-MLE/index.html#expectation-maximisation-algorithm",
+    "title": "Expectation Maximisation for MLE",
+    "section": "Expectation Maximisation Algorithm",
+    "text": "Expectation Maximisation Algorithm\n\nOLS estimate for known dataset\nThe distribution is considered to be bivariate normal. Thus the distribution parameters are \\(\\mu_X\\), \\(\\mu_Y\\), \\(\\sigma^2_X\\), \\(\\sigma^2_Y\\) and \\(\\rho\\).\n\n\nCode\nestbvn = function(d) {\n  td = t(d)\n  \n  X = td[1, ]\n  Y = td[2, ]\n  \n  l = length(X)\n  \n  mux = mean(X)\n  muy = mean(Y)\n  \n  s2x = mean( (X-mux) * (X-mux) )\n  s2y = mean( (Y-muy) * (Y-muy) )\n  s2xy = mean( (X-mux) * (Y-muy) )\n  rho = s2xy / sqrt(s2x * s2y)\n  \n  theta = c(mux, muy, s2y, s2x, rho)\n  return(theta)\n}\n\ntheta = estbvn(da)\n\n\nThe OLS estimates of the parameters are: 84.3636364, 126.7272727, 47.6528926, 49.1404959, -0.311683\n\n\nImputing Missing values\nWe use the interim estimates thus obtained to infer the missing data values.\nWe make use of the following result:\n\\[\nE(Y \\mid x) = \\mu_Y + \\rho \\frac{\\sigma_Y}{\\sigma_X} (x - \\mu_X)\n\\]\n\n\nCode\nimptmissed = function(d, t) {\n  db1 = d[ complete.cases(db[ , 1]), ]\n  db2 = d[ complete.cases(db[ , 2]), ]\n  \n  db1[ , 2] = t[2] + ( ( t[5] * sqrt(t[4]) * (db1[ , 1] - t[1]) ) / sqrt(t[3]) )\n  db2[ , 1] = t[1] + ( ( t[5] * sqrt(t[3]) * (db2[ , 2] - t[2]) ) / sqrt(t[4]) )\n  \n  res = bind_rows(db1, db2)\n  return(res)\n}\n\nd2 = bind_rows( da, imptmissed(db, theta) )\n\n\nThe Imputed data set is as follows:\n\n\nCode\nkable(d2)\n\n\n\n\n\nF\nPP\n\n\n\n\n78.00000\n128.0000\n\n\n89.00000\n118.0000\n\n\n93.00000\n134.0000\n\n\n76.00000\n117.0000\n\n\n85.00000\n130.0000\n\n\n84.00000\n122.0000\n\n\n86.00000\n131.0000\n\n\n73.00000\n137.0000\n\n\n97.00000\n119.0000\n\n\n88.00000\n123.0000\n\n\n79.00000\n135.0000\n\n\n91.00000\n124.6268\n\n\n77.00000\n129.0579\n\n\n95.00000\n123.3608\n\n\n92.00000\n124.3103\n\n\n81.00000\n127.7919\n\n\n84.27993\n127.0000\n\n\n83.66607\n129.0000\n\n\n84.89379\n125.0000\n\n\n86.12150\n121.0000\n\n\n\n\n\n\n\nIteration\nWe continue the process by computing the interim estimates and imputing missing data repeatedly.\nWe pray that the data converges. Let us observe:\n\n\nCode\nthetalog = tibble(\n  muX = theta[1],\n  muY = theta[2],\n  sigma2X = theta[3],\n  sigma2Y = theta[4],\n  rho = theta[5]\n)\n\nl = 15\nfor ( i in seq(l) ) {\n  theta = estbvn(d2)\n  \n  thetalog = thetalog %&gt;% add_row(\n    muX = theta[1],\n    muY = theta[2],\n    sigma2X = theta[3],\n    sigma2Y = theta[4],\n    rho = theta[5]\n  )\n  \n  d2 = bind_rows(da, imptmissed(db, theta))\n}\n\nkable(thetalog)\n\n\n\n\n\nmuX\nmuY\nsigma2X\nsigma2Y\nrho\n\n\n\n\n84.36364\n126.7273\n47.65289\n49.14050\n-0.3116830\n\n\n85.14806\n126.2574\n29.44717\n40.65642\n-0.3758238\n\n\n85.27806\n126.1378\n30.73413\n40.63218\n-0.4205278\n\n\n85.30227\n126.1021\n31.26110\n40.69501\n-0.4353826\n\n\n85.30641\n126.0899\n31.43959\n40.71755\n-0.4399703\n\n\n85.30689\n126.0854\n31.49526\n40.72451\n-0.4413570\n\n\n85.30682\n126.0838\n31.51250\n40.72655\n-0.4417789\n\n\n85.30674\n126.0833\n31.51789\n40.72715\n-0.4419092\n\n\n85.30670\n126.0830\n31.51959\n40.72733\n-0.4419501\n\n\n85.30668\n126.0830\n31.52014\n40.72738\n-0.4419631\n\n\n85.30667\n126.0830\n31.52032\n40.72740\n-0.4419673\n\n\n85.30667\n126.0829\n31.52038\n40.72740\n-0.4419687\n\n\n85.30666\n126.0829\n31.52040\n40.72740\n-0.4419692\n\n\n85.30666\n126.0829\n31.52041\n40.72740\n-0.4419693\n\n\n85.30666\n126.0829\n31.52041\n40.72741\n-0.4419694\n\n\n85.30666\n126.0829\n31.52041\n40.72741\n-0.4419694\n\n\n\n\n\nNotice that each the estimate sequences converged within 15 iterations. We take the limit of these sequences to be our Estimates according to the EM algorithm.\nThus our parameter estimates are:\n\n\n\nmuX\nmuY\nsigma2X\nsigma2Y\nrho\n\n\n\n\n85.30666\n126.0829\n31.52041\n40.72741\n-0.4419694"
+  },
+  {
+    "objectID": "blog/2023-expectation-maximization-MLE/index.html#conclusion",
+    "href": "blog/2023-expectation-maximization-MLE/index.html#conclusion",
+    "title": "Expectation Maximisation for MLE",
+    "section": "Conclusion",
+    "text": "Conclusion\nTherefore, using an iterative method, one can compute the Maximum Likelihood estimates for parameters, even if some data points are missing."
+  },
+  {
     "objectID": "blog/2022-sem1-endsem-stat-project/index.html#overview",
     "href": "blog/2022-sem1-endsem-stat-project/index.html#overview",
     "title": "End-Semester Project",
@@ -417,14 +452,21 @@
     "href": "blog/2023-meridian-estimation-meter/index.html",
     "title": "Geodesic Meter Computation",
     "section": "",
-    "text": "In this article, we will try to estimate the length of the Earth’s Meridian.\nIn 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.\nIf so, the distance (on earths surface) between two Latitude lines would be: \\[\nY \\approx C + m\\sin^2\\theta\n\\]\nWhere \\(\\theta\\) is the central meridian angle.\nWe may interpret \\(Y\\) to be a dependent variable on \\(\\sin^2\\theta\\) and estimte \\(C\\), and \\(m\\). Thus we can estimate the whole meridian length by summing over the latitude angles using regression.\nWe will make use of two historical data sets for this article."
+    "text": "In this article, we will try to estimate the length of the Earth’s Meridian."
+  },
+  {
+    "objectID": "blog/2023-meridian-estimation-meter/index.html#theory",
+    "href": "blog/2023-meridian-estimation-meter/index.html#theory",
+    "title": "Geodesic Meter Computation",
+    "section": "Theory",
+    "text": "Theory\nIn 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.\nIf so, the distance (on earths surface) between two Latitude lines would be: \\[\nY \\approx C + m\\sin^2\\theta\n\\]\nWhere \\(\\theta\\) is the central meridian angle and \\(C\\) and \\(m\\) are unknown parameters of the Earth.\nWe may interpret \\(Y\\) to be a dependent variable on \\(\\sin^2\\theta\\) and estimte \\(C\\), and \\(m\\). Thus we can estimate the whole meridian length by summing over the latitude angles using regression.\nWe will make use of two historical data sets for this article."
   },
   {
     "objectID": "blog/2023-meridian-estimation-meter/index.html#import-dataset",
     "href": "blog/2023-meridian-estimation-meter/index.html#import-dataset",
     "title": "Geodesic Meter Computation",
     "section": "Import dataset",
-    "text": "Import dataset\n\n\nCode\nlibrary(readODS)\n\nd1 = read_ods(\"geodata1.ods\")\nd2 = read_ods(\"geodata2.ods\")"
+    "text": "Import dataset\nWe store the data in an Open Document Foundation Spreadsheet geodata#.ods.\n\n\nCode\nlibrary(readODS)\n\nd1 = read_ods(\"geodata1.ods\")\nd2 = read_ods(\"geodata2.ods\")"
   },
   {
     "objectID": "blog/2023-meridian-estimation-meter/index.html#standardization",
@@ -550,7 +592,7 @@
     "href": "blog/index.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nGeodesic Meter Computation\n\n\n\n\n\n\n\nstatistics\n\n\nregression\n\n\n\n\n\n\n\n\n\n\n\nAug 29, 2023\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nEfficient Writing with Quarto\n\n\nAuthor Quarto articles with RStudio\n\n\n\n\ntutorial\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nAug 26, 2023\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nGetting Started with Universal Blue\n\n\nPreparation and Installation\n\n\n\n\ntutorial\n\n\nlinux\n\n\n\n\n\n\n\n\n\n\n\nAug 25, 2023\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 2 Midsem Project\n\n\nMultivariate Analysis on Foreign Tourist Visits to India\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nMay 7, 2023\n\n\n9 min\n\n\n\n\n\n\n  \n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\n21 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 1 Midsem Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2022\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nExpectation Maximisation for MLE\n\n\n\n\n\n\n\n\n\n\n\n\nSep 4, 2023\n\n\n4 min\n\n\n\n\n\n\n  \n\n\n\n\nGeodesic Meter Computation\n\n\n\n\n\n\n\nstatistics\n\n\nregression\n\n\n\n\n\n\n\n\n\n\n\nAug 29, 2023\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nEfficient Writing with Quarto\n\n\nAuthor Quarto articles with RStudio\n\n\n\n\ntutorial\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nAug 26, 2023\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nGetting Started with Universal Blue\n\n\nPreparation and Installation\n\n\n\n\ntutorial\n\n\nlinux\n\n\n\n\n\n\n\n\n\n\n\nAug 25, 2023\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 2 Midsem Project\n\n\nMultivariate Analysis on Foreign Tourist Visits to India\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nMay 7, 2023\n\n\n9 min\n\n\n\n\n\n\n  \n\n\n\n\nEnd-Semester Project\n\n\nBivariate Analysis between GDP per capita, Sanitation and Life Expectancy across Nations in 2010\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\n21 min\n\n\n\n\n\n\n  \n\n\n\n\nSemester 1 Midsem Project\n\n\nElementary Analysis on Primary Completion Rate of Bulgaria and Morocco, 1975-2015\n\n\n\n\nproject\n\n\nstatistics\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2022\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",

@@ -23,7 +23,7 @@ $code-block-bg-alpha: -0.8;
 
 // add headerbar border
 #quarto-header, .quarto-title-banner {
-  box-shadow: 0 2px 3px 0 $headerbar_border;
+  border-bottom: 1px solid $headerbar_border !important;
 }
 
 // toggle button

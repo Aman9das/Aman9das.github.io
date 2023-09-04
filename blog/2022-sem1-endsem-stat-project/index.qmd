@@ -13,7 +13,6 @@ format:
   revealjs:
     width: 1200
     height: 750
-    embed-resources: true
     theme: [default, custom.scss]
     highlight-style: gruvbox
     transition: slide

@@ -12,7 +12,7 @@
 <generator>quarto-1.3.450</generator>
 <lastBuildDate>Sun, 03 Sep 2023 18:30:00 GMT</lastBuildDate>
 <item>
-  <title>Expectation Maximisation for MLE</title>
+  <title>Handling Missing Data in R</title>
   <dc:creator>Aman Das</dc:creator>
   <link>https://aman9das.github.io/blog/2023-expectation-maximization-MLE/index.html</link>
   <description><![CDATA[ 
@@ -813,9 +813,10 @@ font-style: inherit;">kable</span>(thetalog)</span></code></pre></div>
  ]]></description>
   <guid>https://aman9das.github.io/blog/2023-expectation-maximization-MLE/index.html</guid>
   <pubDate>Sun, 03 Sep 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://aman9das.github.io/blog/2023-expectation-maximization-MLE/missing-data-jigsaw.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Geodesic Meter Computation</title>
+  <title>Estimating Meridian Length</title>
   <dc:creator>Aman Das</dc:creator>
   <link>https://aman9das.github.io/blog/2023-meridian-estimation-meter/index.html</link>
   <description><![CDATA[ 

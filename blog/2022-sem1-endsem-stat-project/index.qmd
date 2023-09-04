@@ -13,7 +13,6 @@ format:
   revealjs:
     width: 1200
     height: 750
-    embed-resources: true
     theme: [default, custom.scss]
     highlight-style: gruvbox
     transition: slide
@@ -30,12 +29,10 @@ format:
 execute:
   warning: false
   error: false
-  cache: true
-aliases: 
-  - PPT_Reveal.html
 ---
 
 ```{r include=FALSE}
+library(plotly)
 library(knitr)
 library(ggplot2)
 library(quantreg)
@@ -44,7 +41,6 @@ library(psych)
 library(moments)
 library(latex2exp)
 library(maps)
-library(plotly)
 
 require(data.table)
 

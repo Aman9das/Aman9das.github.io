@@ -4,7 +4,27 @@ author: Aman Das
 date: 2023-8-29
 format: html
 code-fold: true
+categories:
+  - statistics
+  - regression
 ---
+
+In this article, we will try to estimate the length of the meridian between Equator and North Pole using Least Square error and Least Absolute deviation estimates over two historical datasets.
+
+## Theory
+
+In 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere.
+Rotation caused flattening at the Poles and bulging at the Equator.
+
+If so, the distance (on earths surface) between two Latitude lines would be:
+$$
+Y \approx C + m\sin^2\theta
+$$
+
+Where $\theta$ is the central meridian angle.
+
+We may interpret $Y$ to be a dependent variable on $\sin^2\theta$ and estimte $C$, and $m$.
+Thus we can estimate the whole meridian length by summing over the latitude angles using regression. 
 
 ## Import dataset
 

@@ -70,7 +70,7 @@ font-style: inherit;">"data.ods"</span>)</span></code></pre></div>
 </section>
 <section id="reformat-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="reformat-dataset">Reformat Dataset</h3>
-<p>Order the dataset logically so that dat points of similar missing data are together.</p>
+<p>Order the dataset logically so that data points of similar missing data are together.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -830,7 +830,7 @@ font-style: inherit;">kable</span>(thetalog)</span></code></pre></div>
 <p>In 1687, Isaac Newton claimed that the Earths rotation around its axis made it an Oblate Sphere. Rotation caused flattening at the Poles and bulging at the Equator.</p>
 <p>If so, the distance (on earths surface) between two Latitude lines would be: <img src="https://latex.codecogs.com/png.latex?%0AY%20%5Capprox%20C%20+%20m%5Csin%5E2%5Ctheta%0A"></p>
 <p>Where <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is the central meridian angle and <img src="https://latex.codecogs.com/png.latex?C"> and <img src="https://latex.codecogs.com/png.latex?m"> are unknown parameters of the Earth.</p>
-<p>We may interpret <img src="https://latex.codecogs.com/png.latex?Y"> to be a dependent variable on <img src="https://latex.codecogs.com/png.latex?%5Csin%5E2%5Ctheta"> and estimte <img src="https://latex.codecogs.com/png.latex?C">, and <img src="https://latex.codecogs.com/png.latex?m">. Thus we can estimate the whole meridian length by summing over the latitude angles using regression.</p>
+<p>We may interpret <img src="https://latex.codecogs.com/png.latex?Y"> to be a dependent variable on <img src="https://latex.codecogs.com/png.latex?%5Csin%5E2%5Ctheta"> and estimate <img src="https://latex.codecogs.com/png.latex?C">, and <img src="https://latex.codecogs.com/png.latex?m">. Thus we can estimate the whole meridian length by summing over the latitude angles using regression.</p>
 <p>We will make use of two historical data sets for this article.</p>
 </section>
 <section id="import-dataset" class="level2">

@@ -25,7 +25,7 @@ $$
 Where $\theta$ is the central meridian angle and $C$ and $m$ are unknown 
 parameters of the Earth.
 
-We may interpret $Y$ to be a dependent variable on $\sin^2\theta$ and estimte $C$, and $m$.
+We may interpret $Y$ to be a dependent variable on $\sin^2\theta$ and estimate $C$, and $m$.
 Thus we can estimate the whole meridian length by summing over the latitude angles using regression.
 
 We will make use of two historical data sets for this article.

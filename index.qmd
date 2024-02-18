@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: About Me
 image: _assets/avatar/avatar-gradient-round.webp
 about:
   template: jolla

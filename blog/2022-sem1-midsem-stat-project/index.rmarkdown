@@ -13,6 +13,7 @@ aliases:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
 ## Overview
 
 This projects aims to analyze and compare the Primary Education Completion data from Bulgaria and Morocco over the period of 1975-2015.
@@ -21,11 +22,13 @@ This projects aims to analyze and compare the Primary Education Completion data 
 
 Data sourced from UNESCO Institute of Statistics via <https://www.gapminder.org/data/> under CC-BY-4.0 License.
 
+
 ```{r Show initial data, echo=FALSE}
 library("knitr")
 rate_data = read.csv("./Data/primary_completion_rate.csv")
 kable(rate_data[1:6, 1:9])
 ```
+
 
 ### Inferences
 
@@ -34,14 +37,16 @@ kable(rate_data[1:6, 1:9])
 
 ## Importing Dataset
 
+
 ```{r}
 library("psych")
 library("moments")
 library("knitr")
-rate_data = read.csv("./Data/primary_completion_rate.csv")
-rate_bgr = as.numeric(rate_data[016, 7:47])
-rate_mar = as.numeric(rate_data[110, 7:47])
+rate_data <- read.csv("./Data/primary_completion_rate.csv")
+rate_bgr <- as.numeric(rate_data[016, 7:47])
+rate_mar <- as.numeric(rate_data[110, 7:47])
 ```
+
 
 <P style="page-break-before: always">
 
@@ -49,26 +54,34 @@ rate_mar = as.numeric(rate_data[110, 7:47])
 
 ## Summary Measures
 
+
 ```{r}
-bgr = as.vector(summary(rate_bgr))
-mar = as.vector(summary(rate_mar))
-brief = data.frame(
+bgr <- as.vector(summary(rate_bgr))
+mar <- as.vector(summary(rate_mar))
+brief <- data.frame(
   Measure = c(
-  "Minimum", "1st Quuartile", "Median", "Mean", "3rd Quartile", "Maximum",
-  "Geometric Mean", "Harmonic Mean", "Mode",
-  "Range", "IQR"),
-  Bulgaria = c(bgr,
+    "Minimum", "1st Quuartile", "Median", "Mean", "3rd Quartile", "Maximum",
+    "Geometric Mean", "Harmonic Mean", "Mode",
+    "Range", "IQR"
+  ),
+  Bulgaria = c(
+    bgr,
     geometric.mean(rate_bgr),
     harmonic.mean(rate_bgr),
-    colnames(t(sort(table(rate_bgr), decreasing=TRUE)))[1],
-    bgr[6]-bgr[1], IQR(rate_bgr)),
-  Morocco = c(mar,
+    colnames(t(sort(table(rate_bgr), decreasing = TRUE)))[1],
+    bgr[6] - bgr[1], IQR(rate_bgr)
+  ),
+  Morocco = c(
+    mar,
     geometric.mean(rate_mar),
     harmonic.mean(rate_mar),
-    colnames(t(sort(table(rate_mar), decreasing=TRUE)))[1],
-    mar[6]-mar[1], IQR(rate_mar)))
+    colnames(t(sort(table(rate_mar), decreasing = TRUE)))[1],
+    mar[6] - mar[1], IQR(rate_mar)
+  )
+)
 kable(brief)
 ```
+
 
 ### Inferences
 
@@ -87,35 +100,51 @@ kable(brief)
 
 ### Quartile
 
+
 ```{r}
-quartiles = data.frame(
+quartiles <- data.frame(
   Bulgaria = quantile(rate_bgr, probs = seq(0.25, 0.75, 0.25)),
-  Morocco = quantile(rate_mar, probs = seq(0.25, 0.75, 0.25)))
+  Morocco = quantile(rate_mar, probs = seq(0.25, 0.75, 0.25))
+)
 kable(quartiles)
 ```
 
+
 ### Deciles
 
+
 ```{r}
-deciles = data.frame(
+deciles <- data.frame(
   Bulgaria = quantile(rate_bgr, probs = seq(0.1, 0.9, 0.1)),
-  Morocco = quantile(rate_mar, probs = seq(0.1, 0.9, 0.1)))
+  Morocco = quantile(rate_mar, probs = seq(0.1, 0.9, 0.1))
+)
 kable(deciles)
 ```
+
 
 <P style="page-break-before: always">
 
 ## Measures of Dispersion
 
+
 ```{r}
-dispersion = data.frame(Measure = c("Variance", "Standard Deviation",
-  "Skewness", "Kurtosis"),
-  Bulgaria = c(var(rate_bgr), sd(rate_bgr),
-    skewness(rate_bgr), kurtosis(rate_bgr)),
-  Morocco = c(var(rate_mar), sd(rate_mar),
-    skewness(rate_mar), kurtosis(rate_mar)))
+dispersion <- data.frame(
+  Measure = c(
+    "Variance", "Standard Deviation",
+    "Skewness", "Kurtosis"
+  ),
+  Bulgaria = c(
+    var(rate_bgr), sd(rate_bgr),
+    skewness(rate_bgr), kurtosis(rate_bgr)
+  ),
+  Morocco = c(
+    var(rate_mar), sd(rate_mar),
+    skewness(rate_mar), kurtosis(rate_mar)
+  )
+)
 kable(dispersion)
 ```
+
 
 ### Inferences
 
@@ -130,15 +159,22 @@ kable(dispersion)
 
 ## Moments
 
+
 ```{r}
-moments = data.frame(
-  Moment_Number = seq(1,6),
-  Bulgaria = all.moments(rate_bgr, order.max = 6,
-              central = TRUE)[2:7],
-  Morocco = all.moments(rate_mar, order.max = 6,
-              central = TRUE)[2:7])
+moments <- data.frame(
+  Moment_Number = seq(1, 6),
+  Bulgaria = all.moments(rate_bgr,
+    order.max = 6,
+    central = TRUE
+  )[2:7],
+  Morocco = all.moments(rate_mar,
+    order.max = 6,
+    central = TRUE
+  )[2:7]
+)
 kable(moments, digits = 32)
 ```
+
 
 <P style="page-break-before: always">
 
@@ -148,21 +184,29 @@ kable(moments, digits = 32)
 
 We can observe the trend in Primary Education Completion rate over time.
 
+
 ```{r}
-plot(rate_bgr, type = "o", xaxt = "n",
-     ylim = c(1, 120), main = "Line Graph",
-     xlab = "Year", ylab = "Primary Completion Rate",
-     col = "dark green")
+plot(rate_bgr,
+  type = "o", xaxt = "n",
+  ylim = c(1, 120), main = "Line Graph",
+  xlab = "Year", ylab = "Primary Completion Rate",
+  col = "dark green"
+)
 axis(1, at = 1:41, labels = seq(1975, 2015))
-lines(rate_mar, type = "o", xaxt = "n",
-     ylim = c(1, 120), main = "Line Graph Morocco",
-     xlab = "Year", ylab = "Primary Completion Rate",
-     col = "dark red")
+lines(rate_mar,
+  type = "o", xaxt = "n",
+  ylim = c(1, 120), main = "Line Graph Morocco",
+  xlab = "Year", ylab = "Primary Completion Rate",
+  col = "dark red"
+)
 axis(1, at = 1:41, labels = seq(1975, 2015))
 legend(
-  "bottomright", legend = c("Bulgaria", "Morocco"),
-  col = c("dark green", "dark red"),lty = c(1, 1))
+  "bottomright",
+  legend = c("Bulgaria", "Morocco"),
+  col = c("dark green", "dark red"), lty = c(1, 1)
+)
 ```
+
 
 ## Inferences
 
@@ -179,39 +223,57 @@ legend(
 
 We can observe the difference in location and spread of the datasets.
 
+
 ```{r fig.height=4.5, fig.width=15, warning=FALSE}
-par(mfrow=c(1,2))
-plot(hist(rate_bgr,
-     breaks = seq(20, 120, by = 5), plot = FALSE),
-     main = "Histogram Bulgaria", xlab = "Primary Completion Rate",
-     col = "dark green")
-plot(hist(rate_mar,
-     breaks = seq(20, 120, by = 5), plot = FALSE),
-     main = "Histogram Morocco", xlab = "Primary Completion Rate",
-     col = "dark red")
+par(mfrow = c(1, 2))
+plot(
+  hist(rate_bgr,
+    breaks = seq(20, 120, by = 5), plot = FALSE
+  ),
+  main = "Histogram Bulgaria", xlab = "Primary Completion Rate",
+  col = "dark green"
+)
+plot(
+  hist(rate_mar,
+    breaks = seq(20, 120, by = 5), plot = FALSE
+  ),
+  main = "Histogram Morocco", xlab = "Primary Completion Rate",
+  col = "dark red"
+)
 ```
+
 
 ## Density Function
 
+
 ```{r fig.height=4.5}
-plot(density(rate_bgr), main = "Density Graph",
-     xlab = "Primary Completion Rate",
-     xlim = c(20, 120), col = "dark green")
+plot(density(rate_bgr),
+  main = "Density Graph",
+  xlab = "Primary Completion Rate",
+  xlim = c(20, 120), col = "dark green"
+)
 lines(density(rate_mar), col = "dark red")
-legend("topleft", legend = c("Bulgaria", "Morocco"),
-  col = c("dark green", "dark red"), lty = c(1, 1))
+legend("topleft",
+  legend = c("Bulgaria", "Morocco"),
+  col = c("dark green", "dark red"), lty = c(1, 1)
+)
 ```
+
 
 <P style="page-break-before: always">
 
 ## Box Plot
 
+
 ```{r}
-boxplot(rate_bgr, rate_mar, main = "Box Plot",
-     ylab = "Primary Completion Rate",
-     names = c("Bulgaria", "Morocco"),
-     col = c("dark green", "dark red"))
+boxplot(rate_bgr, rate_mar,
+  main = "Box Plot",
+  ylab = "Primary Completion Rate",
+  names = c("Bulgaria", "Morocco"),
+  col = c("dark green", "dark red")
+)
 ```
+
 
 ### Inferences
 
@@ -231,17 +293,25 @@ boxplot(rate_bgr, rate_mar, main = "Box Plot",
 
 ## Cumulative Distribution Function
 
+
 ```{r}
-plot(ecdf(rate_bgr), xlim = c(20, 120), col = "dark green",
-     verticals = TRUE, do.points = FALSE,
-     main = "Cumulative Distribution Function",
-     xlab = "Primary Completion Rate", ylab = "")
-lines(ecdf(rate_mar), col = "dark red",
-    verticals = TRUE, do.points = FALSE,
-    xlab = "Primary Completion Rate", ylab = "")
-legend("topleft", legend = c("Bulgaria", "Morocco"),
-  col = c("dark green", "dark red"), lty = c(1, 1))
+plot(ecdf(rate_bgr),
+  xlim = c(20, 120), col = "dark green",
+  verticals = TRUE, do.points = FALSE,
+  main = "Cumulative Distribution Function",
+  xlab = "Primary Completion Rate", ylab = ""
+)
+lines(ecdf(rate_mar),
+  col = "dark red",
+  verticals = TRUE, do.points = FALSE,
+  xlab = "Primary Completion Rate", ylab = ""
+)
+legend("topleft",
+  legend = c("Bulgaria", "Morocco"),
+  col = c("dark green", "dark red"), lty = c(1, 1)
+)
 ```
+
 
 ### Inferences
 
@@ -253,3 +323,4 @@ legend("topleft", legend = c("Bulgaria", "Morocco"),
 The two countries have different distribution and trend of rate of completion of education at the Primary Level. In Bulgaria it is heavily clustered around 95, while in Morocco it increases from 25 to 95 over time. Generally, Morocco has lower completion ratio than Bulgaria. Both distributions are positively skewed as over time the Primary Completion rate increases.
 
 Thus the primary students of the two countries over 1975 to 2015 were drastically different populations, with respect to their success rate.
+
